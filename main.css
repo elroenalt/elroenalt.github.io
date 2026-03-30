@@ -38,3 +38,18 @@
     width: 20px;
     height: 20px;
 }
+.json_example_button {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+}
+.json_example {
+    display: none;
+    font-size: 1rem;
+    background-color: rgb(15, 24, 24);
+    color: gray;
+    font-family: monospace;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+}

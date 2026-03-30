@@ -48,7 +48,11 @@
                     <br> To link any ground infrastructure (like fueling stations) to the rocket eather use a linker (<img class="extra-img" src="images/linker.png">) and sneak click on the rocket asembler or the rocket and on the target block to link them.
                     <br> Once you linked the fueling station click the fuel button and the rocket will fuel up, you can also deload a rocket and store it. The fueling station can also be used with pipes from other mods
                     <br> If you wan to launch to any planet or orbit you will need eather a link or a planetId chip (<img class="extra-img" src="images/planet_id_chip.png">), the linker can be used by sneak clicking it to landing location and the planet id chip has to be burned in the <a href="#Observatory">observatory</a> for satelites there is only distance data required to land you will need composition and mass from the <a href="#astrobodydataprocessor">astrobody Data Processor</a>
-                    <br> launching can be done by all of the diffrent launch blocks, currently including launch station, satellite launch station or asteroid launch station (up to now asteroid mining isnt yet added) these blocks will overwrite the landing location in the guidance computer and can be activated by redstone.
+                    <br> launching can be done by all of the diffrent launch blocks, currently including launch station, satellite launch station, gas mining mission terminal or asteroid mission launch station these blocks will overwrite the landing location in the guidance computer and can be activated by redstone.
+                    <br> To load or unload a rocket oyu can use rocket item and fluid loaders these blocks can output or load the fuid or item containes in the rocket, usefull for <a href="#gas_mining">gas mining</a> and <a href="#asteroid_mining">asteroid mining</a>
+                    <br> A redstone signal can be read via a redstone comparater when a rocket is landed infront of it.
+                    <br> Item and Fluid outputs, give a redstone signal when they are empty and cant output/input anymore.
+                </div> 
                 </div>
             </div>
             <div class="entry-title">satelites<img class="extra-img" src="images/satellite.png"></div>
@@ -65,6 +69,7 @@
                     <br> It is suggested to launch these out of orbit as soon as possible since this consumes close to no fuel.
                     <br> To download data us the satellite monitor (<img class="extra-img" src="images/monitor_satellite.png">), provide it with power, put your satelite id chip in the right slot and press download data.
                     <br> Taking the data requires a data storage in the top left slot or a wireless transceiver (<img class="extra-img" src="images/wireless_transceiver_not_connected.png">) link to a wireless transceiver placed on consumer input.
+                    <br> If you are not able to use solar panels because of distance or you want to return the satelite you can input a satelite id chip into the satelite launcher to return it.
                 </div>
             </div>
             <div class="entry-title">building a space station<img class="extra-img" src="images/rocket_assembler.png"></div>
@@ -80,6 +85,50 @@
                     <br> To move a station use the warp controllery (<img class="extra-img" src="images/warp_controller.png">) put your galaxy database into the slot, select a planet and press travel (the planet has to be analysed).
                     <br> Using the station controller (<img class="extra-img" src="images/orientation_controller.png">) you can change your orbit position using the provided sliders (distance, orbitX, orbitY and orbitZ).
                     <br> The orientation controller (<img class="extra-img" src="images/orientation_controller.png">) you can rotate the station (yaw, roll and pitch).
+                    <br> If you place a rocket assembler on a space station it will enable docking mode (turn it to up to be able to launch normaly) wich will enable youre rockets to dock in diffrent orientations and launch without a launch pad more easialy.
+                </div>
+            </div>
+            <div id="gas_mining" class="entry-title">gas mining<img class="extra-img" src="images/pressure_tank.png"></div>
+            <div class="entry">
+                <div class="entry-content">
+                    <br> Gas mining is a way to collect gasses from planets.
+                    <br> To mine you have to add a high pressure tank (<img class="extra-img" src="images/pressure_tank.png">)c:\Users\thors\AppData\Local\Temp\7zO8E297747\pressure_tank.png and a gas intake (<img class="extra-img" src="images/impeller.png">) to your rocket and be in the orbit of the planet.
+                    <br> Using the gas mission terminal (<img class="extra-img" src="images\monitor.png">) you can input a galaxy database which need to have the composition data of the set planet wich will include the gasses, defiend in the planet properties, from wich you will need to select a gas to mine.
+                    <br> To mine 10mb of gas the rocket will consume 1mb of fuel. There is always a buffer so that the rocket can return.
+                    <br> For extarcting the fluid you can use the rocket fluid loader.
+                    <br> Gases are defined as followig:<button class="json_example_button" onclick="document.getElementById('gas_json').style.display = document.getElementById('gas_json').style.display == 'none' ? 'block' : 'none' ">👁</button>
+<pre id="gas_json" class="json_example">"atmosphereComposition": {
+    "nitrogen": {
+      "in_atm": 0.5,
+      "frozen_surface": 0.0,
+      "frozen_deep_below_surface": 0.0,
+      "liquid": 0.0,
+      "worldGenSeaLevel": 0
+    }}</pre>
+
+                </div>
+            </div>
+            <div id="asteroid_mining" class="entry-title">asteroid mining<img class="extra-img" src="images/pressure_tank.png"></div>
+            <div class="entry">
+                <div class="entry-content">
+                    <br> Asteroid mining is a way to mine asteroids for ressources.
+                    <br> To mine you have to add a drill (<img class="extra-img" src="images/drill.png">) and a cargo hold to store the mined goods to your rocket.
+                    <br> Using the gas mission terminal (<img class="extra-img" src="images\monitor.png">) you can input a asteroid id chip which you get by inputing an empty asteroid id chip into into an item input of a observatory and then clicking scan for asteroids this will output the id chip with the asteroids id into a output block of the observatory.
+                    <br> For extarcting the items you can use the rocket item loader.
+                    <br> Possible asteroids are added in the AsteroidConfig file in the mods config, where you can add your own missions: <button class="json_example_button" onclick="document.getElementById('asteroid_json').style.display = document.getElementById('asteroid_json').style.display == 'none' ? 'block' : 'none' ">👁</button>
+<pre id="asteroid_json" class="json_example">{
+    "id": "ancient_debries_asteroid",
+    "description": "ancient_debries enriched asteroid\norigin: somewhere far away",
+    "spawnProbability": 50.0,
+    "loot": [
+    {
+        "p": 0.5,
+        "actual_num": 0,
+        "id": "minecraft:ancient_debries",
+        "amount": 100
+    }
+    ]
+}</pre>
                 </div>
             </div>
             <div class="entry-title">Observatory <img class="extra-img" src="images\monitor_searching_planet.png"></div><br>
@@ -112,7 +161,7 @@
                 <div class="entry-content">
                     <br>Planets, stars and all bodys in space are defined in a folder called dimensionProperties located in the config folder from AR3. The folder contains json files of the singular bodies.
                     <br>In the files are the definition such as biomes, orbit distance, parentDimension (the body the body orbits) its own dimension id and much more.
-                    <br>In an effort to make editing easier I created <a href="https://ar3universecreator.netlify.app/">AR3UniverseCreater</a>, it has a quickcreator for planets and an editor with descriptions of the properties. You can upload your existing dimension properties or create new ones and download the edited ones all from the website!
+                    <br>In an effort to make editing easier I created <a href="https://ar3universecreator.netlify.app/">AR3UniverseCreater</a> (curently not up to datre with the mod), it has a quickcreator for planets and an editor with descriptions of the properties. You can upload your existing dimension properties or create new ones and download the edited ones all from the website!
                 </div>
             </div>
         </div>
