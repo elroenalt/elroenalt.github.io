@@ -1,0 +1,212 @@
+{
+    "description": {
+        "definition": "description of the planet shown in the observatory",
+        "varStruc": "str",
+        "extra": false
+    },
+    "position": {
+        "definition": "position of stationary celestrial bodys",
+        "varStruc": "Vec3",
+        "extra": false
+    },
+    "gravitationalMultiplier": {
+        "definition": "the amount of gravity with 1 being earths gravity",
+        "varStruc": "float",
+        "extra": false
+    },
+    "earthRadiusMultiplier": {
+        "definition": "the planets radius relative to earthes radius",
+        "varStruc": "float",
+        "extra": false
+    },
+    "rotationAxis": {
+        "definition": "the axis the celestrial body curently rotates around itself",
+        "varStruc": "Vec3",
+        "extra": false
+    },
+    "parentDimensionId": {
+        "definition": "what celestrial body the celestrial body schould rotate around",
+        "varStruc": "path",
+        "extra": "selection"
+    },
+    "orbitAxis": {
+        "definition": "the orbit the celestrial body curently takes around its parent dimension",
+        "varStruc": "Vec3",
+        "extra": false
+    },
+    "orbitalDistanceToParent": {
+        "definition": "the distance beetween the parent celestrial body and itself in AU (astronomical unit = distance beetween sun and earth)",
+        "varStruc": "float",
+        "extra": false
+    },
+    "orbitalBaseOffsetDegrees": {
+        "definition": "current pos in orbit in deegress",
+        "varStruc": "float",
+        "extra": false
+    },
+    "dayTimeReference": {
+        "definition": "the celestrial body it takes refrence from to calculate day and night time",
+        "varStruc": "path",
+        "extra": "selection"
+    },
+    "radiationIntensity": {
+        "definition": "intensity on which it radiats (emissiv color and co.)",
+        "varStruc": "float",
+        "extra": false
+    },
+    "latitude_len": {
+        "definition": "how much you have to move in z direction to 'go around the planet' 0% = equator, 25% = South Pole, 50% = equator again, 75% = North Pole",
+        "varStruc": "int",
+        "extra": false
+    },
+    "targetDayLength": {
+        "definition": "negative or zero for a fixed length",
+        "varStruc": "int",
+        "extra": false
+    },
+    "atmosphereComposition": {
+        "definition": "Composition of the atmosphere, influences breathablility, also harvestable by gas mining",
+        "varStruc": "object",
+        "extra": "gasses"
+    },
+    "baseEnergyGain":{
+        "definition": "intensity on which it radiats (emissiv color and co.)",
+        "varStruc": "float",
+        "extra": false
+    },
+    "canVisit": {
+        "definition": "whether the player can visit the celestrial body with a rocket",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "canGasMine": {
+        "definition": "decides wether you can mine the world gas",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "isKnown": {
+        "definition": "whether the celestrial is discovered in the observatory",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "dataRequiredForUnlock":{
+        "definition": "the data needed to unlock a data in the observatory",
+        "varStruc": "int",
+        "extra": false
+    },
+    "artifactItem": {
+        "definition": "WIP wether the palyer has to provide an artifact to discover the celestrial body",
+        "varStruc": "null",
+        "extra": false
+    },
+    "customSeaFluid": {
+        "definition": "the fluid used instead of water",
+        "varStruc": "path",
+        "extra": false
+    },
+    "customSeaFluidLevel": {
+        "definition": "sea level (vanilla setting = 63)",
+        "varStruc": "int",
+        "extra": false
+    },
+    "generateStructures": {
+        "definition": "wether the planet should generate any structure",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "biomePreset": {
+        "definition": "wich biome mix the celestrial body schould use (defined in config AR biome preser)",
+        "varStruc": "str",
+        "extra": false
+    },
+    "generateVolcanos": {
+        "definition": "wether volcanos should generate on the planet",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "hasCustomSky": {
+        "definition": "decides wether to render a custom sky based on alter values?",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "texture": {
+        "definition": "the texture used for the space rendered body model",
+        "varStruc": "path",
+        "extra": false
+    },
+    "skyColor": {
+        "definition": "the normal color of the sky in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "cloudValueOverwrite": {
+        "definition": "?",
+        "varStruc": "float",
+        "extra": false
+    },
+    "skyDarken": {
+        "definition": "?",
+        "varStruc": "float",
+        "extra": false
+    },
+    "cloudColor": {
+        "definition": "the normal color of the clouds in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "fogColor": {
+        "definition": "the base color of the fog in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "sunRiseColor": {
+        "definition": "the normal color of the sunrise in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "reflectiveTextureTintColor": {
+        "definition": "which color schould be reflected how much in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "emissiveTextureTintColor": {
+        "definition": "the color that the body radiates outwards in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "emissiveLightColor": {
+        "definition": "the color that the body radiates as light outwards in RGB/255",
+        "varStruc": "Vec3",
+        "extra": "color"
+    },
+    "hasRingSystem": {
+        "definition": "wether the celestrial body has rings",
+        "varStruc": "boolean",
+        "extra": false
+    },
+    "dayTime": {
+        "definition": "do not set (will be calculated by the game)",
+        "varStruc": "int",
+        "extra": false
+    },
+    "currentTemp": {
+        "definition": "the bodies current temperature",
+        "varStruc": "float",
+        "extra": false
+    },
+    "name": {
+        "definition": "name of the planet",
+        "varStruc": "str",
+        "extra": false
+    },
+    "type": {
+        "definition": "what type the of celestrial body it is eg PLANET",
+        "varStruc": "str",
+        "extra": false
+    },
+    "dimensionId": {
+        "definition": "the id used for the dimension eg minecraft, overword structure for existing dimensions to link and adv_rocketry, name for creating a new one",
+        "varStruc": "path",
+        "extra": false
+    }
+}

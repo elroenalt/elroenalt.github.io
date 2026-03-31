@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR3 DimensionCreator</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/galaxy_database.png">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div id="mainContent">
+        <div id="left_Side">
+            <div id="top_Bar">
+                <div id="title">Universe</div>
+                <div id="buttons">
+                    <div id="download" class="button">🖫</div>
+                    <div id="create" class="button">+</div>
+                </div>
+            </div>
+            <div id="hirachy">
+            </div>
+        </div>
+        <div id="right_Side">
+            <div id="viewer">
+                <canvas id="canvas" tabindex="1"></canvas>
+            </div>
+            <div id="editor">
+                <div id="info-container">
+                    <div id="editor-name"></div>
+                    <div id="editor-description">This is where you will see an property description</div>
+                    <div id="editor-type"></div>
+                </div>
+                <div id="switch-row">
+                    <label class="switch">
+                        <input type="checkbox" id="switch-input" autocomplete="off">
+                    </label>
+                </div>
+                <div id="text-row">
+                    <input type="text" class="property_input" id="text-input" autocomplete="off">
+                </div>
+                <div id="vec3-row">
+                    <label>x</label>
+                    <input type="text" class="property_input" id="vec1-input" autocomplete="off">
+                    <br>
+                    <label>y</label>
+                    <input type="text" class="property_input" id="vec2-input" autocomplete="off">
+                    <br>
+                    <label>z</label>
+                    <input type="text" class="property_input" id="vec3-input" autocomplete="off">
+                </div>
+                <div id="selection-row">
+                    <select id="selection-input" class="selection" autocomplete="off" readOnly></select>
+                </div>
+                <div id="path-row">
+                    <label>namespace</label>
+                    <input type="text" class="property_input" id="namespace-input" autocomplete="off">
+                    <br>
+                    <label>path</label>
+                    <input type="text" class="property_input" id="path-input" autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tooltip">Planet Info</div>
+    <div id="quickCreator">
+        <div id="close">x</div>
+        <div id="innerQuickCreator">
+            <div id="quickCreator-title">quickCreator</div>
+            <div id="quickCreator-info">info</div>
+            <div id="quickCreator-input-1" class="quickCreator-input">
+                <label>dimensionId</label><br>
+                <label>namespace</label>
+                <input type="text" class="property_input" value="adv_rocketry" id="quickCreator-namespace" autocomplete="off">
+                <br>
+                <label>path</label>
+                <input type="text" class="property_input" placeholder="planet-name" id="quickCreator-path" autocomplete="off">
+            </div>
+            <div id="quickCreator-input-2" class="quickCreator-input">
+                <label>name</label>
+                <input type="text" class="property_input" placeholder="planet-name" id="quickCreator-name" autocomplete="off">
+            </div>
+            <div id="quickCreator-input-3" class="quickCreator-input">
+                <label>pos in AU relative to sol</label><br>
+                <label>x</label>
+                <input type="text" class="property_input" value="0.0" id="quickCreator-vec1" autocomplete="off">
+                <br>
+                <label>y</label>
+                <input type="text" class="property_input" value="0.0" id="quickCreator-vec2" autocomplete="off">
+                <br>
+                <label>z</label>
+                <input type="text" class="property_input" value="0.0" id="quickCreator-vec3" autocomplete="off">
+            </div>
+            <div id="quickCreator-input-4" class="quickCreator-input">
+                <label>parentdimensionId</label>
+                <select id="quickCreator-selection" class="selection" autocomplete="off" readOnly></select>
+                </datalist>
+            </div>
+            <div id="quickCreator-input-5" class="quickCreator-input">
+                <label>orbitalDistance</label>
+                <input type="text" class="property_input" value="0.0" id="quickCreator-orbitalDistance" autocomplete="off">
+            </div>
+            <div id="quickCreator-input-6" class="quickCreator-input">
+                <label>earthRadiusMultiplier</label>
+                <input type="text" class="property_input" value="1.0" id="quickCreator-earthRadiusMultiplier" autocomplete="off">
+            </div>
+            <div class="buttons" id="quickCreate">create</div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
