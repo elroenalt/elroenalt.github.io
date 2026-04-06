@@ -1,0 +1,11 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Item Output block <img src='../textures/blocks/itemoutput2.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/item_output_block.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block used for multiblocks item output currently including:",
+    "content-right-list2": {
+        "Observatory: allows for the output of asteroid chips": "#observatory"
+    },
+    "content-right-description2": "<h2 class='space-header'>Usage</h2>  In any multiblock this block will act as the output slot for items. <div class='sub-spacer'></div> <br> When placed next to an asteroid missions launch station in combination with an <a href='#item_input_block'>item input block</a>, it will cyle the invalid chip to an new one out of the input block and put the old one into the output block.",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>arlib:block_item_output_block</b> <br> Hardness: 0.5 <br> Blast Resistance: 2.0 <br> Require Tool: NO <br> Sealable: YES <br> Multiblock: NO</div>"
+}

@@ -1,0 +1,10 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Guidance computer <img src='../textures/blocks/guidance_computer.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/guidance_computer.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/rocket.png'>",
+    "content-left-img3": "<div class='content-img-title'>UI:</div><img class='content-img' src='../textures/UI/guidance_computer.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block used for rocket navigation and central controll.",
+    "content-right-description2": "<h2 class='space-header'>Usage</h2> This block is needed for a rocket (the rocket won't assemble otherwise). <br><br> <b>Info:</b><br> When assembled the computer will display Thrust max and cur, Mass and Weight. <br> On the right side you can see the current fuel level, as well as the fuel type and max fuel level.<br><br> <b>Navigation:</b> <br> By placing eather a planet Id chip or an linker in the top left slot you are able to fly to the linked location.<br><br> <b>Storage:</b> <br>In the bottom of the GUI, there is a list of all cargo holds and their contained item, you can take items out and into the slot via your mouse.",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:guidance_computer</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: _ <br> Multiblock: NO <br> requires Energy: NO</div>"
+}

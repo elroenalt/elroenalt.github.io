@@ -1,0 +1,9 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Drill <img src='../textures/blocks/drill.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/drill.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/rocket_asteroid.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block needed for asteroid mining missions",
+    "content-right-description2": "<h2 class='space-header'>Usage</h2> You will need to place the drill ontop of the rocket, before assembeling it.",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:gas_intake</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: _ <br> Multiblock: NO <br> requires Energy: NO</div>"
+}

@@ -1,0 +1,8 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Fueling tank",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/fuel_tank.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/rocket.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block used as the fuel tank of a rocket, being the element that provides 16 buckets of fuel capacity per block.",
+    "content-right-description2": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:fuel_tank</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: YES <br> Multiblock: NO</div>"
+}

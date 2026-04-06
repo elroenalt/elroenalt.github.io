@@ -1,0 +1,14 @@
+{
+    "top_Bar_title": "AR3 Documentation | Items Overview",
+    "content-right-title": "Items",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> About:</div>An collection and description of all current blocks",
+    "content-right-description2":"<h2 class='space-header space-header-list'>adv rocketry</h2>",
+    "content-right-list1": {
+        "Galaxy database <img src='../textures/items/galaxy_database.png' id='title-img'>": "#galaxy_database"
+    },
+    "content-right-description3":"<h2 class='space-header space-header-list'>arlib</h2>",
+    "content-right-list2": {
+        "Holo projector <img src='../textures/items/holo_projector.png' class='title-img'>": "#holo_projector"
+    },
+    "note": "<div class='sub-spacer'></div><b>written by:</b> Elroen <br> <b>Stand:</b> adv_rocketry-1.21.1-3.0-beta"
+}

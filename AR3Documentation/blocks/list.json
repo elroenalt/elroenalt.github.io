@@ -1,0 +1,35 @@
+{
+    "top_Bar_title": "AR3 Documentation | Block Overview",
+    "content-right-title": "Blocks",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> About:</div>An collection and description of all current blocks",
+    "content-right-description2":"<h2 class='space-header space-header-list'>adv rocketry</h2>",
+    "content-right-list1": {
+        "Warp controller <img src='../textures/blocks/warp_controller.png' id='title-img'>": "#warp_controller",
+        "Rocket assembler <img src='../textures/blocks/rocket_assembler.png' id='title-img'>": "#rocket_assembler",
+        "Guidance computer <img src='../textures/blocks/guidance_computer.png' id='title-img'>": "#guidance_computer",
+        "Observatory <img src='../textures/blocks/monitor.png' id='title-img'>": "#observatory",
+        "Astrobody data processor <img src='../textures/blocks/controlpanel.png' id='title-img'>": "#astrobody_data_processor",
+        "Launchpad <img src='../textures/blocks/launchpad_main.png' id='title-img'>": "#launchpad",
+        "Structure tower <img src='../textures/blocks/structure_tower.png' id='title-img'>": "#structure_tower",
+        "Rocket engine": "#rocket_motor",
+        "Advanced rocket engine": "#rocket_motor_improved",
+        "Fuel tank": "#fuel_tank",
+        "Cargo hold <img src='../textures/blocks/cargo_hold.png' class='title-img'>": "#cargo_hold",
+        "Seat": "#seat",
+        "Drill <img src='../textures/blocks/drill.png' id='title-img'>": "#drill",
+        "Gas intake <img src='../textures/blocks/impeller.png' id='title-img'>": "#gas_intake"
+        
+    },
+    "content-right-description3":"<h2 class='space-header space-header-list'>arlib</h2>",
+    "content-right-list2": {
+        "Small motor": "#small_motor",
+        "Machine structure <img src='../textures/blocks/structure.png' class='title-img'>": "#machine_structure",
+        "Item input block <img src='../textures/blocks/iteminput2.png' class='title-img'>": "#item_input_block",
+        "Item output block <img src='../textures/blocks/itemoutput2.png' class='title-img'>": "#item_output_block",
+        "Energy input block <img src='../textures/blocks/energyinput2.png' class='title-img'>": "#energy_input_block",
+        "Fluid input block <img src='../textures/blocks/fluidoutput2.png' class='title-img'>": "#fluid_input_block",
+        "Fluid Output block <img src='../textures/blocks/fluidinput2.png' class='title-img'>": "#fluid_output_block",
+        "block_coilcopper <img src='../textures/blocks/coilside.png' class='title-img'>": "#block_coilcopper"
+    },
+    "note": "<div class='sub-spacer'></div><b>written by:</b> Elroen <br> <b>Stand:</b> adv_rocketry-1.21.1-3.0-beta"
+}

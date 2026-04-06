@@ -1,0 +1,9 @@
+{
+    "top_Bar_title": "AR3 Documentation | Items",
+    "content-right-title": "Holo projector <img src='../textures/items/holo_projector.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>UI:</div><img class='content-img' src='../textures/UI/holo_projector.png'>",
+    "content-right-description0": "!if you try to move the projection it may crash!",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> An item used to see the blueprints for multiblocks (includes multiblocks from all of Marvins mods).",
+    "content-right-description2": "<h2 class='space-header'>Usage</h2> By sneak clicking into the air there will be a UI opened in wich you select your multiblock. <br> After clicking on the ground a hologram of the first layer will appear with an identification of which block belongs at the position.<br> To see the rest of the layers you can shift scrolll to go up/down a layer. <br><br> If you click somewhere else again the hologram will move to there. <b>",
+    "content-right-description3": "<h2 class='space-header'>Item Info</h2> <div class='properties'> arlib:item_holo_projector</div>"
+}

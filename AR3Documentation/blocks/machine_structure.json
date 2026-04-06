@@ -1,0 +1,11 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Machine structure <img src='../textures/blocks/structure.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/machine_structure.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block used for multiblocks currently including:",
+    "content-right-list2": {
+        "Observatory": "#observatory",
+        "Astrobody data processor": "#astrobody_data_processor"
+    },
+    "content-right-description2": "<h2 class='space-header'>Block Info</h2> <div class='properties'> arlib:block_structure_block <br> Hardness: 2.0 <br> Blast Resistance: 2.0 <br> Require Tool: NO <br> Sealable: YES <br> Multiblock: NO</div>"
+}

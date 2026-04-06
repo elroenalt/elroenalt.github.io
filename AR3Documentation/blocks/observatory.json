@@ -1,0 +1,20 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Observatory <img src='../textures/blocks/monitor.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/monitor.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/observatory.png'>",
+    "content-left-img3": "<div class='content-img-title'>UI:</div><img class='content-img' src='../textures/UI/observatory.png'>",
+    "content-right-description1":"<h2 class='space-header space-header-list'>Multiblock requirement:</h2>",
+    "content-right-list1": {
+        "1 Small motor": "#small_motor",
+        "~52 Machine structures <img src='../textures/blocks/structure.png' class='title-img'>": "#machine_structure",
+        ">=1 Energy input block <img src='../textures/blocks/energyinput2.png' class='title-img'>": "#energy_input_block",
+        "1 Observatory <img src='../textures/blocks/monitor.png' class='title-img'>": "#observatory",
+        ">=1 Data hatch <img src='../textures/blocks/data_hatch.png' class='title-img'>": "#data_hatch",
+        "*optional Item input block <img src='../textures/blocks/iteminput2.png' class='title-img'>": "#item_input_block",
+        "*optional Item output block <img src='../textures/blocks/itemoutput2.png' class='title-img'>": "#item_output_block",
+        "3 Glass blocks": "#home"
+    },
+    "content-right-description2": "<h2 class='space-header'>Overview</h2> A multiblock used for planet discovery, burning planet id chips, asteroid discovery and distance analysing of planets. <br><br> <b>Planet discovery</b> <br> By clicking 'Scan for planets' and having a <a href='#item_output_block'>Item output block</a>, distance data and <a href='/items/#galaxy_database'>galaxy database</a> in the bottom left slot the observatory will open and search for planets. <br> Discovered planets will be saved on the galaxy database (don't lose it).<br> <br> <b>Asteroid discovery</b> <br> For asteroid discovery you will require an <a href='#item_input_block'>Item input block</a>, an <a href='#item_output_block'>Item output block</a>, distance data and <a href='/items/#asteroid_chip'>asteroid chips</a>. <br> To scan for asteroids, the asteroid chips have to be placed into the item input slot, and you will have to click 'scan for asteroids', after discovering a asteroid the chip with the id will be outputed to the item output block.<br>On avarage one astreroid scan will require 1000 distance data.<br><br><b>Analysing planets</b><br> To analyse a planet you will need to give the observatory distance data, click 'open galaxy', select the target planet and click 'analyse'. <br><br> <b>Burning chips</b><br> To burn planet info to a plane id chip (wich is required for rocket flight) you will need to place a planet id chip into the bottom right side, click on 'open galaxy', select your target planet and click 'burn to chip' (this will require having the planet analysed)<br><br><b>Syncing databses</b><br>If you want to combined the data of two databases, place them in the two bottom left slots and click 'Sync Storage Disc'.<br> This will add the info of both databases two both chips. ",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:observatory</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: YES <br> Multiblock: YES<br> requires Energy: NO</div>"
+}

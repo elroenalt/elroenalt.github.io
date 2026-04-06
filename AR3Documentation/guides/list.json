@@ -1,0 +1,11 @@
+{
+    "top_Bar_title": "AR3 Documentation | Guides",
+    "content-right-title": "Items",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> An collection and description of all current blocks",
+    "content-right-description2":"<h2 class='space-header space-header-list'>Baic</h2>",
+    "content-right-list1": {
+        "satellites <img src='../textures/items/satellite.png' id='title-img'>": "#satellites",
+        "rockets <img src='../textures/rocket_icon.png'  class='title-img'>": "#rockets"
+    },
+    "note": "<div class='sub-spacer'></div><b>written by:</b> Elroen <br> <b>Stand:</b> adv_rocketry-1.21.1-3.0-beta"
+}

@@ -1,0 +1,17 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Astrobody data processor <img src='../textures/blocks/controlpanel.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/controlpanel.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/astrobody_data_processor.png'>",
+    "content-left-img3": "<div class='content-img-title'>UI:</div><img class='content-img' src='../textures/UI/astrobody_data_processor.png'>",
+    "content-right-description1":"<h2 class='space-header space-header-list'>Multiblock requirement:</h2>",
+    "content-right-list1": {
+        "1 Machine structure <img src='../textures/blocks/structure.png' class='title-img'>": "#machine_structure",
+        "2 Energy input block <img src='../textures/blocks/energyinput2.png' class='title-img'>": "#energy_input_block",
+        "1 Astrobody data processor <img src='../textures/blocks/monitor.png' class='title-img'>": "#astrobody_data_processor",
+        "3 Data hatchs <img src='../textures/blocks/data_hatch.png' class='title-img'>": "#data_hatch",
+        "5 stone slabs": "#home"
+    },
+    "content-right-description2": "<h2 class='space-header'>Overview</h2> A multiblock needed for visiting planets via a rocket and most mission, since it allows the writing of mass, distance data and composition onto a <a href='#galaxy_database'>galaxy database</a>.<br><br><b>Inputting Data</b><br>Inputting data can be done with the three <a href='#data_hatch'>data hatches</a>, each one supplying one data type, from one planet.<br>The inputted data can be seen in the left slot of the corresponding column.<br>There can be up to 4000 data in each left column the amount of data in the right slot is decided by the dimension properties.<br><br><b>Transferring to galaxy database</b><br>The database will need to be inputted, in the bottom right slot, this will automatically display your current level of data in the right slot in the columns.The data will then be slowly transferred into the database.<br><br>This block requires Energy",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:astrobody_data_processor</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: YES <br> Multiblock: YES<br> requires Energy: NO</div>"
+}

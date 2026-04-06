@@ -1,0 +1,7 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "block_coilcopper <img src='../textures/blocks/coilside.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/block_coilcopper.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> Cur no use",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>arlib:block_coilcopper</b> <br> Hardness: 2.0 <br> Blast Resistance: 2.0 <br> Require Tool: NO <br> Sealable: YES <br> Multiblock: NO</div>"
+}

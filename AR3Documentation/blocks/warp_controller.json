@@ -1,0 +1,9 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Warp controller <img src='../textures/blocks/warp_controller.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/warp_controller.png'>",
+    "content-left-img2": "<div class='content-img-title'>UI:</div><img class='content-img' src='../textures/UI/warp_controller.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2>A block placed on a space station, allows the player to travel to analyzed celestrial bodies (warp requires distance data).",
+    "content-right-description2": "<h2 class='space-header'>Usage</h2> Input your galaxy database, which has the target planets distance data, click 'open galaxy', select the target planet, press 'escape' and click travel.<br> You can clear the target planet by clicking 'clear'. <div class='sub-spacer'></div> <br>The distance to the planet will be displayed in AU (<b>A</b>stronomical <b>U</b>nits) in the bottom left. <br> Your current orbiting planet will be displayed on the left and your target orbit on the right. <div class='sub-spacer'></div><br> When traveling at fast speed there will be a warp buble created, on extremly fast speeds (mostly when traveling between stars) the blue will become intense and light particels will be stretched.",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:warp_controller</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: _ <br> Multiblock: NO  <br> requires Energy: NO</div>"
+}

@@ -1,0 +1,12 @@
+{
+    "top_Bar_title": "AR3 Documentation | Items",
+    "content-right-title": "Galaxy database <img src='../textures/items/galaxy_database.png' class='title-img'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> Used for storage of all data you discoverded in the <a href='../blocks/#observatory'>observatory</a> and <a href='../blocks/#astrobody_data_processor'>astrobody data processor</a>.",
+    "content-right-description2": "<h2 class='space-header'>Usage</h2> ",
+    "content-right-list1": {
+        "Observatory": "../AR3Documentation/blocks/#observatory",
+        "Astrobody data processor": "../blocks/#astrobody_data_processor",
+        "Gas Mining mission Terminal": "../blocks/#launch_station_gas_mining_mission"
+    },
+    "content-right-description3": "<h2 class='space-header'>Item Info</h2> <div class='properties'> adv_rocketry:galaxy_database</div>"
+}

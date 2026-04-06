@@ -1,0 +1,11 @@
+{
+    "comment": "You can also use any other html tag or any of my preprepared css ids, here a few usefull design tricks: class='space-header' => Title of description, class='sub-spacer' => spacer with a line, use <br> for new Line, <a href='/[Folder]/#[json file]>[text]</a> and <b>[text]</b'> for highlighted content.",
+    "top_Bar_title": "[name of site] | [page Folder / Directory]",
+    "content-right-title": "[Page title]",
+    "content-left-img[int]": "",
+    "content-right-description0": "[any important note will appear red]",
+    "content-right-description[int!=0]": "[text]",
+    "content-right-list[int]": {
+        "[text]": "/[Folder]/#[json file]"
+    }
+}

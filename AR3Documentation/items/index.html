@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Elroen">
+    <title>AR3 Tutorial</title>
+    <link rel="icon" type="image/png" href="//galaxy_database.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="top_Bar">
+        <h1 id="top_Bar_title"></h1>
+        <ul id="top_Bar_navBar">
+        </ul>
+    </div>
+    <div id="content">
+        <div id="content-left"></div>
+        <div id="content-right"></div>
+        <div id="note"></div>
+    </div>
+</body>
+<script>
+    async function loadData(file) {
+        try {
+            const response = await fetch(file);
+            if (!response.ok) {
+                throw new Error(`Could not find file: ${file}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error loading JSON:', error);
+        }
+    }
+
+    function displayData(data) {
+        for (const key in data) {
+            const element = document.getElementById(key) ? document.getElementById(key) : document.createElement('div');
+            if(!document.getElementById(key)){
+                element.id = key;
+                const cssClass = key.replace(/[0-9]/g, "");
+                element.className = cssClass;
+            }
+            if (key.includes("list")) {
+                let innerHTML = "<ul>";
+                for (const label in data[key]) {
+                    const link = data[key][label];
+                    innerHTML += `<li>${link ? `<a href="${link}">${label}</a>` : label}</li>`;
+                }
+                innerHTML += "</ul>";
+                element.innerHTML = innerHTML;
+            } else {
+                element.innerHTML = data[key];
+            }
+            if (key.includes("right")) {
+                document.getElementById('content-right').append(element);
+            } else if (key.includes("left")){
+                document.getElementById('content-left').append(element);
+            }else {
+            }
+        }
+    }
+    async function handleRouting() {
+        let id = window.location.hash.substring(1);
+        
+        const file = id ? `${id}.json` : "list.json";
+        document.getElementById('content-left').innerHTML = "";
+        document.getElementById('content-right').innerHTML = "";
+        
+        const data = await loadData(file);
+        const info = await loadData("../AR3Documentation.json");
+        if (info) {
+            displayData(info);
+        }
+        if (data) {
+            displayData(data);
+        }
+    }
+    window.addEventListener('hashchange', handleRouting);
+
+    handleRouting();
+</script>
+</html>

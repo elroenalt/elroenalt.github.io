@@ -1,0 +1,10 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Item input block <img src='../textures/blocks/fluidinput2.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/fluid_input_block.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block used for multiblocks fluid input currently including:",
+    "content-right-list2": {
+        "--None--": false
+    },
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>arlib:block_fluid_input_block</b> <br> Hardness: 0.5 <br> Blast Resistance: 2.0 <br> Require Tool: NO <br> Sealable: YES <br> Multiblock: NO</div>"
+}

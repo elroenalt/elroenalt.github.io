@@ -1,0 +1,8 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Rocket engine",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/rocket_motor.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/rocket.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2>A block used as the engine of a rocket, being the element that provides thrust for your rocket",
+    "content-right-description2": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:rocket_motor</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: YES <br> Multiblock: NO</div>"
+}

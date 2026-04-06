@@ -1,0 +1,9 @@
+{
+    "top_Bar_title": "AR3 Documentation | Blocks",
+    "content-right-title": "Launchpad <img src='../textures/blocks/launchpad_main.png' class='title-img'>",
+    "content-left-img1": "<div class='content-img-title'>Block:</div><img class='content-img' src='../textures/Block/launchpad.png'>",
+    "content-left-img2": "<div class='content-img-title'>Setup:</div><img class='content-img' src='../textures/Setup/rocket_assembler.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> A block needed for a launch pad to define the base area of the assembling space.",
+    "content-right-description2": "<h2 class='space-header'>Usage</h2> You will need to place the launchpad blocks one under the assembler.<br>There is a 1 block padding on every side wich won't register for assembling.",
+    "content-right-description3": "<h2 class='space-header'>Block Info</h2> <div class='properties'> <b>adv_rocketry:launchpad</b> <br> Hardness: _ <br> Blast Resistance: _ <br> Require Tool: _ <br> Sealable: _ <br> Multiblock: NO <br> requires Energy: NO</div>"
+}
