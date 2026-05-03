@@ -21,6 +21,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color, #3498db); 
 }
+.button {
+    cursor: pointer;
+}
+.button1 {
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
 body {
     margin: 0;
     padding: 0;
@@ -68,9 +76,6 @@ body {
     grid-template-rows: 40% 60%; 
     box-shadow: 2px 2px rgba(255, 255, 255, 0.2);
     min-width: 0; 
-}
-.button {
-    cursor: pointer;
 }
 #canvas {
     background-color: black;
@@ -256,4 +261,9 @@ body {
     color: white;
     text-decoration: double;
     cursor: pointer;
+}
+.composition-gass {
+    padding: 0.5rem;
+    border-top: solid 1px #8a8a8a;
+    margin-top: 0.75rem;
 }

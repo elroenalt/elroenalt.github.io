@@ -66,7 +66,7 @@
     },
     "atmosphereComposition": {
         "definition": "Composition of the atmosphere, influences breathablility, also harvestable by gas mining",
-        "varStruc": "object",
+        "varStruc": "composition",
         "extra": "gasses"
     },
     "baseEnergyGain":{

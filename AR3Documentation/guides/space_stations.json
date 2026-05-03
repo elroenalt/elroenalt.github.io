@@ -1,0 +1,6 @@
+{
+    "top_Bar_title": "AR3 Documentation | Guides",
+    "content-right-title": "Space stations <img src='../textures/items/data_storage_unit.png' id='title-img'>",
+    "content-left-img3": "<div class='content-img-title'>UI-satellite-monitor:</div><img class='content-img' src='../textures/UI/satellite_monitor.png'>",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> Satellites are absolutly essential for the whole game, collecting data of planets.<br>You wil require knowledge about: <ul><li><a href='#rockets'>rockets</a></li></ul>"
+}

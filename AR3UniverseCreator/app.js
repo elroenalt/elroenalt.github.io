@@ -21,6 +21,8 @@ async function loadGameData() {
         display = new Display()
         quickCreator = new QuickCreator()
 
+        loadCompositionGasses()
+
         document.querySelector('#download').addEventListener('click', () => {
             downloadAllDimensions()
         })
@@ -40,6 +42,86 @@ async function loadGameData() {
     } catch (error) {
         console.error("Error loading JSON:", error);
     }
+}
+function loadCompositionGasses() {
+    const prop = {
+        "--custom--": null,
+        "breathable": JSON.stringify({
+            "nitrogen": {
+            "in_atm": 0.699999988079071,
+            "frozen_surface": 0.0,
+            "frozen_deep_below_surface": 0.0,
+            "liquid": 0.0,
+            "worldGenSeaLevel": 0
+            },
+            "co2": {
+            "in_atm": 0.0010000000474974513,
+            "frozen_surface": 0.0,
+            "frozen_deep_below_surface": 0.0,
+            "liquid": 0.0,
+            "worldGenSeaLevel": 0
+            },
+            "oxygen": {
+            "in_atm": 0.30000001192092896,
+            "frozen_surface": 0.0,
+            "frozen_deep_below_surface": 0.0,
+            "liquid": 0.0,
+            "worldGenSeaLevel": 0
+            },
+            "water": {
+            "in_atm": 0.0,
+            "frozen_surface": 0.0,
+            "frozen_deep_below_surface": 0.0,
+            "liquid": 0.5,
+            "worldGenSeaLevel": 62
+            }
+        }, null, 2)
+    }
+    const selection = document.querySelector('#select-preset')
+    selection.innerHTML = ""
+    for (let [name, entry] of Object.entries(prop)) {
+        const option = document.createElement('option');
+        option.value = entry;
+        option.textContent = name;
+        selection.appendChild(option)
+    }
+    selection.addEventListener('input', (e) => {
+        const newValue = e.target.value;
+        if (!editor.activeDim || !editor.activeProp) return;
+        dimensions[editor.activeDim].properties["atmosphereComposition"] = newValue ? JSON.parse(newValue) : {}
+        editor.focus(editor.activeDim,editor.activeProp)
+    })
+}
+function loadGas(name,entry) {
+    const id = editor.gasses
+    editor.inputs[5]["gasses"].insertAdjacentHTML('beforeend',`
+    <div class="composition-gass" id="gass-${id}">
+        <label>name:</label>
+        <input type="text" class="name property_input" autocomplete="off" value="${name}">
+        <br>
+        <label>in_atm:</label>
+        <input type="text" class="in_atm property_input" autocomplete="off" value="${entry["in_atm"]}">
+        <br>
+        <label>frozen_surface:</label>
+        <input type="text" class="frozen_surface property_input" autocomplete="off" value="${entry["frozen_surface"]}">
+        <br>
+        <label>frozen_deep_below_surface:</label>
+        <input type="text" class="frozen_deep_below_surface property_input" autocomplete="off" value="${entry["frozen_deep_below_surface"]}">
+        <br>
+        <label>liquid:</label>
+        <input type="text" class="liquid property_input" autocomplete="off" value="${entry["liquid"]}">
+        <br>    
+        <label>worldGenSeaLevel:</label>
+        <input type="text" class="worldGenSeaLevel property_input" autocomplete="off" value="${entry["worldGenSeaLevel"]}">
+        <div id="delete-gas-${editor.gasses}" class="delete-gas button1">🗑</div>
+    </div>
+    `)
+    document.querySelector(`#delete-gas-${id}`).addEventListener("click", () => {
+        document.querySelector(`#gass-${id}`).remove()
+        delete dimensions[editor.activeDim].properties["atmosphereComposition"][name]
+    })
+    editor.gasses += 1
+    console.log(name,entry)
 }
 function resizeCanvas() {
     if (!display) return;
@@ -414,6 +496,13 @@ class Editor {
                     document.querySelector('#namespace-input'),
                     document.querySelector('#path-input')
                 ]
+            },
+            {
+                "frame": document.querySelector('#composition-row'),
+                "gasses": document.querySelector('#composition-gasses'),
+                "preset": document.querySelector('#select-preset'),
+                "createGas": document.querySelector('#create-gas'),
+                "saveGas": document.querySelector('#save-gas'),
             }
         ]
         this.inputs.forEach((item, i) => {
@@ -485,10 +574,37 @@ class Editor {
             if (newValue && Object.keys(dimensions).includes(newValue)) {
                 dimensions[this.activeDim].properties[this.activeProp] = dimensions[newValue].properties["dimensionId"];
             } else {
-                dimensions[this.activeDim].properties[this.activeProp] = newValue ? newValue : null 
+                dimensions[this.activeDim].properties[this.activeProp] = null
             }
             dimensions[this.activeDim].centerPlanet()
         });
+        this.inputs[5]["createGas"].addEventListener("click", () => {
+            loadGas(`placeholder-${editor.gasses}`,{
+                "in_atm": 0.0,
+                "frozen_surface": 0.0,
+                "frozen_deep_below_surface": 0.0,
+                "liquid": 0.0,
+                "worldGenSeaLevel": 0
+                })
+        })
+        this.inputs[5]["gasses"].addEventListener('input', (e) => {
+            const composition = {}
+            for(let i = 0; i < this.gasses;i++) {
+                const container = document.querySelector(`#gass-${i}`)
+                const name = container.getElementsByClassName("name")[0].value
+                const gas = {
+                    "in_atm": container.getElementsByClassName("in_atm")[0].value,
+                    "frozen_surface": container.getElementsByClassName("frozen_surface")[0].value,
+                    "frozen_deep_below_surface": container.getElementsByClassName("frozen_deep_below_surface")[0].value,
+                    "liquid": container.getElementsByClassName("liquid")[0].value,
+                    "worldGenSeaLevel": container.getElementsByClassName("worldGenSeaLevel")[0].value
+                }
+                composition[name] = gas
+                console.log(name,gas)
+            }
+            dimensions[editor.activeDim].properties["atmosphereComposition"] = composition
+
+        })
     }
     focus(dim,prop) {
         for(let input of this.inputs) {
@@ -540,7 +656,6 @@ class Editor {
             case "path":{
                 if (info["extra"] == "selection") {
                     this.inputs[3]["frame"].style.display = "block";
-                    this.inputs[3]["input"].value = val ? [val["namespace"],val["path"]].join("_") : "" 
                     this.inputs[3]["input"].innerHTML = "";
                     const option = document.createElement('option');
                     option.value = null;
@@ -554,11 +669,21 @@ class Editor {
                             this.inputs[3]["input"].appendChild(option);
                         }
                     });
+                    this.inputs[3]["input"].value = val ? [val["namespace"],val["path"]].join("_") : "" 
                 }else {
                     this.inputs[4]["frame"].style.display = "block";
                     this.inputs[4]["inputs"][0].value = val["namespace"]
                     this.inputs[4]["inputs"][1].value = val["path"]
                 }
+                break;}
+            case "composition":{
+                this.inputs[5]["gasses"].innerHTML = ""
+                this.inputs[5]["frame"].style.display = "block";
+                this.gasses = 0
+                for (let [name, entry] of Object.entries(val)) {
+                    loadGas(name,entry)
+                }
+
                 break;}
             default:
                 console.log("not added " + info["varStruc"])
