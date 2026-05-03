@@ -145,7 +145,7 @@
         "extra": false
     },
     "skyDarken": {
-        "definition": "?",
+        "definition": "the terrain sky and stars will appear darker",
         "varStruc": "float",
         "extra": false
     },

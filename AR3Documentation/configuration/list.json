@@ -1,0 +1,11 @@
+{
+    "top_Bar_title": "AR3 Documentation | Guides",
+    "content-right-title": "Guides",
+    "content-right-description1": "<h2 class='space-header'>Overview</h2> An collection and description of all current blocks",
+    "content-right-description2":"<h2 class='space-header space-header-list'>Baic</h2>",
+    "content-right-list1": {
+        "Custom planets <img src='../textures/rocket_icon.png'  class='title-img'>": "#planets",
+        "Custom asteroids <img src='../textures/items/satellite.png' id='title-img'>": "#asteroids",
+        "Custom biome groups <img src='../textures/items/data_storage_unit.png' id='title-img'>": "#biome_groups"
+    }
+}

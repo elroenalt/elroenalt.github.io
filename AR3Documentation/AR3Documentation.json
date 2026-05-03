@@ -1,4 +1,5 @@
 {
     "top_Bar_title": "AR3 Documentation",
-    "top_Bar_navBar": "<li><a href='/AR3Documentation/blocks/'>Blocks</a></li><li><a href='/AR3Documentation/items/'>Items</a></li><li><a href='/AR3Documentation/guides'>Guides</a></li><li><a href='/AR3Documentation/'>Congiguration</a></li><li><a href='/AR3Documentation/'>About</a></li>"
+    "top_Bar_navBar": "<li><a href='/AR3Documentation/blocks/'>Blocks</a></li><li><a href='/AR3Documentation/items/'>Items</a></li><li><a href='/AR3Documentation/guides'>Guides</a></li><li><a href='/AR3Documentation/configuration'>Congiguration</a></li><li><a href='/AR3Documentation/'>About</a></li>",
+    "note": "<div class='sub-spacer'></div><b>written by:</b> Elroen <br> <b>Stand:</b> adv_rocketry-1.21.1-3.0-beta"
 }

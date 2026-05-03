@@ -121,7 +121,6 @@ function loadGas(name,entry) {
         delete dimensions[editor.activeDim].properties["atmosphereComposition"][name]
     })
     editor.gasses += 1
-    console.log(name,entry)
 }
 function resizeCanvas() {
     if (!display) return;
@@ -279,7 +278,16 @@ async function downloadAllDimensions() {
     for (const planet of Object.values(dimensions)) {
         const name = planet.file_path
         const fileName = `${name}.json`;
-        
+        console.log(planet)
+        if  (planet["properties"]["atmosphereComposition"]) {
+            Object.keys(planet["properties"]["atmosphereComposition"]).forEach((key) => {
+                planet["properties"]["atmosphereComposition"][key]["in_atm"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["in_atm"])
+                planet["properties"]["atmosphereComposition"][key]["frozen_surface"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["frozen_surface"])
+                planet["properties"]["atmosphereComposition"][key]["frozen_deep_below_surface"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["frozen_deep_below_surface"])
+                planet["properties"]["atmosphereComposition"][key]["liquid"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["liquid"])
+                planet["properties"]["atmosphereComposition"][key]["worldGenSeaLevel"] = parseInt(planet["properties"]["atmosphereComposition"][key]["worldGenSeaLevel"])
+            })}
+        console.log(planet["properties"]["atmosphereComposition"])
         const fileContent = JSON.stringify(planet.properties, null, 4);
         
         zip.file(fileName, fileContent);
@@ -592,15 +600,17 @@ class Editor {
             for(let i = 0; i < this.gasses;i++) {
                 const container = document.querySelector(`#gass-${i}`)
                 const name = container.getElementsByClassName("name")[0].value
-                const gas = {
-                    "in_atm": container.getElementsByClassName("in_atm")[0].value,
-                    "frozen_surface": container.getElementsByClassName("frozen_surface")[0].value,
-                    "frozen_deep_below_surface": container.getElementsByClassName("frozen_deep_below_surface")[0].value,
-                    "liquid": container.getElementsByClassName("liquid")[0].value,
-                    "worldGenSeaLevel": container.getElementsByClassName("worldGenSeaLevel")[0].value
-                }
-                composition[name] = gas
-                console.log(name,gas)
+                try {
+                    const gas = {
+                        "in_atm": (container.getElementsByClassName("in_atm")[0].value),
+                        "frozen_surface": (container.getElementsByClassName("frozen_surface")[0].value),
+                        "frozen_deep_below_surface": (container.getElementsByClassName("frozen_deep_below_surface")[0].value),
+                        "liquid": (container.getElementsByClassName("liquid")[0].value),
+                        "worldGenSeaLevel": container.getElementsByClassName("worldGenSeaLevel")[0].value
+                    }
+                    composition[name] = gas}
+                catch {}
+
             }
             dimensions[editor.activeDim].properties["atmosphereComposition"] = composition
 
