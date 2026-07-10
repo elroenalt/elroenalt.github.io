@@ -1,0 +1,145 @@
+[
+    ["mainTitle", "Pronouns"],
+    ["container", [
+        ["title", "Cases"],
+        ["table", [
+            [false,{"text":"<b>explanation</b>","color":"gray"},{"text":"<b>example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"Who/what is (verb)ing?","color":"transparent"},{"text":"<b>I</b> gave Terry's clinic a donation","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"Who/what did (the subject) (verb)?","color":"transparent"},{"text":"I gave Terry's clinic a <b>donation</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"Whose?","color":"transparent"},{"text":"I gave <b>Terry's</b> clinic a donation","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"To who/what?","color":"transparent"},{"text":"I gave Terry's <b>clinic</b> a donation","color":"transparent"}]
+        ]]
+    ],true],
+
+    ["container", [
+        ["title", "first-person singular (I)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"ek","color":"transparent"},{"text":"<i>ek em</i>, 'I am'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"mik","color":"transparent"},{"text":"<i>þeir drápu mik</i>, 'they killed me'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"mín","color":"transparent"},{"text":"<i>kona mín</i>, 'my wife'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"mér","color":"transparent"},{"text":"<i>þeir gáfu mér gjǫf</i>, 'they gave me a gift'","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "second-person singular (you, 1 person)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"þú","color":"transparent"},{"text":"<i>þú ert</i>, 'you are'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"þik","color":"transparent"},{"text":"<i>ek sé þik</i>, 'I see you'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"þín","color":"transparent"},{"text":"<i>bǫrn þín</i>, 'your kis'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"þér","color":"transparent"},{"text":"<i>ek gaf þér gjǫf</i>, 'I gave you a gift'","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "third-person singular neuter (it)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"þat","color":"transparent"},{"text":"<i>þat er hér</i>, 'it is here'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"þat","color":"transparent"},{"text":"<i>ek sé þat</i>, 'I see it'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"þes","color":"transparent"},{"text":"<i>þess bǫrn</i>, 'its children'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"því","color":"transparent"},{"text":"<i>ek gaf því gjǫf</i>, 'I gave it a gift'","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "third-person singular feminine (she)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"hon","color":"transparent"},{"text":"<i>hon er hér</i>, 'she is here'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"hana","color":"transparent"},{"text":"<i>ek sé hana</i>, 'I see her'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"hennar","color":"transparent"},{"text":"<i>maðr hennar</i>, 'her husband'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"henni","color":"transparent"},{"text":"<i>ek gaf henni gjǫf</i>, 'I gave her a gift'","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "third-person singular masculine (He)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"hann","color":"transparent"},{"text":"<i>hann sér mik</i>, 'he sees me'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"hann","color":"transparent"},{"text":"<i>ek sé hann</i>, 'I see him'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"hans","color":"transparent"},{"text":"<i>kona hans</i>, 'his wife'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"honum","color":"transparent"},{"text":"<i>ek gaf honum gjǫf</i>, 'I gave him a gift'","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "first-person plural (We, 3+ people)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"vér","color":"transparent"},{"text":"<i>vér erum</i>, 'we are'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"oss","color":"transparent"},{"text":"<i>þeir sáu oss</i>, 'they saw us'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"vár","color":"transparent"},{"text":"<i>bǫrn vár</i>, 'our children'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"oss","color":"transparent"},{"text":"<i>þeir gáfu oss gjǫf</i>, 'they gave us a gift'","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "first-person plural (We two, 2 people)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"vit","color":"transparent"},{"text":"<i>vit elskumsk</i>, 'we two love one another'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"okkr","color":"transparent"},{"text":"<i>þeir sáu okkr</i>, 'they saw us two'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"okkar","color":"transparent"},{"text":"<i>bǫrn okkar</i>, 'the children of us two'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"okkr","color":"transparent"},{"text":"<i>þeir gáfu okkr gjǫf</i>, 'they gave us two a gift'","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "second-person plurar (you'all, 3+ people)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"(þ)ér","color":"transparent"},{"text":"<i>þér eruð</i>, 'you'all are'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"yðr","color":"transparent"},{"text":"<i>ek sé yðr</i>, 'I see you'all'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"yðvar","color":"transparent"},{"text":"<i>bǫrn yður</i>, 'you'll's children'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"yðr","color":"transparent"},{"text":"<i>ek gaf yðr gjǫf</i>, 'I gave you'all a gift'","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "second-person plurar (you two, 2 people)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"(þ)it","color":"transparent"},{"text":"<i>þit elskizk</i>, 'you two love one another'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"ykkr","color":"transparent"},{"text":"<i>ek sé ykkr</i>, 'I see you two'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"ykkar","color":"transparent"},{"text":"<i>bǫrn ykkur</i>, 'the children of you two'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"ykkr","color":"transparent"},{"text":"<i>ek gaf ykkr gjǫf</i>, 'I gave you two a gift'","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "third-person plurar neuter (they)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"þau","color":"transparent"},{"text":"<i>þau eru hér</i>, 'they are here'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"þau","color":"transparent"},{"text":"<i>ek sé þau</i>, 'I see them'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"þeira","color":"transparent"},{"text":"<i>vápn þeira</i>, 'theur weaopons'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"þeim","color":"transparent"},{"text":"<i>ek gaf þeim gjǫf</i>, 'I gave you them a gift'","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "third-person plurar feminine (they)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"þær","color":"transparent"},{"text":"<i>þær eru hér</i>, 'they are here'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"þær","color":"transparent"},{"text":"<i>ek sé þær</i>, 'I see them'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"þeira","color":"transparent"},{"text":"<i>vápn þeira</i>, 'theur weaopons'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"þeim","color":"transparent"},{"text":"<i>ek gaf þeim gjǫf</i>, 'I gave you them a gift'","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "third-person plurar masculine (they)"],
+        ["table", [
+            [false,{"text":"","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"þeir","color":"transparent"},{"text":"<i>þeir eru hér</i>, 'they are here'","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"þá","color":"transparent"},{"text":"<i>ek sé þá</i>, 'I see them'","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"þeira","color":"transparent"},{"text":"<i>vápn þeira</i>, 'theur weaopons'","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"þeim","color":"transparent"},{"text":"<i>ek gaf þeim gjǫf</i>, 'I gave you them a gift'","color":"transparent"}]
+        ]]
+    ],false]
+]

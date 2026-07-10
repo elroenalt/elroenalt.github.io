@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App</title>
+<link rel="stylesheet" type="text/css" href="/main.css">
+<link rel="stylesheet" type="text/css" href="card.css">
+</head>
+<body>
+<div id="Background">
+</div>
+<div id="Forground">
+    <div class="container" id="ContainerCards">
+        <div class="container"id="ContainerCardSettings">
+            <div class="button" id="didNotKnewQuestion" onclick="knewQuestion(false)">X</div>
+            <div id="progressBarContainer"><div id="progressBar"></div></div>
+            <div class="button" id="knewQuestion" onclick="knewQuestion(true)">✓</div>
+        </div>
+        <div class="popUp"id="ContainerCard">
+            <div><b>CArdy</b></div>
+        </div>
+        <div class="container"id="ContainerCardButtons">
+            <div class="button" id="ContainerCardButtonLast" onclick="displayCard(curId-1)"><</div>
+            <div class="button" id="ContainerCardButtonReveal" onclick="toggleReveal()">⇄</div>
+            <div class="button" id="ContainerCardButtonNext" onclick="displayCard(curId+1)">></div>
+        </div>
+    </div>
+</div>
+<script>
+    const currentHash = window.location.hash.replace("#","");
+    const [displayType,idHash] = currentHash.split("|")
+    let reverse = (displayType == "a") ? false : true
+    const idsHash = idHash.split('-')
+    let ids = []
+    for(let id of idsHash) {
+        if(id.includes("/")) {
+            const [startID,endId] = id.split("/")
+            console.log(startID,endId)
+            for(let i = Number(startID); i<=Number(endId);i++){
+                ids.push([i,1])
+            }
+        }else {
+            ids.push([id,0])
+        }
+    }
+    const idsLength = ids.length
+    ids = shuffleArray(ids)
+    let cardsData = []
+    let reveal = false
+    let curId = NaN
+    let stillNeeded = []
+    function knewQuestion(correct) {
+        ids[curId][1] = correct
+        if(!correct) {
+            stillNeeded.push(cardsData[curId][1])
+        }
+        console.log(cardsData[curId][1],correct)
+        displayCard(curId+1)
+    }
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    async function loadCards() {
+        try {
+            const response = await fetch('/storage/oldNorse/words.json');
+            const allData = await response.json();
+
+            for(let i = 0; i<ids.length;i++ ) {
+                const id = ids[i][0]
+                cardsData.push([allData[id],id])
+            }
+            displayCard(0)
+        } catch (error) {
+            console.error("Oops, couldn't load the JSON file:", error);
+        }
+    }
+    function displayOnCard(type,cardData,translate = false,example = true,reverse = false) {
+        let [toTranslateExample,translatedExample]  = [NaN, NaN]
+        const [toTranslate,translated] = reverse ? [cardData[2],cardData[1]] : [cardData[1],cardData[2]] 
+        if (cardData.length > 3){[toTranslateExample,translatedExample] = reverse ? [cardData[4],cardData[3]] : [cardData[3],cardData[4]]} 
+        if(translate) {
+            document.querySelector(type).innerHTML = `
+                <div class="card-title"><b>${cardData[0]}</b></div>
+                <div class="card-space1">${toTranslate} ⇄ ${translated}</div>
+                ` + (cardData.length > 3 ? `<div class="card-space2">${toTranslateExample} <br>⇄<br>${translatedExample}</div>` : "");
+        }else {
+            document.querySelector(type).innerHTML = `
+                <div class="card-title"><b>${cardData[0]}</b></div>
+                <div class="card-space1">${toTranslate}</div>
+                ` + (cardData.length > 3 ? `<div class="card-space2">${toTranslateExample}</div>` : "");
+
+        }
+    }
+    function revealCard() {
+        const cardData = cardsData[curId][0]
+        document.querySelector("#ContainerCardButtonReveal").style.background = "darkRed"
+        
+        displayOnCard("#ContainerCard",cardData,true,false,reverse)
+    }
+    function toggleReveal() {
+        if(reveal) {displayCard()}
+        else{ revealCard()}
+        reveal = !reveal
+
+    }
+    function createMoreQuestionHash() {
+        if(!stillNeeded.length) {return}
+        stillNeeded.sort((a, b) => a - b);
+        console.log(stillNeeded)
+        let segments = []
+        let startID = stillNeeded[0]
+        let endId = startID
+        for(let i = 1; i <stillNeeded.length; i++) {
+            let nextId = stillNeeded[i];
+            if(endId+1 == nextId) {
+                endId = nextId
+            }else{
+                if(endId != startID) {
+                    segments.push(`${startID}/${endId}`)
+                }else {
+                    segments.push(`${startID}`)
+                }
+                startID = nextId
+                endId = nextId
+            }
+        }
+        if (endId !== startID) {
+            segments.push(`${startID}/${endId}`);
+        } else {
+            segments.push(`${startID}`);
+        }
+        const hash = "#"+ displayType + "|" + segments.join("-")
+        window.location.hash = hash
+        location.reload()
+        console.log(hash)
+    }
+    function displayCard(id=curId) {
+        if(id>=idsLength) {
+            createMoreQuestionHash()
+            return
+        }
+        curId = id
+        const procentile = (id/(idsLength-1))*100
+        document.getElementById("progressBar").style.width = `${procentile}%`
+        const cardData = cardsData[id][0]
+
+        if(id==0){document.querySelector("#ContainerCardButtonLast").style.visibility = "hidden";}
+        else{document.querySelector("#ContainerCardButtonLast").style.visibility = "visible";}
+        if(id>=idsLength-1){
+            document.querySelector("#ContainerCardButtonNext").textContent = "⟳";
+        }else{
+            document.querySelector("#ContainerCardButtonNext").textContent = ">";}
+        document.querySelector("#ContainerCardButtonReveal").style.background = "green"
+        displayOnCard("#ContainerCard",cardData,false,false,reverse)
+    }
+    loadCards();
+</script>
+</body>
+</html>

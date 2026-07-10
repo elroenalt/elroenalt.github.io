@@ -1,0 +1,23 @@
+[
+    ["verb, i-type weak", "mæla,t", "(to) speak", [["mæli","mælir","mælir","mælum","mælið","mæla"],["mælta","mæltir","mælti","mæltum","mæltuð","mæltu"]]],
+    ["verb, i-type weak", "heyra,ð", "(to) hear", [["heyri","heyrir","heyrir","heyrum","heyrið","heyra"],["heyrða","heyrðir","heyrði","heyrðum","heyrðuð","heyrðu"]]],
+    ["verb, i-type weak", "brenna,d", "(to) burn", [["brenni","brennir","brennir","brennum","brennið","brenna"],["brennda","brenndir","brenndi","brenndum","brennduð","brenndu"]]],
+    ["verb, i-type weak", "fylgja,ð", "(to) follow", [["fylgi","fylgir","fylgir","fylgjum","fylgið","fylgja"],["fylgða","fylgðir","fylgði","fylgðum","fylgðuð","fylgðu"]]],
+    ["verb, i-type weak", "senda,d", "(to) send", [["sendi","sendir","sendir","sendum","sendið","senda"],["senda","sendir","sendi","sendum","senduð","sendu"]]],
+    ["verb, i-type weak", "nefna,d", "(to) name", [["nefni","nefnir","nefnir","nefnum","nefnið","nefna"],["nefnda","nefndir","nefndi","nefndum","nefnduð","nefndu"]]],
+    ["verb, i-type weak", "trúa,ð", "(to) believe", [["trúi","trúir","trúir","trúum","trúið","trúa"],["trúða","trúðir","trúði","trúðum","trúðuð","trúðu"]]],
+    ["verb, i-type weak", "játa,t", "(to) agree to | accept", [["játi","játir","játir","játum","játið","játa"],["játta","játtir","játti","játtum","játtuð","játtu"]]],
+    ["verb, i-type weak", "fǿra,ð", "(to) bring", [["fǿri","fǿrir","fǿrir","fǿrum","fǿrið","fǿra"],["fǿrða","fǿrðir","fǿrði","fǿrðum","fǿrðuð","fǿrðu"]]],
+    ["verb, i-type weak", "skreyta,t", "(to) decorate | adorn", [["skreyti","skreytir","skreytir","skreytum","skreytið","skreyta"],["skreytta","skreyttir","skreytti","skreyttum","skreyttuð","skreyttu"]]],
+    ["verb, i-type weak", "veita,t", "(to) grant", [["veiti","veitir","veitir","veitum","veitið","veita"],["veitta","veittir","veitti","veittum","veittuð","veittu"]]],
+    ["verb, i-type weak", "veiða,d", "(to) hunt", [["veiði","veiðir","veiðir","veiðum","veiðið","veiða"],["veidda","veiddir","veiddi","veiddum","veidduð","veiddu"]]],
+    ["verb, i-type weak", "eyða,d", "(to) destroy", [["eyði","eyðir","eyðir","eyðum","eyðið","eyða"],["eydda","eyddir","eyddi","eyddum","eydduð","eyddu"]]],
+
+    ["verb, a-type weak", "skapa,að", "(to) create", [["skapa","skapar","skapar","skǫpum","skapið","skapa"],["skapaða","skapaðir","skapaði","skǫpuðum","skǫpuðuð","skǫpuðu"]]],
+    ["verb, a-type weak", "herja,að", "(to) raid", [["herja","herjar","herjar","herjum","herið","herja"],["herjaða","herjaðir","herjaði","herjuðum","herjuðuð","herjuðu"]]],
+    ["verb, a-type weak", "sigra,að", "(to) overcome | defeat", [["sigra","sigrar","sigrar","sigrum","sigrið","sigra"],["sigraða","sigraðir","sigraði","sigruðum","sigruðuð","sigruðu"]]],
+    ["verb, a-type weak", "harðna,að", "(to) harden", [["harðna","harðnar","harðnar","hǫrðnum","harðnið","harðna"],["harðnaða","harðnaðir","harðnaði","hǫrðnuðum","hǫrðnuðuð","hǫrðnuðu"]]],
+    ["verb, a-type weak", "kalla,að", "(to) call", [["kalla","kallar","kallar","kǫllum","kallið","kalla"],["kallaða","kallaðir","kallaði","kǫlluðum","kǫlluðuð","kǫlluðu"]]],
+
+    ["verb, irregular", "vera", "(to) be", [["em","ert","er","erum","eruð","eru"],["var","vart","var","várum","váruð","váru"]]]
+]

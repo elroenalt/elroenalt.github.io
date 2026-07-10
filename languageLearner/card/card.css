@@ -1,0 +1,69 @@
+html,body {
+    overflow: hidden;
+}
+#ContainerCards {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+    width: 45vw;
+    height: 70dvh;
+    justify-content: center;
+    align-items: baseline;
+    background: transparent;
+}
+#ContainerCard {
+    box-sizing: border-box;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    height: 45dvh;
+    transition: all 0.2s ease-out;
+    display: grid;
+    box-shadow: 4px 4px 0px rgb(186, 186, 186),7px 7px 0px rgb(72, 72, 72);
+    backface-visibility: hidden
+}
+#ContainerCard:hover {
+    transform: translateY(-1px);
+}
+#ContainerCardButtons, #ContainerCardSettings {
+    font-weight: 700;
+    box-sizing: border-box;
+    height: 12.5dvh;
+    padding: 1rem;
+    grid-auto-flow: column;
+    gap: 15%;
+    background: transparent;
+}
+#ContainerCardButtonReveal {
+    background: rgba(51, 0, 69, 0.595);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+}
+.card-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+.card-space1 {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+.card-space2 {
+    font-weight: 500;
+    font-size: 1.25rem;
+    font-style: oblique;
+}
+#progressBarContainer {
+    width: 20vw;
+    height: 2rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+#progressBar {
+    width: 100%;
+    height: 100%;
+    background: blueviolet;
+}
+#didNotKnewQuestion {
+    background: red;
+}
+#knewQuestion {
+    background: green;
+}

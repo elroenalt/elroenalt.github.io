@@ -1,0 +1,27 @@
+[
+    ["mainTitle", "Be,is,was, etc"],
+
+    ["container", [
+        ["title", "Pronouns (Nominative)"],
+        ["table", [
+            [{"text":"<b>Old Norse</b>","color":"gray"},{"text":"<b>English</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"I","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"You","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"It/She/He","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"we(3+)/we (2)","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"you'all (3+)/you'two(2)","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"they (Neuter/Feminine/Masculine)","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["table", [
+        [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+        [{"text":"<b>Ek</b>","color":"transparent"},{"text":"<b>em</b>","color":"transparent"},{"text":"<b>var</b> <i>(vas)</i>","color":"transparent"}],
+        [{"text":"<b>þú</b>","color":"transparent"},{"text":"<b>ert</b>","color":"transparent"},{"text":"<b>vart</b> <i>(vast)</i>","color":"transparent"}],
+        [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"<b>er</b> <i>(es, 's)</i>","color":"transparent"},{"text":"<b>var</b> <i>(vas)</i>","color":"transparent"}],
+        [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"<b>erum</b>","color":"transparent"},{"text":"<b>várum</b>","color":"transparent"}],
+        [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"<b>eruð</b>","color":"transparent"},{"text":"<b>váruð</b>","color":"transparent"}],
+        [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"<b>eru</b>","color":"transparent"},{"text":"<b>váru</b>","color":"transparent"}]
+    ]],
+    ["text","<a href='/grammar_questions/#c18'>a-type weak verb Trainer</a>"]
+]

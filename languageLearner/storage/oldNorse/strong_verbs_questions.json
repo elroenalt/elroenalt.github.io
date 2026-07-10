@@ -1,0 +1,14 @@
+[
+    ["verb, strong", "gefa, *5", "(to) give", [["gef","gefr","gefr","gefum","gefið","gefa"],["gaf","gaft","gaf","gáfum","gáfuð","gáfu"]]],
+    ["verb, strong", "kveða, *5", "(to) say | speak", [["kveð","kveðr","kveðr","kveðum","kveðið","kveða"],["kvað","kvatt","kvað","kváðum","kváðuð","kváðu"]]],
+    ["verb, strong", "drepa, *5", "(to) kil", [["drep","drepr","drepr","drepum","drepið","drepa"],["drap","drapt","drap","drápum","drápuð","drápu"]]],
+    ["verb, strong", "geta, *5", "(to) get", [["get","getr","getr","getum","getið","geta"],["gat","gatt","gat","gátum","gátuð","gátu"]]],
+    ["verb, strong", "bera, *5", "(to) carry", [["ber","berr","berr","berum","berið","bera"],["bar","bart","bar","bárum","báruð","báru"]]],
+
+    ["verb, strong", "taka, *6", "(to) take", [["tek","tekr","tekr","tǫkum","takið","taka"],["tók","tókt","tók","tókum","tókuð","tóku"]]],
+    ["verb, strong", "far, *6", "(to) go", [["fer","ferr","ferr","fǫrum","farið","fara"],["fór","fórt","fór","fórum","fóruð","fóru"]]],
+    ["verb, strong", "grafa, *6", "(to) dig", [["gref","grefr","gref","grǫfum","grafið","grafa"],["gróf","gróft","gróf","grófum","grófuð","grófu"]]],
+
+    ["verb, strong", "fá, *7", "(to) get", [["fæ","fær","fær","fám","fáið","fá"],["fekk","fekt","fekk","fengum","fenguð","fengu"]]],
+    ["verb, strong", "ganga, *7", "(to) walk", [["geng","gengr","gengr","gǫngum","gangið","ganga"],["gekk","gekt","gekk","gengum","genguð","gengu"]]]
+]

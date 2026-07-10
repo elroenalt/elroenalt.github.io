@@ -1,0 +1,23 @@
+[
+    ["mainTitle", "maðr, person"],
+    
+    ["text","word root is mann and a I-Mutation in nom/acc plural"],
+    ["table", [
+        [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+        [{"text":"<b>Nominative</b>","color":"gray"},{"text":"maðr","color":"transparent"},{"text":"menn","color":"transparent"}],
+        [{"text":"<b>Accusative</b>","color":"gray"},{"text":"mann","color":"transparent"},{"text":"menn","color":"transparent"}],
+        [{"text":"<b>Genitive</b>","color":"gray"},{"text":"manns","color":"transparent"},{"text":"manna","color":"transparent"}],
+        [{"text":"<b>Dative</b>","color":"gray"},{"text":"manni","color":"transparent"},{"text":"mǫnum","color":"transparent"}]
+    ]],
+    
+    ["title","Many Meanings:"],
+    ["text","- maðr, is used as person without sex infliction."],
+    ["text","- kvne-maðr / karl, is for a adult female / woman."],
+    ["text","- karl-maðr / kona, is for a adult male / man."],
+    ["text","- her-maðr / herr(masc), army, soldier"],
+    ["text","- varn-maðr / vǫrn(feminine), defense, defender"],
+    ["text","- engi-maðr / engi(neuter), owner of, dweller in, a meadow"],
+    ["text","- bú-maðr / bú(neuter), estate,houshold, householder, esate owner"],
+    ["text","- bardaga-maðr / bardagi(neuter), fight, fighter."],
+    ["text","- starf-maðr / starf(neuter), labor, workman,laborer, "]
+]
