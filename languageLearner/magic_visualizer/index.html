@@ -272,6 +272,7 @@
 
     const canvas = document.getElementById("canvas")
     const ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
 
     let focusObject = NaN
     canvas.addEventListener("mousemove", function (event) {
@@ -435,15 +436,20 @@
             let x = this.x
             let y = this.y
             let r = this.r
-            let text = (drawConfigs["useSeperator"]) ? this.text.trim().replaceAll(" ",drawConfigs["useSeperator"]) + drawConfigs["useSeperator"] : (this.text.trim()+" ")
+            const baseTextLength = this.text.trim().length || 1; 
+            let text = (drawConfigs["useSeperator"]) 
+                ? (this.text.trim().replaceAll(" ",drawConfigs["useSeperator"]) + drawConfigs["useSeperator"] )
+                : (this.text.trim()+" ")
+            if(!baseTextLength) { text = "_"; baseTextLength = 1}
             this.displayText = text
 
             const textLength = text.length
+            const fontSize = Math.min((50 * (r / 120) * (20 / baseTextLength)), 60);
+            this.fontSize = fontSize;
             if(!textLength) {text = "_"}
 
             const angleStep = (2*Math.PI) / textLength
 
-            const fontSize = Math.min((50*(r/120)*(20/textLength)), 60)
             this.fontSize = fontSize
             
             if(drawConfigs["drawRadiusCircle"]) {
@@ -533,6 +539,7 @@
     function drawFrames() {
         ctx.clearRect(0,0,500,500)
         frameCounter += 1/60
+        console.log(frameCounter)
         for(let circle of circles) {
             circle.draw(frameCounter)
         }
