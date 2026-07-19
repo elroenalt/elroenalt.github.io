@@ -539,7 +539,6 @@
     function drawFrames() {
         ctx.clearRect(0,0,500,500)
         frameCounter += 1/60
-        console.log(frameCounter)
         for(let circle of circles) {
             circle.draw(frameCounter)
         }
