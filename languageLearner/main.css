@@ -4,6 +4,7 @@ html,body {
     background-color: rgba(180, 27, 201, 0.167);
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 #Background {
     position: fixed;
@@ -27,7 +28,7 @@ html,body {
 .popUp {
     width: max(40vw,400px);
     height: max(30dvh,300px);
-    background-color: white;
+    background-color: beige;
     box-shadow: 0 4px 8px 0 rgba(155, 155, 155, 0.2), 0 6px 20px 0 rgba(155, 155, 155, 0.19);
     text-align: center;
     border-radius: 2rem;
@@ -39,7 +40,7 @@ html,body {
 .container {
     width: max(40vw,400px);
     height: max(30dvh,300px);
-    background-color: rgba(255, 255, 255, 0.679);
+    background-color: rgba(255, 255, 255, 0.7);
     text-align: center;
     display: grid;
     justify-content: center;
@@ -48,7 +49,7 @@ html,body {
 }
 
 .button {
-    background-color: white;
+    background-color: beige;
     border-radius: 5rem;
     box-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2), 0 6px 20px 0 rgba(100, 100, 100, 0.19);
     width: 3rem;
