@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/main.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="Background">
+</div>
+<div id="Forground">
+    <div class="popUp" id="main">
+        <canvas id="canvas" width="500" height="500" style="background-color: beige;"></canvas>
+        <div id="create" class="buttonCircle" onclick="circles.push(new magicCircle(250,250,50,'',defaultDrawConfigs))">+</div>
+        <div id="delete" class="buttonCircle" onclick="deleteElement()">X</div>
+        <div id="downloadPNG" class="buttonCircle" onclick="downloadCanvas('canvas','magic-Circle-draft.png')">🖫</div>
+        <div id="downloadVideo" class="buttonCircle" onclick="toggleVideoRecording()"></div>
+    </div>
+    <div id="hoverInfo" >Info</div>
+
+    <div class="popUp" id="circleSettings" >
+
+    </div>
+</div>
+<script>
+    let mediaRecorder;
+    let recordedChunks = [];
+    let isRecording = false;
+    function toggleVideoRecording() {
+        document.getElementById("downloadVideo").style.background = !isRecording ? "darkred" : "darkgreen"
+        if(isRecording) {
+            mediaRecorder.stop();
+            isRecording = false;
+            return
+        }
+        const videoStream = canvas.captureStream(60); 
+        mediaRecorder = new MediaRecorder(videoStream, {
+            mimeType: 'video/webm; codecs=vp9'
+        });
+        mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) {
+                recordedChunks.push(event.data);
+            }
+        };
+        mediaRecorder.onstop = exportVideo;
+        mediaRecorder.start();
+        isRecording = true;
+        frameCounter = 0;
+    }
+    function exportVideo() {
+        const blob = new Blob(recordedChunks, {
+            type: 'video/webm'
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'canvas-animation.webm';
+        a.click();
+        window.URL.revokeObjectURL(url);
+        recordedChunks = []; 
+        console.log("Video downloaded successfully!");
+    }
+    function deleteElement(id=false) {
+        if(id) {circles.pop(id)}
+        else if(focusObject || focusObject==0) {circles.pop(focusObject)}
+        //()
+    }
+    let defaultDrawConfigs = {
+        "textColor": "black",
+        "textShadow": "darkred",
+        "useRunes": true,
+        "useSeperator": ":",
+        "drawRadiusCircle": false,
+        "drawLinesToCenter": false,
+        "drawOuterCircle": "#000000",
+        "drawInnerCircle": "#000000",
+        "paddingOuterCircle": 5,
+        "paddingInnerCircle": 2,
+        "shadowsCircle": 2.5,
+        "shadowsColor": "#d1bc8a80",
+        "baseAngle": 90,
+        "angleSpeed": 5,
+    }
+    let defaultDrawConfigsInfoDisplay = {
+        "textColor": ["color",false,"#000000"],
+        "textShadow": ["color",true,"darkred"],
+        "useRunes": ["checkbox",false,true],
+        "useSeperator": ["text",true,":"],
+        "drawRadiusCircle": ["color",true,"#000000"],
+        "drawLinesToCenter": ["color",true,"#000000"],
+        "drawOuterCircle": ["color",true,"#000000"],
+        "drawInnerCircle": ["color",true,"#000000"],
+        "paddingOuterCircle": ["number",false,5],
+        "paddingInnerCircle": ["number",false,2],
+        "shadowsCircle": ["number",true,2.5],
+        "shadowsColor": ["color",false,"#d1bc8a80"],
+        "baseAngle": ["number",false,0],
+        "angleSpeed": ["number",true,0],
+    }
+    function createElement(type,text,id,classList) {
+        const element = document.createElement(type)
+        if(text){element.innerHTML = text}
+        if(id){element.id = id}
+        if(classList){element.classList = classList}
+        return element
+    }
+    let editCircle = NaN
+    function initSettings(circleID) {
+        console.log("circleID")
+        const circleSettings = document.getElementById("circleSettings")
+        circleSettings.innerHTML = ""
+        if(circleID != 0 && !circleID) {
+            console.log("circleID")
+            circleSettings.style.width = "fit-content"
+            editCircle = NaN
+            return
+        }
+        editCircle = circleID
+        circle = circles[circleID]
+        const circleProp = circle.drawConfigs
+        circleSettings.style.width = "20vw"
+        circleSettings.appendChild(createElement("div","Circle Settings","settings-title",false))
+        let containerCount = 0
+
+        
+        const container = createElement("div",false,"containerGenerell","container-settings")
+        const title = createElement("div","Generell Settings:","titleGenerell","title")
+        container.appendChild(title)
+
+        const labelText = createElement("label","<br>inscription: ","labelText"+containerCount,"label")
+        const inputText= createElement("input",false,"inputText"+containerCount,"text")
+        inputText.type = "text"
+        inputText.value = circle.text || "_"
+        labelText.appendChild(inputText)
+        inputText.addEventListener('input', (event) => {
+            circle.text = event.target.value
+            //()
+        });
+        container.appendChild(labelText)
+
+        const labelX = createElement("label","<br>x: ","labelX"+containerCount,"label")
+        const inputX = createElement("input",false,"inputX"+containerCount,"text")
+        inputX.type = "number"
+        inputX.value = circle.x || 1
+        labelX.appendChild(inputX)
+        inputX.addEventListener('input', (event) => {
+            circle.x = parseFloat(event.target.value) || 0;
+            //()
+        });
+        container.appendChild(labelX)
+
+        const labelY = createElement("label","y: ","labelY"+containerCount,"label")
+        const inputY = createElement("input",false,"inputY"+containerCount,"text")
+        inputY.type = "number"
+        inputY.value = circle.y || 1
+        labelY.appendChild(inputY)
+        inputY.addEventListener('input', (event) => {
+            circle.y = parseFloat(event.target.value) || 0;
+            //()
+        });
+        container.appendChild(labelY)
+
+        const labelR = createElement("label","<br>r: ","labelZ"+containerCount,"label")
+        const inputR = createElement("input",false,"inputZ"+containerCount,"text")
+        inputR.type = "number"
+        inputR.value = circle.r || 1
+        labelR.appendChild(inputR)
+        inputR.addEventListener('input', (event) => {
+            circle.r = parseFloat(event.target.value) || 1;
+            //()
+        });
+        container.appendChild(labelR)
+
+
+        circleSettings.appendChild(container)
+
+        const titleAdvanced = createElement("div","Advanced Settings:","titleAdvanced","title")
+        circleSettings.appendChild(titleAdvanced)
+
+
+
+        for(const [key,value] of Object.entries(defaultDrawConfigsInfoDisplay)) {
+            const container = createElement("div",false,"container"+containerCount,"container-settings")
+            const title = createElement("div",key,"title"+containerCount,"title")
+            container.appendChild(title)
+            const containerMainInput = createElement("div",false,"containerMainInput"+containerCount,"containerMainInput")
+            let globalInput = NaN
+            if(value[0] == "color") {
+                const label = createElement("label","select color: ","colorLabel"+containerCount,"label")
+                const input = createElement("input",false,"colorInput"+containerCount,"circleColor")
+                input.type = "color"
+                input.value = circleProp[key] || "#000000"
+                globalInput = input
+                label.appendChild(input)
+                containerMainInput.appendChild(label)
+                input.addEventListener('change', (event) => {
+                    circleProp[key] = event.target.value
+                    //()
+                });
+            }else if(value[0] == "number") {
+                const label = createElement("label","input number: ","numberLabel"+containerCount,"label")
+                const input = createElement("input",false,"numberInput"+containerCount,"text")
+                input.type = "number"
+                input.value = circleProp[key] || 1;
+                globalInput = input
+                label.appendChild(input)
+                containerMainInput.appendChild(label)
+                input.addEventListener('input', (event) => {
+                    circleProp[key] = parseFloat(event.target.value) || 1;
+                    //()
+                });
+            }else if(value[0] == "text") {
+                const label = createElement("label","input text: ","textLabel"+containerCount,"label")
+                const input = createElement("input",false,"textInput"+containerCount,"text")
+                input.type = "text"
+                input.value = circleProp[key] || ""
+                globalInput = input
+                label.appendChild(input)
+                containerMainInput.appendChild(label)
+                input.addEventListener('input', (event) => {
+                    circleProp[key] = event.target.value
+                    //()
+                });
+            }else if(value[0] == "checkbox") {
+                const label = createElement("label","toggle: ","checkBoxLabel"+containerCount,"label")
+                const switchContainer = createElement("label",false,"switch-container"+containerCount,"switch-container")
+                const input = createElement("input",false,"checkboxInput"+containerCount,"magicToggle")
+                const span = createElement("span",false,"slider"+containerCount,"slider")
+                input.type = "checkbox"
+                input.checked = circleProp[key]
+                label.appendChild(switchContainer)
+                switchContainer.appendChild(input)
+                switchContainer.appendChild(span)
+                containerMainInput.appendChild(label)
+                input.addEventListener('change', (event) => {
+                    circleProp[key] = event.target.checked
+                    //()
+                });
+            }
+            if(value[1]) {
+                const label = createElement("label","enable: ","checkBoxLabel"+containerCount,"containerEnableCheckBox")
+                const switchContainer = createElement("label",false,"switch-container"+containerCount,"switch-container")
+                const input = createElement("input",false,"checkboxInput"+containerCount,"magicToggle")
+                const span = createElement("span",false,"slider"+containerCount,"slider")
+                input.type = "checkbox"
+                input.checked = circleProp[key]
+                containerMainInput.style.visibility = circleProp[key] ? "visible" : "hidden"
+                label.appendChild(switchContainer)
+                switchContainer.appendChild(input)
+                switchContainer.appendChild(span)
+                container.appendChild(label)
+                input.addEventListener('change', (event) => {
+                    console.log(circleProp[key],defaultDrawConfigsInfoDisplay[key],event.target.checked)
+                    if (event.target.checked) {
+                        containerMainInput.style.visibility = "visible"
+                        console.log(circleProp[key],defaultDrawConfigsInfoDisplay[key])
+                        circleProp[key] = defaultDrawConfigsInfoDisplay[key][2]
+                    } else {
+                        containerMainInput.style.visibility = "hidden"
+                        circleProp[key] = false
+                    }
+                    //()
+                });
+            }
+            container.appendChild(containerMainInput)
+            circleSettings.appendChild(container)
+            containerCount += 1
+        }
+    }
+    const hoverInfo = document.getElementById("hoverInfo")
+
+    const canvas = document.getElementById("canvas")
+    const ctx = canvas.getContext("2d");
+
+    let focusObject = NaN
+    canvas.addEventListener("mousemove", function (event) {
+        let detectedCol = false
+
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        for(let i=0; i<circles.length; i++) {
+            const circle = circles[i]
+            col = circle.checkCol(mouseX,mouseY,2)
+            if(col) {
+                detectedCol = true
+                displayInfoCircle(i)
+                focusObject = i
+            }
+        }
+        if(!detectedCol) {
+            focusObject = NaN
+            hoverInfo.style.display = "none"
+        }else {
+            hoverInfo.style.display = "inline-block"
+            hoverInfo.style.left = event.clientX + 10 + "px"
+            hoverInfo.style.top = event.clientY + 10 + "px"
+        }
+    });
+    canvas.addEventListener("click", function () {
+        initSettings(focusObject)
+    });
+    function downloadCanvas(canvasId, filename = 'my-canvas.png') {
+        const canvas = document.getElementById(canvasId);
+        const dataURL = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = dataURL;
+        link.click();
+    }
+    function displayInfoCircle(circleID,forceUpdate=false) {
+        if(focusObject == circleID && !forceUpdate) {return}
+        const circle = circles[circleID]
+        hoverInfo.textContent= circle.displayText
+
+
+    }
+
+    const runeTable = {
+        "f": "ᚠ",
+
+        "u": "ᚢ",
+        "ú": "ᚢ",
+        "v": "ᚢ",
+        "o": "ᚢ",
+        "ó": "ᚢ",
+        "y": "ᚢ",
+        "ý": "ᚢ",
+        "ø": "ᚢ",
+        "ǿ": "ᚢ",
+
+        "a": "ᛅ",
+        "á": "ᛅ",
+        "ǫ": "ᛅ",
+        "æ": "ᛅ",
+        "e": "ᛅ",
+
+        "i": "ᛁ",
+        "í": "ᛁ",
+        "j": "ᛁ",
+        "é": "ᛁ",
+
+        "d": "ᛏ",
+        "t": "ᛏ",
+
+        "k": "ᚴ",
+        "g": "ᚴ",
+
+        "þ": "ᚦ",
+        "ð": "ᚦ",
+
+        "r": "ᚱ",
+        "z": "ᛦ",
+        "R": "ᛦ",
+
+        "h": "ᚼ",
+
+        "n": "ᚾ",
+
+        "i": "ᛁ", 
+
+        "s": "ᛋ",
+        "c": "ᛋ", 
+
+        "b": "ᛒ",
+        "p": "ᛒ", 
+
+        "m": "ᛘ",
+
+        "l": "ᛗ", 
+
+        "n": "ᚾ"
+    }
+    function drawCircle(x,y,r,lineWidth,fillColor,strokeStyle,filter=false) {
+        ctx.save();
+        ctx.filter = lineWidth || "none";
+        ctx.lineWidth = lineWidth || 1;
+        ctx.fillStyle = fillColor || "transparent"; 
+        ctx.strokeStyle = strokeStyle || "transparent";
+        ctx.beginPath()
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        if(fillColor) {
+            ctx.fill();
+        }
+        if(strokeStyle) {
+            ctx.stroke();
+        }
+        ctx.filter = "none";
+        ctx.restore();
+    }
+    function drawLine(x1,y1,x2,y2,lineWidth,fillColor,strokeStyle) {
+        ctx.save();
+        ctx.lineWidth = lineWidth || 1;
+        ctx.fillStyle = fillColor || "transparent"; 
+        ctx.strokeStyle = strokeStyle || "transparent";
+        ctx.moveTo(x1,y1)
+        ctx.lineTo(x2,y2)
+        if(fillColor) {
+            ctx.fill();
+        }
+        if(strokeStyle) {
+            ctx.stroke();
+        }
+        ctx.restore();
+    }
+    
+    class magicCircle {
+        constructor(x,y,r,text,drawConfigs = defaultDrawConfigs) {
+            this.x = x
+            this.y = y
+            this.r = r
+            this.text = text
+            this.displayText = (drawConfigs["useSeperator"]) ? text.trim().replaceAll(" ",drawConfigs["useSeperator"]) + drawConfigs["useSeperator"] : text.trim()
+            this.drawConfigs = structuredClone(drawConfigs)
+            this.fontSize = 50*(r/110)*(22/this.displayText.length)
+
+            this.draw()
+
+        }
+        checkCol(otherX,otherY,otherR) {
+            const dx = this.x - otherX
+            const dy = this.y - otherY
+            const d = Math.sqrt(dx**2 + dy**2)
+
+            const maxD = (this.r + this.fontSize/2 + this.drawConfigs["paddingOuterCircle"]) + otherR
+            const minD = (this.r - this.fontSize/2 - this.drawConfigs["paddingInnerCircle"]) + otherR
+            if(d < maxD && d > minD) {
+                return true
+            }
+        }
+        draw(frameCounter=false) {
+            let drawConfigs = this.drawConfigs 
+            let x = this.x
+            let y = this.y
+            let r = this.r
+            let text = (drawConfigs["useSeperator"]) ? this.text.trim().replaceAll(" ",drawConfigs["useSeperator"]) + drawConfigs["useSeperator"] : (this.text.trim()+" ")
+            this.displayText = text
+
+            const textLength = text.length
+            if(!textLength) {text = "_"}
+
+            const angleStep = (2*Math.PI) / textLength
+
+            const fontSize = Math.min((50*(r/120)*(20/textLength)), 60)
+            this.fontSize = fontSize
+            
+            if(drawConfigs["drawRadiusCircle"]) {
+                drawCircle(x,y,r,4,false,drawConfigs["drawRadiusCircle"])
+            }
+
+            if(drawConfigs["drawOuterCircle"]) {
+                if(drawConfigs["shadowsCircle"]) {
+                    drawCircle(
+                        x, y,
+                        r + fontSize/2 + drawConfigs["paddingOuterCircle"] + drawConfigs["shadowsCircle"],
+                        4, false,
+                        drawConfigs["shadowsColor"] || drawConfigs["drawOuterCircle"] + "10"
+                    );
+                }
+                drawCircle(x, y, r + fontSize/2 + drawConfigs["paddingOuterCircle"], 4, false, drawConfigs["drawOuterCircle"]);
+            }
+
+            if(drawConfigs["drawInnerCircle"]) {
+                if(drawConfigs["shadowsCircle"]) {
+                    drawCircle(
+                        x, y,
+                        r - fontSize/2 - drawConfigs["paddingInnerCircle"] - drawConfigs["shadowsCircle"],
+                        4, false,
+                        drawConfigs["shadowsColor"] || drawConfigs["drawInnerCircle"] + "10"
+                    );
+                }
+                drawCircle(x, y, r - fontSize/2 - drawConfigs["paddingInnerCircle"], 4, false, drawConfigs["drawInnerCircle"]);
+            }
+
+            ctx.save();
+            ctx.font = fontSize + "px 'Uncial Antiqua'";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            ctx.fillStyle = drawConfigs["textColor"];
+            
+            let baseAngle = -0.5*Math.PI + ((drawConfigs["baseAngle"]/180)*Math.PI)
+
+            if(frameCounter && drawConfigs["angleSpeed"]) {
+                baseAngle += ((drawConfigs["angleSpeed"]/180)*Math.PI) * frameCounter
+            } 
+            for(let i=0; i<textLength; i++) {
+                const rawAngle = angleStep*i
+                const circleAngle = baseAngle + rawAngle
+
+                const circleY = y + (r * Math.sin(circleAngle))
+                const circleX = x + (r * Math.cos(circleAngle))
+
+                if(drawConfigs["drawLinesToCenter"]) {
+                    const outerX = x + ((drawConfigs["drawRadiusCircle"] ? r : (r-fontSize/2)-drawConfigs["paddingInnerCircle"]) * Math.cos(circleAngle))
+                    const outerY = y + ((drawConfigs["drawRadiusCircle"] ? r : (r-fontSize/2)-drawConfigs["paddingInnerCircle"]) * Math.sin(circleAngle))
+                    drawLine(x,y,outerX,outerY,2,false,drawConfigs["drawLinesToCenter"])
+                }
+
+                let char = text[i]
+                if(drawConfigs["useRunes"]) {
+                    char = runeTable[char] ?? runeTable[char.toLowerCase()] ?? char
+                }
+                ctx.save();
+                
+                if(drawConfigs["textShadow"]) {
+                    ctx.shadowColor = drawConfigs["textShadow"];
+                    ctx.shadowBlur = 1;
+                    ctx.shadowOffsetX = fontSize/20;
+                    ctx.shadowOffsetY = fontSize/20;
+                }
+                ctx.translate(circleX, circleY);
+                ctx.rotate(circleAngle +0.5*Math.PI);
+
+                ctx.fillText(char,0,0);
+                ctx.restore();
+            }
+            ctx.restore(); 
+        }
+    }
+    function idk() { /*redraw()*/
+        frameCounter = -1
+        ctx.clearRect(0,0,500,500)
+        let drawFrame = false
+        for(let circle of circles) {
+            circle.draw()
+            if(circle.drawConfigs["angleSpeed"]) {drawFrame=true}
+        }
+        console.log(drawFrame)
+    }
+    let frameCounter = 0
+    function drawFrames() {
+        ctx.clearRect(0,0,500,500)
+        frameCounter += 1/60
+        console.log(frameCounter)
+        for(let circle of circles) {
+            circle.draw(frameCounter)
+        }
+        if(frameCounter >= -1) {requestAnimationFrame(drawFrames)}
+    }
+    let circles = [
+        new magicCircle(250,250,100,"Ek kalla eld till þik Ek kalla jǫrð till þik"),
+        new magicCircle(250,250,50,"Ek kalla þit till mín"),
+        new magicCircle(400,100,55,"Ek kalla eld till þik")
+    ]
+    initSettings(NaN)
+    drawFrames()
+</script>
+</body>
+</html>

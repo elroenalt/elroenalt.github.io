@@ -1,0 +1,161 @@
+.popUp {
+    height: fit-content;
+    width: fit-content;
+    padding: 2rem;
+    position: relative;
+}
+#hoverInfo {
+    position: absolute;
+    color: black;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    bottom: 0px; 
+    left: 0px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); 
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    display: none;
+}
+#circleSettings {
+    position: absolute;
+    right: -2rem;
+    padding-right: 3rem;
+    min-height: 70dvh;
+    max-height: 80dvh;
+    width: 20vw;
+    padding: 2rem;
+    display: grid;
+    justify-items: center;
+    justify-content: 2rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    overflow-y: auto;
+}
+#settings-title {
+    font-size: 1.2rem;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+input[type="text"] {
+    margin-top: 1rem;
+    width: 100%;
+    background: rgb(255, 255, 240);
+    border-radius: 16px;
+}
+
+
+.switch-container {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    cursor: pointer;
+}
+.switch-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4a4a4a;
+    border-radius: 22px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.switch-container input:checked + .slider {
+    background-color: #3a86ff;
+}
+.switch-container input:checked + .slider::before {
+    transform: translateX(18px);
+}
+.switch-container input:focus-visible + .slider {
+    box-shadow: 0 0 0 2px #ffffff;
+}
+
+input[type="color"] {
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.container-settings {
+    
+    padding-bottom: 1rem;
+}
+.container-settings label{
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.title {
+    font-size: 1.2em;
+    text-decoration: underline;
+    padding-bottom: 0.25rem;
+}
+.containerEnableCheckBox {
+    
+}
+#containerGenerell {
+    display: grid;
+}
+.buttonCircle {
+    background-color: rgb(228, 228, 204);
+    border-radius: 5rem;
+    box-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2), 0 6px 20px 0 rgba(100, 100, 100, 0.19);
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+}
+#create {
+    left: -1.5rem;
+    top: -1.5rem;
+}
+#delete {
+    right: -1.5rem;
+    top: -1.5rem;
+}
+#downloadPNG {
+    right: -1.5rem;
+    bottom: -1.5rem;
+}
+#downloadVideo {
+    left: -1.5rem;
+    bottom: -1.5rem;
+    background-color: darkgreen;
+
+}
