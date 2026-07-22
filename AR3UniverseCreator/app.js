@@ -279,14 +279,28 @@ async function downloadAllDimensions() {
         const name = planet.file_path
         const fileName = `${name}.json`;
         console.log(planet)
-        if  (planet["properties"]["atmosphereComposition"]) {
-            Object.keys(planet["properties"]["atmosphereComposition"]).forEach((key) => {
-                planet["properties"]["atmosphereComposition"][key]["in_atm"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["in_atm"])
-                planet["properties"]["atmosphereComposition"][key]["frozen_surface"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["frozen_surface"])
-                planet["properties"]["atmosphereComposition"][key]["frozen_deep_below_surface"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["frozen_deep_below_surface"])
-                planet["properties"]["atmosphereComposition"][key]["liquid"] = parseFloat(planet["properties"]["atmosphereComposition"][key]["liquid"])
-                planet["properties"]["atmosphereComposition"][key]["worldGenSeaLevel"] = parseInt(planet["properties"]["atmosphereComposition"][key]["worldGenSeaLevel"])
-            })}
+        const atmosphereComposition = default_json["atmosphereComposition"]
+        console.log(atmosphereComposition)
+        planet["properties"]["isKnown"] = true
+        Object.keys(atmosphereComposition).forEach((key) => {
+            console.log(key in atmosphereComposition,planet["properties"]["atmosphereComposition"])
+            atmosphereComposition[key]["in_atm"] = parseFloat(
+                planet?.properties?.atmosphereComposition?.[key]?.["in_atm"] ?? 0.0
+            );
+            atmosphereComposition[key]["frozen_surface"] = parseFloat(
+                planet?.properties?.atmosphereComposition?.[key]?.["frozen_surface"] ?? 0.0
+            );
+            atmosphereComposition[key]["frozen_deep_below_surface"] = parseFloat(
+                planet?.properties?.atmosphereComposition?.[key]?.["frozen_deep_below_surface"] ?? 0.0
+            );
+            atmosphereComposition[key]["liquid"] = parseFloat(
+                planet?.properties?.atmosphereComposition?.[key]?.["liquid"] ?? 0.0
+            );
+            atmosphereComposition[key]["worldGenSeaLevel"] = parseInt(
+                planet?.properties?.atmosphereComposition?.[key]?.["worldGenSeaLevel"] ?? 0
+            );
+        })
+        planet["properties"]["atmosphereComposition"] = atmosphereComposition
         console.log(planet["properties"]["atmosphereComposition"])
         const fileContent = JSON.stringify(planet.properties, null, 4);
         
