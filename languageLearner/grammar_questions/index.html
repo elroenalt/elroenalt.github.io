@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App</title>
+<link rel="stylesheet" type="text/css" href="/main.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="Background">
+</div>
+<div id="Forground">
+    <div id="KeyboardContainer"></div>
+    <div class="container" id="ContainerCards">
+        <div class="container"id="ContainerCardSettings">
+            <div class="button" id="ContainerCardSettingsButtonMiddle" onclick="toggleKeyboard()">⌨️</div>
+        </div>
+        <div class="popUp"id="ContainerCard">
+            <div id="infoQuestion"></div>
+            <div id="solEnter">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><div>Singular</div></td>
+                        <td><div>Plural</div></td>
+                    </tr>
+                    <tr>
+                        <td><div>Nominative</div></td>
+                        <td><input type="text" value="00"></td>
+                        <td><input type="text" value="01"></td>
+                    </tr>
+                    <tr>
+                        <td><div>Accusative</div></td>
+                        <td><input type="text" value="10"></td>
+                        <td><input type="text" value="11"></td>
+                    </tr>
+                    <tr>
+                        <td><div>Genitive</div></td>
+                        <td><input type="text" value="20"></td>
+                        <td><input type="text" value="21"></td>
+                    </tr>
+                    <tr>
+                        <td><div>Dative</div></td>
+                        <td><input type="text" value="30"></td>
+                        <td><input type="text" value="31"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="container"id="ContainerCardButtons">
+            <div class="button" id="ContainerCardButtonLast" onclick="changeQuestion(curId-1)"><</div>
+            <div class="button" id="ContainerCardButtonReveal" onclick="checkSol()">☐</div>
+            <div class="button" id="ContainerCardButtonNext" onclick="changeQuestion(curId+1)">></div>
+        </div>
+    </div>
+</div>
+<script>
+    const currentHash = window.location.hash.replace("#","");
+    let questionData = []
+    let reveal = false
+    let curId = NaN
+    let curDisplay = NaN
+    let questionIds =[]
+
+    // [0,0] <-> [answered,correctAnswers]
+    let stats = [0,0]
+    let wrongs = []
+
+    loadHash(currentHash)
+
+    async function loadHash(hash) {
+        const registeryTable = {
+            "a": "nouns_questions",
+            "b": "pronouns_questions",
+            "c": "weak_verbs_questions",
+            "c": "strong_verbs_questions"
+        }
+        questionIds = []
+        let lastQuestionData = NaN
+        for(let i=0;i<hash.length;i++) {
+            const char = hash[i]
+            if(char in registeryTable) {
+                if(lastQuestionData) {questionIds.push(lastQuestionData)}
+                lastQuestionData = [registeryTable[char],""]
+            }else if ("0123456789".includes(String(char))) {
+                lastQuestionData[1] += String(char)
+            }else if (char == "/") {
+                let startId = Number(lastQuestionData[1])
+                let endId = ""
+                for(let i2=i+1;i2<hash.length;i2++) {
+                    const char2 = hash[i2]
+                    if(char2 in registeryTable) {
+                        i = i2
+                        break;
+                    }else if ("0123456789".includes(String(char2))) {
+                        endId += String(char2)
+                    }
+                }
+                for(let id=startId;id<=Number(endId);id++) {
+                    questionIds.push([lastQuestionData[0],id])
+                }
+                lastQuestionData = NaN
+            }
+        }
+        if(lastQuestionData) {questionIds.push(lastQuestionData)}
+        const files = {}
+        questionData = []
+        for(let question of questionIds) {
+            const id = Number(question[1])
+            if(!files[question[0]]) {
+                files[question[0]] = await loadFile(question[0])
+            }
+            const data = files[question[0]][id]
+            questionData.push([question[0],data])
+        }
+        console.log(questionData)
+        changeQuestion(0)
+    }
+    async function loadFile(fileName) {
+        try {
+            const response = await fetch(`/storage/oldNorse/${fileName}.json`);
+            const Data = await response.json();
+            return Data
+        } catch (error) {
+            console.error("Oops, couldn't load the JSON file:", error);
+        }
+    }
+    initKeyBoard()
+    async function initKeyBoard() {
+        const alphabet = await loadFile("alphabet")
+        const keyBoard = document.getElementById('KeyboardContainer')
+        keyBoard.style.display = "none"
+        const keys = []
+        const keyCount = alphabet.length
+        for(let character of alphabet) {
+            const key = createKey(character)
+            keys.push(key)
+            keyBoard.appendChild(key)
+
+        }
+        const shift = createKey(["^","^"," "],"shift",costumListener = () => {
+            for(let key of keys ){
+                key.textContent = key.character[Number(shiftToggle)]
+            }
+            shiftToggle = !shiftToggle
+            inputFocus.focus()
+        })
+        const spaceBar = createKey([" "," "," "],"spaceBar")
+        keys.push(spaceBar)
+        const remove = createKey(["<","<"," "],"backspace",costumListener = () => {
+            let curValue = inputFocus.value
+            inputFocus.value = curValue.slice(0, -1)
+            inputFocus.focus()
+        })
+        keyBoard.appendChild(shift)
+        keyBoard.appendChild(spaceBar)
+        keyBoard.appendChild(remove)
+    }
+    function createKey(character,classList="keyCharacter",costumListener=false) {
+        const key = document.createElement("div")
+        key.textContent = character[1]
+        key.classList = classList + " key"
+        key.character = character
+        key.addEventListener("click",costumListener ? costumListener : () => {
+            keyBoardPress(character)
+        })
+        return key
+    }
+    let shiftToggle = false
+    let inputFocus = NaN
+    function keyBoardPress(key) {
+        inputFocus.value += key[shiftToggle ? 0 : 1]
+        inputFocus.focus()
+    }
+    let keyboardOn = false
+    function toggleKeyboard() {
+        document.getElementById('KeyboardContainer').style.display = keyboardOn ? "none" : "grid"
+        keyboardOn = !keyboardOn
+    }
+    function initPronounDisplay() {
+        const construct = [
+            ["Nominative",false],
+            ["Accusative",false],
+            ["Genitive",false],
+            ["Dative",false]
+        ]
+        const table = initTable(construct)
+        document.querySelector("#solEnter").appendChild(table)
+    }
+    function initTable(construct) {
+        const table = document.createElement("table")
+        for(let rowId=0; rowId<construct.length;rowId++) {
+            const row = construct[rowId]
+            const tr = document.createElement("tr")
+            let inputCount = 0
+            for(let colId=0; colId<construct[0].length;colId++) {
+                const td = document.createElement("td")
+                const item = row[colId]
+                if(item) {
+                    td.innerHTML = `<div>${item}</div>`
+                }else {
+                    const input = document.createElement("input")
+                    const id = `${rowId - (construct.length > 4 ? 1 : 0 )}${inputCount}`
+                    input.value = id
+                    input.id = id
+                    input.type = "text"
+                    input.inputmode = "none"
+                    input.autocomplete = "off"
+                    input.addEventListener("click", () => {
+                        inputFocus = input
+                    })
+                    td.appendChild(input)
+                    inputCount += 1
+                }
+                tr.appendChild(td)
+            }
+            table.appendChild(tr)
+        }
+        return table
+    }
+    function initNounDisplay() {
+        const construct = [
+            ["\u200B","Singular","Plural"],
+            ["Nominative",false,false],
+            ["Accusative",false,false],
+            ["Genitive",false,false],
+            ["Dative",false,false]
+        ]
+        const table = initTable(construct)
+        document.querySelector("#solEnter").appendChild(table)
+    }
+    function initVerbDisplay() {
+        const construct = [
+            ["\u200B","Present","Past"],
+            ["Ek",false,false],
+            ["þú",false,false],
+            ["þat/hon/hann",false,false],
+            ["vér/vít",false,false],
+            ["þér/þit",false,false],
+            ["þau/þær/þeir",false,false]
+        ]
+        const table = initTable(construct)
+        document.querySelector("#solEnter").appendChild(table)
+    }
+    function initDisplay(type) {
+        curDisplay,type = type.replace("_questions","")
+        const container = document.querySelector("#solEnter")
+        container.innerHTML = ""
+        switch(type) {
+            case("nouns"): {
+                initNounDisplay()
+                break;
+            }
+            case("pronouns"): {
+                initPronounDisplay()
+                break;
+            }
+            case("weak_verbs"): {
+                initVerbDisplay()
+                break;
+            }
+        }
+    }
+    function displayTitle(data,revealAddInfo=true,revealTranslation = true) {
+        const infoQuestion = document.querySelector('#infoQuestion')
+        const unTranslated = revealAddInfo ? data[1] : data[1].split(",")[0]
+        const text = `<div class="infoTitle">Fill in the blanks</div>
+            <div class="wordInfo">${unTranslated + (revealTranslation ? ` ⇄ ${data[2]}` : "")}</div>
+            ${revealAddInfo ? `<div class="wordInfo">${data[0]}</div>` : ""}`
+        infoQuestion.innerHTML = text
+    }
+    function displayQuestion(dataQuestion,extraHelp = false) {
+        let [type,data] = dataQuestion
+        displayTitle(data,true,true)
+
+        type = type.replace("_questions","")
+        if(curDisplay != type) {
+            initDisplay(type)
+        }
+        let cases = (["nouns","weak_verbs"].includes(type)) ? data[3] : [data[3]]
+        if(questionData[curId][4]) {cases = questionData[curId][4]}
+        for(let colId=0;colId<cases.length;colId++) {
+            for(let rowId=0;rowId<cases[0].length;rowId++) {
+                const id = `${rowId}${colId}`
+                const input = document.getElementById(id)
+                input.style.color = "black"
+                input.value = questionData[curId][4] ? questionData[curId][4][colId][rowId] : ""
+                input.style.background = !questionData[curId][4] ? "transparent" : (questionData[curId][4][colId][rowId].includes("✓") ? "#B4CBB7" : "#E8A598")
+            }""
+        }
+    }
+    function checkIfComplete() {
+        for(let question of questionData) {
+            if(!question[4]) {return}
+        }
+        console.log(`complete: ${stats[1]}/${stats[0]}`)
+        generateNewQuestions(wrongs)
+    }
+    function generateNewQuestions(newIds=wrongs) {
+        const registeryTable = {
+            "nouns_questions": "a",
+            "pronouns_questions": "b",
+            "weak_verbs_questions": "c"
+        }
+        let Ids = newIds.sort()
+        let newHash = "#"
+        for(id in Ids) {
+            fileType = registeryTable[questionIds[id][0]]
+            newHash += fileType + id[0]
+        }
+        console.log(newHash,Ids)
+        window.location.hash = newHash 
+        location.reload();
+    }
+    function checkSol() {
+        if(questionData[curId][4]) {return}
+        let correction = []
+        let allCorrect = true
+        document.querySelector("#ContainerCardButtonReveal").style.background = "red"
+        document.querySelector("#ContainerCardButtonReveal").textContent = "☒"
+
+        let [type,data] = questionData[curId]
+        type = type.replace("_questions","")
+        displayTitle(data,true,true)
+        
+        let cases = (["nouns","weak_verbs"].includes(type)) ? data[3] : [data[3]]
+        for(let colId=0;colId<cases.length;colId++) {
+            correction.push([])
+            for(let rowId=0;rowId<cases[0].length;rowId++) {
+                const id = `${rowId}${colId}`
+                const input = document.getElementById(id)
+                const value = input.value.trim().toLowerCase()
+                const correctValue = ((curDisplay == "nouns" || "weak_verbs") ? cases[colId][rowId] : cases[colId][rowId]).trim().toLowerCase()
+                stats[0] += 1
+                if(value == correctValue) {
+                    input.value += " ✓"
+                    input.style.background = "#B4CBB7" 
+                    stats[1] += 1
+                }else {
+                    input.value += " \u2260 " + correctValue
+                    input.style.background = "#E8A598"
+                    allCorrect = false
+                }
+                correction[colId].push(input.value)
+            }
+        }
+        if(!allCorrect) {
+            wrongs.push(curId)
+        }
+        questionData[curId][4] = correction
+        checkIfComplete()
+    }
+    function changeQuestion(id=curId) {
+        curId = id
+        const cardData = questionData[id]
+
+        if(id==0){document.querySelector("#ContainerCardButtonLast").style.visibility = "hidden";}
+        else{document.querySelector("#ContainerCardButtonLast").style.visibility = "visible";}
+        if(id>=questionData.length-1){document.querySelector("#ContainerCardButtonNext").style.visibility = "hidden";}
+        else{document.querySelector("#ContainerCardButtonNext").style.visibility = "visible";}
+        document.querySelector("#ContainerCardButtonReveal").style.background = cardData[4] ? "red" : "green"
+        document.querySelector("#ContainerCardButtonReveal").textContent = cardData[4] ? "☒" : "☐" 
+        
+        displayQuestion(cardData,true)
+    }
+</script>
+</body>
+</html>

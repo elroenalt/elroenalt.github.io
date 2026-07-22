@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div id="Background">
+</div>
+<div id="Forground">
+    <div class="popUp" >
+        <div id="generateVocCards"onclick="generateVocCards()">Generate Vocabulary Cards</div>
+        <div id="generateCaseGrammarNouns"onclick="generateCaseGrammarNouns()">Generate Case Grammar Nouns</div>
+    </div>
+</div>
+<script>
+    async function loadFile(file_name) {
+        try {
+            const response = await fetch(`/storage/oldNorse/${file_name}.json`)
+            const allData = await response.json()
+            return allData
+        } catch (error) {
+            console.error("Oops, couldn't load the JSON file:", error)
+        }
+    }
+    async function generateCaseGrammarNouns(amount=4) {
+        const hash = await generateRandomSequence("nouns_questions",amount,"Noun masc.")
+        if(hash){window.location.href = `grammar_questions/#nouns|${hash}`}
+
+    }
+    async function generateVocCards(amount=10) {
+        const hash = await generateRandomSequence("words",amount)
+        if(hash){window.location.href = `card/#${hash}`}
+    }
+    async function generateRandomSequence(fileName,amount=4,filter = false) {
+        const data = await loadFile(fileName)
+        const totalCards = data.length
+        const possibles = []
+        for(let i=0; i<totalCards; i++) {
+            console.log(data[i][0],filter,data[i][0] == filter & filter)
+            if(filter){
+                if(data[i][0] == filter) {
+                    possibles.push(i)
+                }
+                console.log(i)
+            }
+            else if(!filter) {
+                possibles.push(i)
+            }
+        }
+        if(!possibles.length) {return False}
+        const ids = []
+        for(let i=0; i<amount; i++) {
+            const rand = Math.floor(Math.random() * possibles.length)
+            const id = possibles[rand]
+            possibles.pop(rand)
+            ids.push(id)
+        }
+        const hash = ids.join("-")
+        return hash
+    }
+</script>
+</body>
+</html>

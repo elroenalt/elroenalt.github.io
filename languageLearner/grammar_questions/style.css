@@ -1,0 +1,171 @@
+html,body {
+    overflow: hidden;
+}
+#ContainerCards {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+    width: 45vw;
+    height: 80dvh;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+#ContainerCard {
+    box-sizing: border-box;
+    padding: 2rem 1rem 1rem 1rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    height: fit-content;
+    transition: all 0.2s ease-out;
+    display: grid;
+    box-shadow: 4px 4px 0px rgb(186, 186, 186), 7px 7px 0px rgb(72, 72, 72);
+    backface-visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+#ContainerCardButtons, 
+#ContainerCardSettings {
+    font-weight: 700;
+    box-sizing: border-box;
+    height: 12.5dvh;
+    padding: 1rem;
+    grid-auto-flow: column;
+    gap: 15%;
+    background: transparent;
+    width: 100%;
+}
+
+#ContainerCardButtonReveal {
+    background: rgba(51, 0, 69, 0.595);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+}
+
+#solEnter {
+    padding-top: 2rem;
+}
+
+table, td {
+    border-collapse: collapse; 
+    padding: 8px;
+}
+
+input {
+    width: 80px;
+    border-radius: 0rem;
+}
+
+.infoTitle {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+
+.wordInfo {
+    font-size: 1.1rem;
+}
+
+
+#KeyboardContainer {
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    background: white;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1px;
+    scale: 0.75;
+    transform-origin: top right;
+}
+
+.keyCharacter, 
+.backspace {
+    width: 40px;
+    height: 40px;
+}
+
+.spaceBar {
+    grid-column: span 5;
+    width: 211px;
+    height: 40px;
+}
+
+.shift {
+    grid-column: span 2;
+    width: 83px;
+    height: 40px;
+}
+
+.key {
+    background: gray;
+    transition: all 0.1s ease-out;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+    font-size: 1.05rem;
+    border: 1px solid transparent;
+}
+
+.key:hover {
+    border: 1px solid white;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+
+@media (max-width: 720px) {
+    #KeyboardContainer {
+        right: auto;
+        top: auto;
+        bottom: 0rem;
+        left: 0rem;
+        width: 369px;
+        height: 205px;
+        transform-origin: bottom left;
+    }
+
+    #ContainerCard {
+        width: 95vw;
+        height: 55dvh;
+        font-size: 1rem;
+        box-shadow: none;
+    }
+
+    #ContainerCards {
+        width: 100vw;
+        height: 90dvh;
+    }
+
+    .wordInfo, 
+    .infoTitle {
+        font-size: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    #ContainerCardButtons, 
+    #ContainerCardSettings {
+        height: 17.5dvh;
+    }
+
+    .button {
+        font-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    input {
+        width: 4.5rem;
+        height: 1rem;
+        font-size: 1rem;
+    }
+    
+    table, td {
+        padding: 1px;
+        font-size: 0.9rem;
+    }
+}

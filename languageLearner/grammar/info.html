@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App</title>
+<link rel="stylesheet" type="text/css" href="/main.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="Background">
+</div>
+<div id="Forground">
+    <div class="container" id="PageContainer">
+        <div class="popUp"id="Page">
+        </div>
+    </div>
+</div>
+<script>
+    const currentHash = window.location.hash.replace("#","");
+    console.log(currentHash)
+    async function loadData() {
+        try {
+            const response = await fetch(`/storage/oldNorse/${currentHash}_grammar.json`);
+            const allData = await response.json();
+
+            console.log(allData); 
+            document.querySelector("#Page").innerHTML = ""
+            for (const item of allData) {
+                displayItem(item)
+            }
+        } catch (error) {
+            console.error("Oops, couldn't load the JSON file:", error);
+        }
+    }
+    function displayItem(item,parent = document.querySelector("#Page")) {
+        const type = item[0]
+        const data = item[1]
+        let element = document.createElement("div")
+        switch(type) {
+            case "container": {
+                const title = data[0]
+                element.classList = `${title[0]} loadable`;
+                console.log(title)
+                element.innerHTML = (item[2] ? "▼ " : "► ") + title[1]
+
+                const remainder = data.slice(1)
+                const container = document.createElement("div")
+                container.style.display = item[2] ? "block" : "none"
+                for (const remainderItem of remainder) {
+                    displayItem(remainderItem,container)
+                }
+                parent.appendChild(element)
+                parent.appendChild(container)
+
+                element.addEventListener("click", () => {
+                    const isHidden = container.style.display === "none";
+                    element.innerHTML = (isHidden ? "▼ " : "► ") + title[1]
+                    container.style.display = isHidden ? "block" : "none"
+                })
+                break;
+            }
+            case "table": {
+                element.classList = `table loadable`;
+                const table = document.createElement("table")
+                for(const row of data) {
+                    const tr = document.createElement("tr")
+                    for(const col of row) {
+                        const td = document.createElement("td")
+                        if(col) {
+                            td.innerHTML = col["text"]
+                            td.style.background = col["color"]
+
+                        }
+                        tr.appendChild(td)
+                    }
+                    table.appendChild(tr)
+                }
+                element.appendChild(table)
+                parent.appendChild(element)
+                break;
+            }
+            default: {
+                element.classList = `${type} loadable`;
+                element.innerHTML = data
+                parent.appendChild(element)
+                break;
+            }
+        }
+    }
+    loadData();
+</script>
+</body>
+</html>
