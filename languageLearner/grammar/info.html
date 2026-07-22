@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>App</title>
-<link rel="stylesheet" type="text/css" href="/main.css">
+
+<title>Grammar Info</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᚴᛁ</text></svg>">
+
+<link rel="stylesheet" type="text/css" href="../main.css">
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div id="Background">
@@ -19,7 +24,7 @@
     console.log(currentHash)
     async function loadData() {
         try {
-            const response = await fetch(`/storage/oldNorse/${currentHash}_grammar.json`);
+            const response = await fetch(`../storage/oldNorse/${currentHash}_grammar.json`);
             const allData = await response.json();
 
             console.log(allData); 

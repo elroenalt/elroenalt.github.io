@@ -1,0 +1,20 @@
+[
+    ["pronoun", "ek", "I", ["ek","mik","mín","mér"]],
+
+    ["pronoun", "þú", "you (1 person)", ["þú","þik","þín","þér"]],
+
+    ["pronoun", "þat", "it", ["þat","þat","þes","því"]],
+    ["pronoun", "hon", "she", ["hon","hana","hennar","henni"]],
+    ["pronoun", "hann", "he", ["hann","hann","hans","honum"]],
+
+    ["pronoun", "vér", "we (3+ people)", ["vér","oss","vár","oss"]],
+    ["pronoun", "vit", "we (2)", ["vit","okkr","okkar","okkr"]],
+
+    ["pronoun", "þér", "you'all (3+ people)", ["(þ)ér","yðr","yðvar","yðr"]],
+    ["pronoun", "þit", "you two (2 people)", ["(þ)it","ykkr","ykkar","ykkr"]],
+    
+    ["pronoun", "þau", "they (neuter)", ["þau","þau","þeira","þeim"]],
+    ["pronoun", "þær", "you (feminine)", ["þær","þær","þeira","þeim"]],
+    ["pronoun", "þeir", "you (masculine)", ["þeir","þá","þeira","þeim"]]
+
+]

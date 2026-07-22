@@ -4,7 +4,7 @@ html,body {
     background-color: rgba(180, 27, 201, 0.167);
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 #Background {
     position: fixed;
@@ -60,6 +60,7 @@ html,body {
     align-items: center;
     transition: all 0.1s ease-in-out;
     cursor: pointer;
+    font-family: monospace;
 }
 .button:hover {
     text-shadow: 0 0 1px white;

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<title>Cards</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᛋ</text></svg>">
+
+<link rel="stylesheet" type="text/css" href="../main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+
+</head>
+<body>
+<div id="Background">
+</div>
+<div id="Forground">
+    <div class="container" id="Container">
+        <div class="display"id="ContainerInfo">
+            VOC CARDS
+        </div>
+        <div class="display"id="ContainerMain">
+        </div>
+    </div>
+    <div class="container" id="ContainerViewer">
+        <div id="closeButton" class="button" onclick="document.getElementById('ContainerViewer').style.display = 'none'">X</div>
+            <div class="title" id="ViwerContainerTitle">
+            </div>
+            <div class="title" id="ViwerContainerwordAndTranslate">
+            </div>
+            <div class="container" id="ViwerContainerInfo">
+            </div>
+    </div>
+</div>
+<script>
+    const allVariationFileTypes = ["strong_noun","pronoun","weak_verb","strong_verb","strong_adjective"]
+    const loaded_files = {}
+    let curWord = NaN
+
+    // load the Viewer using word Data out of respective file
+    async function loadViewerWord(wordData) {
+        const type = wordData[0].split(",")[0].trim().replaceAll(" ","_")
+        const file = `${type}_questions`
+        console.log(type)
+        const hasVariations = allVariationFileTypes.includes(type)
+        console.log(hasVariations)
+
+        //displaying title
+        const Title = document.getElementById("ViwerContainerTitle")
+        Title.innerHTML = wordData[0]
+
+        //displaying cur Word and its translation
+        const wordAndTranslate = document.getElementById("ViwerContainerwordAndTranslate")
+        wordAndTranslate.innerHTML = `${wordData[1]} ⇔ ${wordData[2]}`
+
+        //emptying the container for the table
+        const container = document.getElementById("ViwerContainerInfo")
+        container.innerHTML = ""
+
+        //only display the table if variation exists
+        if(hasVariations) {
+            const word = await getLoadedWordFromFile(file, wordData)
+
+            //taking the word diffrent variations of the words and the type and getting a finished a html
+            const wordInfo = word[3]
+            const viewerTable = generateTableViewer(type,wordInfo)
+
+            //appedning the table to the table container
+            container.appendChild(viewerTable)
+
+        }else {
+            // if no variations are present tell the user
+            container.innerHTML = "No Variations"
+        }
+
+        //enable the viewer
+        document.getElementById('ContainerViewer').style.display = 'block';
+    }
+
+    //get the variation data out of the correct file
+    async function getLoadedWordFromFile(file,wordData) {
+
+        // if the file didn't get loaded yet, load it
+        if(!loaded_files[file]) {
+            loaded_files[file] = await loadFile(file)
+        }
+        const loadedFile = loaded_files[file]
+
+        //load through the file to find the word and return it
+        for(const word of loadedFile) {
+            if(word[0] == wordData[0] && word[1] == wordData[1]) {
+                return word
+            }
+        }
+    }
+
+    // generating the table viewer for word Variations
+    function generateTableViewer(type,wordInfo) {
+
+        const tablePreData = getTableWordInfo(type)
+        if(!tablePreData) {return}
+        
+        let table = createElement("table",false,"ViewerTable","ViewerTable")
+
+        //keeping track of the row for variations seperately
+        let displayRowCount = -1
+
+        //looping through the preData 
+        for(let tableRow=0; tableRow<tablePreData.length; tableRow++) {
+
+            const row = tablePreData[tableRow]
+            const rowHTML = createElement("tr",false,`ViewerTableRow${tableRow}`,"ViewerTableRow")
+
+            //keeping track of the col for variations seperately
+            let displayColCount = 0
+            for(let tableCol=0; tableCol<row.length; tableCol++) {
+
+                const cell = row[tableCol]
+                const cellHTML = createElement("td",false,`ViewerTableCell${tableRow}:${tableCol}`,"ViewerTableCell")
+
+                //when cell content display it otherways take the word variation
+                if(cell) {
+                    cellHTML.classList.add("PreDefinedCell")
+                    cellHTML.innerHTML = cell
+                }else {
+                    //change the varaition row when  this is a new row
+                    if(displayColCount==0) {displayRowCount+=1}
+
+                    //if the the type of the first index isn't an object treat it as a 1D Array otherwise as a 2D Array
+                    const content = typeof wordInfo[0] == "object" ? wordInfo[displayColCount][displayRowCount] : wordInfo[displayRowCount]
+
+                    cellHTML.classList.add("viewerCell")
+                    cellHTML.innerHTML = content
+
+                    displayColCount += 1
+                }
+
+                rowHTML.appendChild(cellHTML)
+            }
+            table.appendChild(rowHTML)
+        }
+
+        return table
+    }
+
+    //gives pre data for every type of variation display
+    function getTableWordInfo(type) {
+        switch(type) {
+            case("strong_noun"): {
+                return [
+                    ["\u200B","Singular","Plural"],
+                    ["Nominative",false,false],
+                    ["Accusative",false,false],
+                    ["Genitive",false,false],
+                    ["Dative",false,false]
+                ]
+            }
+            case ("strong_verb"):
+            case ("weak_verb"): {  
+                return [
+                    ["\u200B","Present","Past"],
+                    ["Ek",false,false],
+                    ["þú",false,false],
+                    ["þat/hon/hann",false,false],
+                    ["vér/vít",false,false],
+                    ["þér/þit",false,false],
+                    ["þau/þær/þeir",false,false]
+                ]
+            }
+            case("strong_adjective"): {
+                return [
+                    ["SG.","Masculine","Feminine","Neuter"],
+                    ["Nom.",false,false,false],
+                    ["Acc.",false,false,false],
+                    ["Gen.",false,false,false],
+                    ["Dat.",false,false,false],
+                    ["PL.","Masculine","Feminine","Neuter"],
+                    ["Nom.",false,false,false],
+                    ["Acc.",false,false,false],
+                    ["Gen.",false,false,false],
+                    ["Dat.",false,false,false]
+                ]
+            }
+            case("pronoun"): {
+                return [
+                    ["Nominative",false],
+                    ["Accusative",false],
+                    ["Genitive",false],
+                    ["Dative",false]
+                ]
+            }
+        }
+        return false
+    }
+    
+
+
+
+    let wordList = NaN
+
+    // load files sort it by type and then name and call the row loading
+    async function init(params) {
+        wordList = await loadFile("words")
+        wordList.sort((a, b) => {
+            const categoryCompare = a[0].localeCompare(b[0]);
+            if (categoryCompare !== 0) return categoryCompare;
+            return a[1].localeCompare(b[1]);
+        });
+
+        load_rows()
+    }
+
+    // var for keeping track of row count and adding a border between types
+    let rowCount = 0
+    let lastRowType = false
+
+    //looping though every word and adding a row for it
+    function load_rows() {
+
+        for(let i=0; i<wordList.length;i++) {
+
+            wordData = wordList[i]
+            add_Row(wordData[0], wordData[1],wordData[2])
+        }
+    }
+
+    //adding the row
+    function add_Row(type,word,translated) {
+
+        //container for the display
+        const containerDIV = createElement("div",false,`row${rowCount}`,"Row","ContainerMain")
+
+        //when this word is part of a new type, add a border
+        if(lastRowType && lastRowType != type) {
+            containerDIV.style.borderTop = "2px solid black"
+        }
+
+        //add the lsitener to open a viewer for the word
+        containerDIV.addEventListener("click", () => {
+            loadViewerWord([type,word,translated])
+        })
+
+        
+        //display for type, word in language and its translation
+
+        const typeDIV = createElement("div",String(type),`RowType${rowCount}`,"rowType")
+        containerDIV.appendChild(typeDIV)
+
+        const wordDIV = createElement("div",String(word),`RowWord${rowCount}`,"rowWord")
+        containerDIV.appendChild(wordDIV)
+        
+        const translatedDIV = createElement("div",String(translated),`RowTranslated${rowCount}`,"rowTranslated")
+        containerDIV.appendChild(translatedDIV)
+
+        // preparing the scene for the next row 
+        rowCount += 1
+        lastRowType = type
+    }
+
+    function addEventListenerOpenWord(element,type,word) {
+
+        // gets the file name by taking the part infront of the first comma and replacing it's spaces with a underscore
+
+        //opening the viewer *WIP
+        element.addEventListener("click", () => {
+            //loads file
+            console.log(file,word)
+        })
+    }
+
+    //loading the file by name 
+    async function loadFile(file_name) {
+        try {
+            const response = await fetch(`../storage/oldNorse/${file_name}.json`)
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const allData = await response.json()
+            return allData
+        } catch (error) {
+            console.error("Oops, couldn't load the JSON file:", file_name)
+        }
+    }
+
+    //creating a element, with attributes to make the code more viewable
+    function createElement(type,text,id,classList,parentID=false) {
+        const element = document.createElement(type)
+        if(text){element.innerHTML = text}
+        if(id){element.id = id}
+        if(classList){element.classList = classList}
+        if(parentID){document.getElementById(parentID).appendChild(element)}
+        return element
+    }
+    init()
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+[
+    ["mainTitle", "Strong Verbs"],
+    ["text","<div>Diffrent classes of strong verbs exist, which change the root of the word diffrently.</div>"],
+    ["text","I-Mutation in present singular"],
+    ["text","If in 2nd person past, the word ends in a vowel, it will be -tt."],
+
+    ["container", [
+        ["title", "Pronouns (Nominative)"],
+        ["table", [
+            [{"text":"<b>Old Norse</b>","color":"gray"},{"text":"<b>English</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"I","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"You","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"It/She/He","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"we(3+)/we (2)","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"you'all (3+)/you'two(2)","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"they (Neuter/Feminine/Masculine)","color":"transparent"}]
+        ]]
+    ],true],
+
+    ["container", [
+        ["title", "Generall Rules"],
+        ["text", "Any 'j' before a 'i', a 'r' or at the end of a word, will generally be removed (herjið -> herið), tho some writers leave it for regulatiy's sake."],
+        ["text", "If there are three consonants in a row, drop the middle one ('ndd' -> 'nd')."],
+        ["text", "If a 'd' or a 't' is behind a 'ð', the 'ð' becomes respectifly become a dobble consonants ('ðt' -> 'tt')"],
+        ["text", "'g'´s tend to drop at the end of a word after an 'ó'"],
+        ["text", "Any 'v' at the end or before a 'r', 'u', 'y' or 'ø' (short or long) will be dropped."],
+        ["text", "Any 'áa' will collapse to 'á'."],
+        ["container", [
+            ["title", "U-Mutation"],
+            ["text", "Any time a 'u' in an unstressed syllable follows an 'a' in a stressed syllable. It changes 'a' to 'ǫ'.<br>May also appier when there used to be a 'u' in place.<br>When there is an unstressed sylable before the stressed a, the unstressed'a' additionaly mutates into 'u'."]
+        ],false]
+    ],false],
+
+    ["container", [
+        ["title", "I-Mutation"],
+        ["text", "<div>'a' -> 'e'<br>'á' -> 'æ'<br>'o' -> 'ø'/'e'/'y'<br>'ó' -> 'ố'<br>'u' -> 'y'<br>'ú' -> 'ý'<br>'jó' -> 'ý'<br>'jú' -> 'ý'<br>'ǫ' -> 'ø'<br>'au' -> 'ey'</div>"],
+        ["text", "<div>-> 'e' no mutation</div>"]
+    ],false],
+
+    ["table",[
+        [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+        [{"text":"<b>Ek</b>","color":"transparent"},{"text":"-<b>_</b>","color":"transparent"},{"text":"-<b>_</b>","color":"transparent"}],
+        [{"text":"<b>þú</b>","color":"transparent"},{"text":"-<b>r</b>","color":"transparent"},{"text":"-<b>t</b>","color":"transparent"}],
+        [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"-<b>r</b>","color":"transparent"},{"text":"-<b>_</b>","color":"transparent"}],
+        [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"-um","color":"transparent"},{"text":"-<b>um</b>","color":"transparent"}],
+        [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"-ið","color":"transparent"},{"text":"-<b>uð</b>","color":"transparent"}],
+        [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"-a","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"}]
+    ]],
+    
+    ["container", [
+        ["title", "class I (1)"],
+        ["text","characteristic: Root vowel í"]
+    ],false],
+    
+    ["container", [
+        ["title", "class II (2)"],
+        ["text","characteristic: Root vowel 'jó', 'jú' or 'ú'"]
+    ],false],
+    
+    ["container", [
+        ["title", "class III (3)"],
+        ["text","characteristic: Root vowel 'e'/'i' + ['l','r','m','n'] + any consonant. May be distorted due to rounding."],
+        ["text","<div>Example verða, <b>*3</b>(to become)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"verð ","color":"transparent"},{"text":"varð","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"verð<b>r</b>","color":"transparent"},{"text":"var<b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"verð<b>r</b>","color":"transparent"},{"text":"varð","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"verð<b>um</b>","color":"transparent"},{"text":"urð<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"verð<b>ið</b>","color":"transparent"},{"text":"urð<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"verð<b>a</b>","color":"transparent"},{"text":"urð<b>u</b>","color":"transparent"}]
+        ]],
+        ["text","<div>Example finna, <b>*3</b>(to find)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"finn ","color":"transparent"},{"text":"fann","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"finn<b>r</b>","color":"transparent"},{"text":"fan<b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"finn<b>r</b>","color":"transparent"},{"text":"fann","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"finn<b>um</b>","color":"transparent"},{"text":"fund<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"finn<b>ið</b>","color":"transparent"},{"text":"fund<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"finn<b>a</b>","color":"transparent"},{"text":"fund<b>u</b>","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "class IV (4)"],
+        ["text","characteristic: Root vowel 'e' + ['l','r','m','n']. May be distorted if the consonant has disappeared."],
+        ["text","present singular & plural 'e', past singular 'e' -> 'a', past plural 'e' -> 'á'."],
+        ["text","<div>Example bera, <b>*4</b>(to carry, bear)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"ber ","color":"transparent"},{"text":"bar","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"ber<b>r</b>","color":"transparent"},{"text":"bar<b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"ber<b>r</b>","color":"transparent"},{"text":"bar","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"ber<b>um</b>","color":"transparent"},{"text":"bár<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"ber<b>ið</b>","color":"transparent"},{"text":"bár<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"ber<b>a</b>","color":"transparent"},{"text":"bár<b>u</b>","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "class V (5)"],
+        ["text","characteristic: Infinitve contains a 'e' followed by a single consonant except ['l','r','m','n']. May be distorted if the root vowel is i- mutaded by a j at the end of the root."],
+        ["text","Past singular 'e' -> 'a', Past plural 'e' -> 'á'"],
+        ["text","<div>Example kveða, <b>*5</b> (to speak)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"kveð","color":"transparent"},{"text":"kvað","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"kveð<b>r</b>","color":"transparent"},{"text":"kva<b><i>t</i>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"kveð<b>r</b>","color":"transparent"},{"text":"kvað","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"kveð<b>um</b>","color":"transparent"},{"text":"kváð<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"kveð<b>ið</b>","color":"transparent"},{"text":"kváð<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"kveð<b>a</b>","color":"transparent"},{"text":"kváð<b>u</b>","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "class VI (6)"],
+        ["text","characteristic: root vowel 'a'"],
+        ["text","I-Mutation present singular 'a' ->'e'"],
+        ["text","Past Tense 'a' ->'ó'"],
+        ["text","<div>Example taka, <b>*6</b> (to speak)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"tek","color":"transparent"},{"text":"tók","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"tek<b>r</b>","color":"transparent"},{"text":"tók<b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"tek<b>r</b>","color":"transparent"},{"text":"tók","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"tǫk<b>um</b>","color":"transparent"},{"text":"tók<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"tak<b>ið</b>","color":"transparent"},{"text":"tók<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"tak<b>a</b>","color":"transparent"},{"text":"tók<b>u</b>","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "class VII (7)"],
+        ["text","characteristic: none"],
+        ["text","Past tense completly irregular, only follows the basic strong verbs endings"],
+        ["text","<div>fá, <b>*7</b> (to get)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"fæ","color":"transparent"},{"text":"fekk","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"fæ<b>r</b>","color":"transparent"},{"text":"fek<b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"fæ<b>r</b>","color":"transparent"},{"text":"fekk","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"fá<b>um</b>","color":"transparent"},{"text":"feng<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"fá<b>ið</b>","color":"transparent"},{"text":"feng<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"fá","color":"transparent"},{"text":"feng<b>u</b>","color":"transparent"}]
+        ]],
+        ["text","<div>ganga, <b>*7</b> (to walk)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"geng","color":"transparent"},{"text":"gekk","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"geng<b>r</b>","color":"transparent"},{"text":"gek<b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"geng<b>r</b>","color":"transparent"},{"text":"gekk","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"gǫng<b>um</b>","color":"transparent"},{"text":"geng<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"gang<b>ið</b>","color":"transparent"},{"text":"geng<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"gang<b>a</b>","color":"transparent"},{"text":"geng<b>u</b>","color":"transparent"}]
+        ]],
+        ["text","<div>hǫggva, <b>*7</b> (to chop, cut)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"høgg","color":"transparent"},{"text":"hjó","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"høgg<b>r</b>","color":"transparent"},{"text":"hjó<b><i>t</i>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"høgg<b>r</b>","color":"transparent"},{"text":"hjó","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"hǫggv<b>um</b>","color":"transparent"},{"text":"hjugg<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"hǫggv<b>ið</b>","color":"transparent"},{"text":"hjugg<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"hǫggv<b>a</b>","color":"transparent"},{"text":"hjugg<b>u</b>","color":"transparent"}]
+        ]],
+        ["text","<div>falla, <b>*7</b> (to fall)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"fell","color":"transparent"},{"text":"fell","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"fell<b>r</b>","color":"transparent"},{"text":"fell<i>(l)</i><b>t</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"fell<b>r</b>","color":"transparent"},{"text":"fell","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"fǫll<b>um</b>","color":"transparent"},{"text":"fell<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"fall<b>ið</b>","color":"transparent"},{"text":"fell<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"fall<b>a</b>","color":"transparent"},{"text":"fell<b>u</b>","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "A way to learn them"],
+        ["text","<div>notice that if you know the present singular, present plural, past singular and past plural 3rd person form, you can predict the rest easialy. (principal parts)</div>"],
+        ["text","<div>Example: binda, <b>*3/b>(to bind)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"bind ","color":"transparent"},{"text":"batt","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"bind<b>r</b>","color":"transparent"},{"text":"batt","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"bind<b>r</b>","color":"red"},{"text":"batt","color":"darkgreen"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"bind<b>um</b>","color":"transparent"},{"text":"bund<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"bind<b>ið</b>","color":"transparent"},{"text":"bund<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"bind<b>a</b>","color":"yellow"},{"text":"bund<b>u</b>","color":"darkblue"}]
+        ]]
+    ],false]
+]

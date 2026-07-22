@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>App</title>
+
+<title>Rune Circle Visualizer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 220 100%22><text x=%2250%%22 y=%2280%22 font-size=%2295%22 font-weight=%22bold%22 text-anchor=%22middle%22>ᚱᛋᚢ</text></svg>">
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../main.css">
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
 </head>
 <body>
 <div id="Background">
@@ -325,6 +330,7 @@
         "u": "ᚢ",
         "ú": "ᚢ",
         "v": "ᚢ",
+        "w": "ᚢ",
         "o": "ᚢ",
         "ó": "ᚢ",
         "y": "ᚢ",
@@ -354,15 +360,13 @@
 
         "r": "ᚱ",
         "z": "ᛦ",
-        "R": "ᛦ",
 
         "h": "ᚼ",
 
         "n": "ᚾ",
 
-        "i": "ᛁ", 
-
         "s": "ᛋ",
+        "z": "ᛋ",
         "c": "ᛋ", 
 
         "b": "ᛒ",
@@ -370,7 +374,7 @@
 
         "m": "ᛘ",
 
-        "l": "ᛗ", 
+        "l": "ᛚ", 
 
         "n": "ᚾ"
     }
@@ -539,6 +543,7 @@
     function drawFrames() {
         ctx.clearRect(0,0,500,500)
         frameCounter += 1/60
+        console.log(frameCounter)
         for(let circle of circles) {
             circle.draw(frameCounter)
         }

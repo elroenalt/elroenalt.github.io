@@ -1,0 +1,78 @@
+[
+    ["mainTitle", "Weak Verbs"],
+    ["text","<div>Textbook form infinitive. Almost all weak verbs end in 'a', which gotta be knocked off before konjugating.<br>Past Stem given with the character after the ','.Past Stems can be 't','ð' or 'd'.<br>Example: mæla,<b>t</b></div>"],
+    ["text","<div>If you have to guess the Past Stem guess 'ð' unless:<br> <b>-</b> If the root ends with 't', guess 't'<br> <b>-</b> If the root ends with 'd' or 'ð', guess 'd'.</div>"],
+
+    ["container", [
+        ["title", "Pronouns (Nominative)"],
+        ["table", [
+            [{"text":"<b>Old Norse</b>","color":"gray"},{"text":"<b>English</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"I","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"You","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"It/She/He","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"we(3+)/we (2)","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"you'all (3+)/you'two(2)","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"they (Neuter/Feminine/Masculine)","color":"transparent"}]
+        ]]
+    ],true],
+
+    ["container", [
+        ["title", "Generall Rules"],
+        ["text", "Any 'j' before a 'i' will generally be removed (herjið -> herið), tho some writers leave it for regulatiy's sake."],
+        ["text", "If there are three consonants in a row, drop the middle one ('ndd' -> 'nd')."],
+        ["text", "If a 'd' is behind a 'ð', the 'ð' becomes a 'd' ('ð-d' -> 'd-d)."],
+        ["container", [
+            ["title", "U-Mutation"],
+            ["text", "Any time a 'u' in an unstressed syllable follows an 'a' in a stressed syllable. It changes 'a' to 'ǫ'.<br>May also appier when there used to be a 'u' in place.<br>When there is an unstressed sylable before the stressed a, the unstressed'a' additionaly mutates into 'u'."]
+        ],false]
+    ],false],
+
+    ["container", [
+        ["title", "i-types weak"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"-<b>i</b>","color":"transparent"},{"text":"-PastStem-<b>a</b>","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"-<b>ir</b>","color":"transparent"},{"text":"-PastStem-<b>ir</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"-<b>ir</b>","color":"transparent"},{"text":"-PastStem-<b>i</b>","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"-um","color":"transparent"},{"text":"-PastStem-<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"-ið","color":"transparent"},{"text":"-PastStem-<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"-a","color":"transparent"},{"text":"-PastStem-<b>u</b>","color":"transparent"}]
+        ]],
+        ["text","<div>Example mæla,<b>t</b> (to speak)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"mæl<b>i</b>","color":"transparent"},{"text":"mæl<b><i>t</i>a</b>","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"mæl<b>ir</b>","color":"transparent"},{"text":"mæl<b><i>t</i>ir</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"mæl<b>ir</b>","color":"transparent"},{"text":"mæl<b><i>t</i>i</b>","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"mæl<b>um</b>","color":"transparent"},{"text":"mæl<b><i>t</i>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"mæl<b>ið</b>","color":"transparent"},{"text":"mæl<b><i>t</i>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"mæl<b>a</b>","color":"transparent"},{"text":"mæl<b><i>t</i>u</b>","color":"transparent"}]
+        ]],
+        ["text","<a href='/grammar_questions/#c0c1c2c3c4c5c6c7c8c9c10c11c12'>i-type weak verb Trainer</a>"]
+    ],false],
+    
+    ["container", [
+        ["title", "a-types weak"],
+        ["text","For present tense, every 'i' is replaced with a 'a'.<br> By the a inf the Past Stem, you can identify the a-type."],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"-<b>a</b>","color":"transparent"},{"text":"-PastStem-<b>a</b>","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"-<b>ar</b>","color":"transparent"},{"text":"-PastStem-<b>ir</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"-<b>ar</b>","color":"transparent"},{"text":"-PastStem-<b>i</b>","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"-um","color":"transparent"},{"text":"-PastStem-<b>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"-ið","color":"transparent"},{"text":"-PastStem-<b>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"-a","color":"transparent"},{"text":"-PastStem-<b>u</b>","color":"transparent"}]
+        ]],
+        ["text","<div>Example skapa,<b>að</b> (to create)</div>"],
+        ["table", [
+            [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
+            [{"text":"<b>Ek</b>","color":"transparent"},{"text":"skap<b>a</b>","color":"transparent"},{"text":"skap<b><i>að</i>a</b>","color":"transparent"}],
+            [{"text":"<b>þú</b>","color":"transparent"},{"text":"skap<b>ar</b>","color":"transparent"},{"text":"skap<b><i>að</i>ir</b>","color":"transparent"}],
+            [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"skap<b>ar</b>","color":"transparent"},{"text":"skap<b><i>að</i>i</b>","color":"transparent"}],
+            [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"skǫp<b>um</b>","color":"transparent"},{"text":"skǫp<b><i>uð</i>um</b>","color":"transparent"}],
+            [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"skap<b>ið</b>","color":"transparent"},{"text":"skǫp<b><i>uð</i>uð</b>","color":"transparent"}],
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"skap<b>a</b>","color":"transparent"},{"text":"skǫp<b><i>uð</i>u</b>","color":"transparent"}]
+        ]],
+        ["text","<a href='/grammar_questions/#c13c14c15c16c17'>a-type weak verb Trainer</a>"]
+    ],false]
+]

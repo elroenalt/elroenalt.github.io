@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>App</title>
-<link rel="stylesheet" type="text/css" href="/main.css">
+    
+<title>Cards</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᛋ</text></svg>">
+
+<link rel="stylesheet" type="text/css" href="../main.css">
 <link rel="stylesheet" type="text/css" href="card.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div id="Background">
@@ -65,12 +70,12 @@
     }
     async function loadCards() {
         try {
-            const response = await fetch('/storage/oldNorse/words.json');
+            const response = await fetch('../storage/oldNorse/words.json');
             const allData = await response.json();
 
             for(let i = 0; i<ids.length;i++ ) {
                 const id = ids[i][0]
-                cardsData.push([allData[id],id])
+                cardsData.push([allData[id],id,displayType == "a" ? false : displayType == "b" ? true : (Math.random() > 0.5) ])
             }
             displayCard(0)
         } catch (error) {
@@ -98,7 +103,7 @@
         const cardData = cardsData[curId][0]
         document.querySelector("#ContainerCardButtonReveal").style.background = "darkRed"
         
-        displayOnCard("#ContainerCard",cardData,true,false,reverse)
+        displayOnCard("#ContainerCard",cardData,true,false,cardsData[curId][2])
     }
     function toggleReveal() {
         if(reveal) {displayCard()}
@@ -137,9 +142,37 @@
         location.reload()
         console.log(hash)
     }
+    function finish() {
+        getLocalStorageData()
+
+        const curDate = Date.now();
+        for(let i=0; i<idsLength;i++) {
+            const cardData = cardsData[i][0]
+            console.log(ids[i][1])
+            if(ids[i][1]) {
+                wordProgress[cardData[0]+"|"+cardData[1]][0] += 1
+                wordProgress[cardData[0]+"|"+cardData[1]][1] = curDate
+            }else {
+                wordProgress[cardData[0]+"|"+cardData[1]][0] -= 1
+            }
+
+        }
+        localStorage.setItem("wordProgress", JSON.stringify(wordProgress));
+        createMoreQuestionHash()
+    }
+    async function loadFile(file_name) {
+        try {
+            const response = await fetch(`/storage/oldNorse/${file_name}.json`)
+            const allData = await response.json()
+            return allData
+        } catch (error) {
+            console.error("Oops, couldn't load the JSON file:", file_name)
+        }
+    }
     function displayCard(id=curId) {
+        reveal = false
         if(id>=idsLength) {
-            createMoreQuestionHash()
+            finish()
             return
         }
         curId = id
@@ -154,7 +187,38 @@
         }else{
             document.querySelector("#ContainerCardButtonNext").textContent = ">";}
         document.querySelector("#ContainerCardButtonReveal").style.background = "green"
-        displayOnCard("#ContainerCard",cardData,false,false,reverse)
+        displayOnCard("#ContainerCard",cardData,false,false,cardsData[id][2])
+    }
+    let wordProgress = NaN
+    let PlayerXP = NaN
+    async function getLocalStorageData() {
+        const storedWordProgress = localStorage.getItem("wordProgress");
+        const curDate = Date.now();
+
+        if (storedWordProgress) {
+            wordProgress = JSON.parse(storedWordProgress);
+        }else {
+            wordProgress = {}
+        }
+        console.log(wordProgress);
+        const words = await loadFile("words")
+            for(const word of words) {
+            const wordKey = word[0] + "|" + word[1];
+
+            if (wordProgress[wordKey] === undefined) {
+                wordProgress[wordKey] = [0,undefined];
+            }
+        }
+        console.log(wordProgress);
+        
+        const storedPlayerXP = localStorage.getItem("PlayerXP");
+        if (PlayerXP) {
+            PlayerXP = JSON.parse(storedPlayerXP);
+        }else {
+            PlayerXP = 0
+        }
+
+        localStorage.setItem("wordProgress", JSON.stringify(wordProgress));
     }
     loadCards();
 </script>

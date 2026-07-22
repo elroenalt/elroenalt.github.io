@@ -1,0 +1,34 @@
+[
+    ["mainTitle", "Prepositions"],
+    ["text","<div>Any word that gramticaly fits into the sentecne 'the bee flew __ the tree' is a preposition.</div>"],
+    ["text","<div>Each preposition assigns a case tot the following noun, most commonly dative or genitve.</div>"],
+
+    ["table", [
+        [{"text":"<b>Prepostion</b>","color":"gray"},{"text":"<b>English meaning</b>","color":"gray"},{"text":"<b>inflected case</b>","color":"gray"},{"text":"<b>Example</b>","color":"gray"}],
+        [{"text":"<b>til</b>","color":"transparent"},{"text":"to","color":"transparent"},{"text":"genitive","color":"red"},{"text":"'Kom til mín.' <-> 'Come to me.'","color":"transparent"}],
+        [{"text":"<b>ór</b>","color":"transparent"},{"text":"out of","color":"transparent"},{"text":"dative","color":"green"},{"text":"'Drakk hann allt ór Óðreri.' <-> 'He drank everything out of Óðrerir.'","color":"transparent"}],
+        [{"text":"<b>með</b>","color":"transparent"},{"text":"with","color":"transparent"},{"text":"dat. or acc. (random)","color":"blue"},{"text":"'Hann kom með hana.' <-> 'He came with her.'","color":"transparent"}],
+        [{"text":"<b>á</b>","color":"transparent"},{"text":"on","color":"transparent"},{"text":"dat. or acc. (motion/action)","color":"yellow"},false],
+        [{"text":"<b>í</b>","color":"transparent"},{"text":"in","color":"transparent"},{"text":"dat. or acc. (motion/action)","color":"yellow"},false],
+        [{"text":"<b>at</b>","color":"transparent"},{"text":"at (distinct from that)","color":"transparent"},{"text":"dative","color":"green"},{"text":"'þeir fara at boði Siggeirs.' <-> 'They travel at Siggeir's inovation.'","color":"transparent"}],
+        [{"text":"<b>um/of</b>","color":"transparent"},{"text":"around, about","color":"transparent"},{"text":"accusative","color":"orange"},{"text":"'Of rúnar heyrða ek dǿma.' <-> 'I heard runes talked about.'","color":"transparent"}],
+        [{"text":"<b>af</b>","color":"transparent"},{"text":"from, (made) of","color":"transparent"},{"text":"dative","color":"green"},{"text":"'Svín gert af sifri.' <-> 'A pig made of silver.'","color":"transparent"}],
+        [{"text":"<b>frá</b>","color":"transparent"},{"text":"from (geopraphic)","color":"transparent"},{"text":"dative","color":"green"},{"text":"'Drengr frá Íslandi.' <-> 'A badass from Iceland.'","color":"transparent"}],
+        [{"text":"<b>víð</b>","color":"transparent"},{"text":"against or with","color":"transparent"},{"text":"accusative","color":"orange"},{"text":"'þeir blendu hunangi við bloðit.' <-> 'They blended honey with the blod.'","color":"transparent"}],
+        [{"text":"<b>yfir</b>","color":"transparent"},{"text":"over","color":"transparent"},{"text":"dat. or acc. (motion/action)","color":"yellow"},false],
+        [{"text":"<b>fyrir</b>","color":"transparent"},{"text":"for, in front of","color":"transparent"},{"text":"dat.(adv. for smb, motion/action 'in front of) or acc. (for smth, located 'in front of')","color":"blue"},{"text":"'Hann hleypr fyrir fǫður sinn' <-> 'He runs before his father.'","color":"transparent"}],
+        [{"text":"<b>gegnum</b>","color":"transparent"},{"text":"through","color":"transparent"},{"text":"accusative","color":"orange"},{"text":"'Gengr Helgi í gegnum fylkingar.' <-> 'Helgi goes through their troups.'","color":"transparent"}],
+        [{"text":"<b>mót(i)</b>","color":"transparent"},{"text":"against","color":"transparent"},{"text":"accusative","color":"orange"},{"text":"'Hrjórta spænirnar upp í  móti honum.' <-> 'The wood shaving bounce up against him.'","color":"transparent"}],
+        [{"text":"<b>hjá</b>","color":"transparent"},{"text":"beside, next to","color":"transparent"},{"text":"dative","color":"green"},{"text":"'Bǫlverkr lá hjá henni þrjár nætr.' <-> 'Bolverk lay next to her three night.'","color":"transparent"}],
+        [{"text":"<b>eptir</b>","color":"transparent"},{"text":"after, along","color":"transparent"},{"text":"dative","color":"green"},{"text":"'Suttungr flaug eptir honum.' <-> 'Suttung flew after him.'","color":"transparent"}],
+        [{"text":"<b>undir</b>","color":"transparent"},{"text":"under","color":"transparent"},{"text":"dat. or acc. (motion/action)","color":"yellow"},false]
+    ]],
+    ["text","<div>*gegnum, mót(i) and hjá (and others) may appear with an 'í' or 'á' infront, this does not change the meaning.</div>"],
+    ["container", [
+        ["title", "*í,á,yfir,undir"],
+        ["text", "dative when smth. is stationary relavtive to the object (location)."],
+        ["text", "'Úlfjótr var austr í Lóni.' <-> 'Úlfjót was out east, in Lón.'"],
+        ["text", "accusative when smth. is in motion relavtive to the object, or in action that affects the object."],
+        ["text", "'Hann kastaði heininni í lopt upp.' <-> 'He threw the whetstone up, in(to) the air'"]
+    ],true]
+]

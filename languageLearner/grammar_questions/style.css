@@ -4,7 +4,7 @@ html,body {
 #ContainerCards {
     font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
     width: 45vw;
-    height: 80dvh;
+    height: fit-content;
     justify-content: center;
     align-items: center;
     background: transparent;

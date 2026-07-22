@@ -1,0 +1,185 @@
+html, body {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#ContainerViewer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background-color: beige;
+    width: 40vw;
+    min-height: 55dvh;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(155, 155, 155, 0.2), 0 6px 20px 0 rgba(155, 155, 155, 0.19);
+    border-radius: 1.5rem;
+    display: none;
+}
+.button {
+    position: absolute;
+    font-size: 1.5rem;
+    z-index: 10000;
+}
+#closeButton {
+    top: -1rem;
+    right: -1rem;
+}
+#ViwerContainerTitle {
+    padding-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+#ViwerContainerTitle:hover {
+    transform: scale(1.1);
+}
+#ViwerContainerInfo {
+    padding-top: 1rem;
+    background: transparent;
+}
+#ViwerContainerwordAndTranslate {
+    font-size: 1.5rem;
+}
+#ViwerContainerInfo {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+table, th, td {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.PreDefinedCell {
+    background-color: rgba(99, 99, 88, 0.253);
+}
+#viewerCell {
+    transition: transform 0.1s ease-in-out;
+}
+#viewerCell:hover {
+    transform: scale(1.01);
+}
+
+#Container {
+    background-color: beige;
+    width: 60vw;
+    height: 90vh;
+    overflow-y: auto;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+#ContainerInfo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    font-family: monospace;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+#ContainerMain {
+    background-color: transparent;
+    width: 60vw;
+    padding: 1rem;
+    justify-items: center;
+    height: fit-content;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr; 
+}
+
+.Row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr; 
+    gap: 20px;
+    font-family: monospace;
+    width: 55vw;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-bottom: 1px black solid;
+    transition: transform 0.1s ease-in-out;
+}
+
+.Row:hover {
+    transform: translateX(4px);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.Row > * {
+    padding: 0.6rem;
+    border-right: 2px black solid;
+    display: flex;
+    align-items: center; 
+}
+
+/*making the viewer look acceptable on mobile*/
+@media (max-width: 720px) {
+    #Container {
+        background-color: beige;
+        width: 100vw;
+        height: 100dvh;
+        padding: 0rem;
+        overflow-y: auto;
+        border-radius: 0rem;
+    }
+    #ContainerInfo {
+        width: 100vw;
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-decoration: underline;
+        font-family: monospace;
+        border-bottom: 2px black solid;
+        display: inline-block;
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+    }
+    #ContainerMain {
+        background-color: transparent;
+        width: 100vw;
+        justify-items: center;
+        height: fit-content;
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 1fr; 
+    }
+
+    .Row {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr; 
+        gap: 4px;
+        font-family: monospace;
+        width: 85vw;
+        font-size: 0.75rem;
+        cursor: pointer;
+        padding: 0.6rem;
+        border-bottom: 1px black solid;
+        transition: transform 0.1s ease-in-out;
+    }
+    #ContainerViewer {
+        width: 100vw;
+        height: 100dvh;
+        box-shadow: none;
+        border-radius: none;
+        display: none;
+        overflow-y: auto;
+    }
+    #closeButton {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    #ViwerContainerTitle {
+        padding-top: 2rem;
+    }
+}

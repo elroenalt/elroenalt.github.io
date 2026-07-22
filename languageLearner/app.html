@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>App</title>
+<title>Start Screen</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᛋᛋ</text></svg>">
+
 <link rel="stylesheet" type="text/css" href="main.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+
 </head>
 <body>
 <div id="Background">
@@ -10,54 +15,160 @@
 <div id="Forground">
     <div class="popUp" >
         <div id="generateVocCards"onclick="generateVocCards()">Generate Vocabulary Cards</div>
+        <div id="generateVocCards"onclick="generateVocCardsWith()">Generate Vocabulary Cards Filters</div>
         <div id="generateCaseGrammarNouns"onclick="generateCaseGrammarNouns()">Generate Case Grammar Nouns</div>
     </div>
 </div>
 <script>
+    let wordProgress = NaN
+    let wordsDecendingKnown = NaN
+    let PlayerXP = NaN
+    getLocalStorageData()
+    async function getLocalStorageData() {
+        const storedWordProgress = localStorage.getItem("wordProgress");
+        const curDate = Date.now();
+
+        if (storedWordProgress) {
+            wordProgress = JSON.parse(storedWordProgress);
+        }else {
+            wordProgress = {}
+        }
+        console.log(wordProgress);
+        const words = await loadFile("words")
+            for(const word of words) {
+            const wordKey = word[0] + "|" + word[1];
+
+            if (wordProgress[wordKey] === undefined) {
+                wordProgress[wordKey] = [0,undefined];
+            }else if(wordProgress[wordKey][1] != curDate) {
+                wordProgress[wordKey][0] -= 1
+                wordProgress[wordKey][1] = curDate
+            }
+        }
+        localStorage.setItem("wordProgress", JSON.stringify(wordProgress));
+
+        wordsDecendingKnown = Object.entries(wordProgress)
+        wordsDecendingKnown.sort((a, b) => a[1][1] - b[1][1])
+        console.log(wordsDecendingKnown);
+        
+        const storedPlayerXP = localStorage.getItem("PlayerXP");
+        if (PlayerXP) {
+            PlayerXP = JSON.parse(storedPlayerXP);
+        }else {
+            PlayerXP = 0
+        }
+
+        localStorage.setItem("wordProgress", JSON.stringify(wordProgress));
+    }
+    function getDateDifference(dateString1, dateString2) {
+        const date1 = new Date(dateString1);
+        const date2 = new Date(dateString2);
+        
+        const differenceInMs = Math.abs(date2 - date1);
+        
+        const msInADay = 1000 * 60 * 60 * 24;
+        const differenceInDays = Math.floor(differenceInMs / msInADay);
+        
+        return differenceInDays;
+    }
     async function loadFile(file_name) {
         try {
             const response = await fetch(`/storage/oldNorse/${file_name}.json`)
             const allData = await response.json()
             return allData
         } catch (error) {
-            console.error("Oops, couldn't load the JSON file:", error)
+            console.error("Oops, couldn't load the JSON file:", file_name)
         }
     }
     async function generateCaseGrammarNouns(amount=4) {
         const hash = await generateRandomSequence("nouns_questions",amount,"Noun masc.")
-        if(hash){window.location.href = `grammar_questions/#nouns|${hash}`}
+        if(hash){window.location.href = `grammar_questions/#nouns|${hash}`
+        location.reload()}
 
     }
-    async function generateVocCards(amount=10) {
+    async function generateVocCardsWith(amount=18,filter=["preposition"]) {
+        const hash = await generateRandomSequence("words",amount,filter)
+        console.log(hash)
+        if(hash){
+            window.location.href = `card/${hash}`
+        }
+    }
+    async function generateVocCards(amount=200) {
         const hash = await generateRandomSequence("words",amount)
-        if(hash){window.location.href = `card/#${hash}`}
+        if(hash){
+            window.location.href = `card/${hash}`
+        }
     }
     async function generateRandomSequence(fileName,amount=4,filter = false) {
         const data = await loadFile(fileName)
         const totalCards = data.length
-        const possibles = []
-        for(let i=0; i<totalCards; i++) {
-            console.log(data[i][0],filter,data[i][0] == filter & filter)
-            if(filter){
-                if(data[i][0] == filter) {
+        let possibles = []
+        let ids = []
+        if(totalCards>=amount) {
+            for (let i = 0; i <= X; i++) {
+                ids.push(i);
+            }
+        }else {
+            addidng = []
+            for(let i=0;i<Math.floor(amount/10*9);i++) {
+                addidng.push(wordsDecendingKnown[i].split("|"))
+            }
+            amount = Math.ceil(amount/10)
+            for(let i=0; i<totalCards; i++) {
+                if(filter){
+                    if(filter.includes(data[i][0].toLowerCase().replace(" ",""))) {
+                        possibles.push(i)
+                    }
+                    console.log(i)
+                }
+                else if(!filter) {
                     possibles.push(i)
                 }
-                console.log(i)
             }
-            else if(!filter) {
-                possibles.push(i)
+            if(!possibles.length) {return false}
+            if(amount < possibles.length) {
+                for(let i=0; i<amount; i++) {
+                    const rand = Math.floor(Math.random() * possibles.length)
+                    const id = possibles[rand]
+                    possibles.splice(rand, 1);
+                    ids.push(id)
+                }
+            }else {
+                ids = possibles
             }
+
         }
-        if(!possibles.length) {return False}
-        const ids = []
-        for(let i=0; i<amount; i++) {
-            const rand = Math.floor(Math.random() * possibles.length)
-            const id = possibles[rand]
-            possibles.pop(rand)
-            ids.push(id)
-        }
-        const hash = ids.join("-")
+        console.log(ids)
+        const hash = createMoreQuestionHash(ids)
         return hash
+    }
+    function createMoreQuestionHash(ids,displayType="a") {
+        if(!ids.length) {return}
+        ids.sort((a, b) => a - b);
+        console.log(ids)
+        let segments = []
+        let startID = ids[0]
+        let endId = startID
+        for(let i = 1; i <ids.length; i++) {
+            let nextId = ids[i];
+            if(endId+1 == nextId) {
+                endId = nextId
+            }else{
+                if(endId != startID) {
+                    segments.push(`${startID}/${endId}`)
+                }else {
+                    segments.push(`${startID}`)
+                }
+                startID = nextId
+                endId = nextId
+            }
+        }
+        if (endId !== startID) {
+            segments.push(`${startID}/${endId}`);
+        } else {
+            segments.push(`${startID}`);
+        }
+        return "#"+ displayType + "|" + segments.join("-")
     }
 </script>
 </body>

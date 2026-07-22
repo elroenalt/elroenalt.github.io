@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>App</title>
-<link rel="stylesheet" type="text/css" href="/main.css">
+
+<title>Grammar Questions</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᚴᚴ</text></svg>">
+
+<link rel="stylesheet" type="text/css" href="../main.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -70,10 +73,11 @@
 
     async function loadHash(hash) {
         const registeryTable = {
-            "a": "nouns_questions",
-            "b": "pronouns_questions",
-            "c": "weak_verbs_questions",
-            "c": "strong_verbs_questions"
+            "a": "strong_noun_questions",
+            "b": "pronoun_questions",
+            "c": "weak_verb_questions",
+            "d": "strong_verb_questions",
+            "e": "strong_adjective_questions"
         }
         questionIds = []
         let lastQuestionData = NaN
@@ -118,7 +122,7 @@
     }
     async function loadFile(fileName) {
         try {
-            const response = await fetch(`/storage/oldNorse/${fileName}.json`);
+            const response = await fetch(`../storage/oldNorse/${fileName}.json`);
             const Data = await response.json();
             return Data
         } catch (error) {
@@ -189,28 +193,34 @@
     }
     function initTable(construct) {
         const table = document.createElement("table")
+        let displayRowCount = -1
         for(let rowId=0; rowId<construct.length;rowId++) {
             const row = construct[rowId]
             const tr = document.createElement("tr")
-            let inputCount = 0
+            let displayColCount = 0
             for(let colId=0; colId<construct[0].length;colId++) {
                 const td = document.createElement("td")
                 const item = row[colId]
+                
                 if(item) {
                     td.innerHTML = `<div>${item}</div>`
                 }else {
+                    //change the varaition row when  this is a new row
+                    if(displayColCount==0) {displayRowCount+=1}
+
                     const input = document.createElement("input")
-                    const id = `${rowId - (construct.length > 4 ? 1 : 0 )}${inputCount}`
+                    const id = `${displayRowCount}${displayColCount}`
                     input.value = id
                     input.id = id
                     input.type = "text"
                     input.inputmode = "none"
-                    input.autocomplete = "off"
+                    input.autocomplete = "one-time-code"
                     input.addEventListener("click", () => {
                         inputFocus = input
                     })
                     td.appendChild(input)
-                    inputCount += 1
+
+                    displayColCount += 1
                 }
                 tr.appendChild(td)
             }
@@ -225,6 +235,22 @@
             ["Accusative",false,false],
             ["Genitive",false,false],
             ["Dative",false,false]
+        ]
+        const table = initTable(construct)
+        document.querySelector("#solEnter").appendChild(table)
+    }
+    function initAdjectiveDisplay() {
+        const construct = [
+            ["SG.","Masculine","Feminine","Neuter"],
+            ["Nom.",false,false,false],
+            ["Acc.",false,false,false],
+            ["Gen.",false,false,false],
+            ["Dat.",false,false,false],
+            ["PL.","Masculine","Feminine","Neuter"],
+            ["Nom.",false,false,false],
+            ["Acc.",false,false,false],
+            ["Gen.",false,false,false],
+            ["Dat.",false,false,false]
         ]
         const table = initTable(construct)
         document.querySelector("#solEnter").appendChild(table)
@@ -244,19 +270,28 @@
     }
     function initDisplay(type) {
         curDisplay,type = type.replace("_questions","")
+        console.log(type)
         const container = document.querySelector("#solEnter")
         container.innerHTML = ""
         switch(type) {
-            case("nouns"): {
+            case("strong_noun"): {
                 initNounDisplay()
                 break;
             }
-            case("pronouns"): {
+            case("pronoun"): {
                 initPronounDisplay()
                 break;
             }
-            case("weak_verbs"): {
+            case("weak_verb"): {
                 initVerbDisplay()
+                break;
+            }
+            case("strong_verb"): {
+                initVerbDisplay()
+                break;
+            }
+            case("strong_adjective"): {
+                initAdjectiveDisplay()
                 break;
             }
         }
@@ -277,7 +312,7 @@
         if(curDisplay != type) {
             initDisplay(type)
         }
-        let cases = (["nouns","weak_verbs"].includes(type)) ? data[3] : [data[3]]
+        const cases = typeof data[3][0] == "object" ? data[3] : [data[3]]
         if(questionData[curId][4]) {cases = questionData[curId][4]}
         for(let colId=0;colId<cases.length;colId++) {
             for(let rowId=0;rowId<cases[0].length;rowId++) {
@@ -298,9 +333,10 @@
     }
     function generateNewQuestions(newIds=wrongs) {
         const registeryTable = {
-            "nouns_questions": "a",
-            "pronouns_questions": "b",
-            "weak_verbs_questions": "c"
+            "noun_questions": "a",
+            "pronoun_questions": "b",
+            "weak_verb_questions": "c",
+            "strong_verb_questions": "c"
         }
         let Ids = newIds.sort()
         let newHash = "#"
@@ -323,14 +359,14 @@
         type = type.replace("_questions","")
         displayTitle(data,true,true)
         
-        let cases = (["nouns","weak_verbs"].includes(type)) ? data[3] : [data[3]]
+        const cases = typeof data[3][0] == "object" ? data[3] : [data[3]]
         for(let colId=0;colId<cases.length;colId++) {
             correction.push([])
             for(let rowId=0;rowId<cases[0].length;rowId++) {
                 const id = `${rowId}${colId}`
                 const input = document.getElementById(id)
                 const value = input.value.trim().toLowerCase()
-                const correctValue = ((curDisplay == "nouns" || "weak_verbs") ? cases[colId][rowId] : cases[colId][rowId]).trim().toLowerCase()
+                const correctValue = (typeof data[3][0] == "object" ? cases[colId][rowId] : cases[colId][rowId])
                 stats[0] += 1
                 if(value == correctValue) {
                     input.value += " ✓"
