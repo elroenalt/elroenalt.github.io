@@ -32,7 +32,7 @@
 </div>
 <script>
     const currentHash = window.location.hash.replace("#","");
-    const [displayType,idHash] = currentHash.split("|")
+    const [displayType,idHash] = currentHash.split("_")
     let reverse = (displayType == "a") ? false : true
     const idsHash = idHash.split('-')
     let ids = []
