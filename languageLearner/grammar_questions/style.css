@@ -119,53 +119,56 @@ input {
 
 
 @media (max-width: 720px) {
-    #KeyboardContainer {
-        right: auto;
-        top: auto;
-        bottom: 0rem;
-        left: 0rem;
-        width: 369px;
-        height: 205px;
-        transform-origin: bottom left;
-    }
-
-    #ContainerCard {
-        width: 95vw;
-        height: 55dvh;
-        font-size: 1rem;
-        box-shadow: none;
-    }
-
-    #ContainerCards {
+    #PageContainer {
+        font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
         width: 100vw;
-        height: 90dvh;
+        height: 100dvh;
+        justify-content: center;
+        align-items: baseline;
+        background: transparent;
     }
-
-    .wordInfo, 
-    .infoTitle {
-        font-size: 1rem;
-        padding-bottom: 1rem;
+    #Page {
+        width: 100vw;
+        box-sizing: border-box;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        height: fit-content;
+        transition: all 0.2s ease-out;
+        display: block;
+        box-shadow: 4px 4px 0px rgb(186, 186, 186);
+        backface-visibility: hidden;
     }
-
-    #ContainerCardButtons, 
-    #ContainerCardSettings {
-        height: 17.5dvh;
+    .loadable {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding-top:1rem;
+        padding-bottom:1rem;
     }
-
-    .button {
-        font-size: 1.5rem;
-        width: 3rem;
-        height: 3rem;
+    .title {
+        font-weight: 700;
+        font-size: 1.25rem;
+        text-decoration: underline;
+        transition: all 0.2s ease-out;
     }
-
-    input {
-        width: 4.5rem;
-        height: 1rem;
-        font-size: 1rem;
+    .mainTitle {
+        font-weight: 700;
+        font-size: 1.75rem;
+        text-decoration: underline;
+        transition: all 0.2s ease-out;
     }
-    
+    .title:hover, .mainTitle:hover {
+        transform: scale(1.1);
+    }
+    .buttons {
+        background-color: red;
+    }
     table, td {
-        padding: 1px;
-        font-size: 0.9rem;
+        font-size: 0.75rem;
+        border: 1px solid black;
+        border-collapse: collapse; 
+        padding: 3px;
+    }
+    ul, il {
+        text-align: left;
     }
 }
