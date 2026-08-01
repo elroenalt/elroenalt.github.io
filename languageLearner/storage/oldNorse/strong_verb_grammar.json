@@ -188,7 +188,7 @@
             [{"text":"<b>þat/hon/hann</b>","color":"transparent"},{"text":"bind<b>r</b>","color":"red"},{"text":"batt","color":"darkgreen"}],
             [{"text":"<b>vér/vit</b>","color":"transparent"},{"text":"bind<b>um</b>","color":"transparent"},{"text":"bund<b>um</b>","color":"transparent"}],
             [{"text":"<b>þér/þit</b>","color":"transparent"},{"text":"bind<b>ið</b>","color":"transparent"},{"text":"bund<b>uð</b>","color":"transparent"}],
-            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"bind<b>a</b>","color":"yellow"},{"text":"bund<b>u</b>","color":"darkblue"}]
+            [{"text":"<b>þau/þær/þeir</b>","color":"transparent"},{"text":"bind<b>a</b>","color":"orange"},{"text":"bund<b>u</b>","color":"lightblue"}]
         ]]
     ],false]
 ]

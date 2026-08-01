@@ -19,7 +19,12 @@
             <div class="button" id="ContainerCardSettingsButtonMiddle" onclick="toggleKeyboard()">⌨️</div>
         </div>
         <div class="popUp"id="ContainerCard">
-            <div id="infoQuestion"></div>
+            <div id="infoQuestion">
+                <div id="title" id="ViwerContainerTitle" onclick="openGrammarHTML()">
+                </div>
+                <div id="word_translated" id="ViwerContainerwordAndTranslate">
+                </div>
+            </div>
             <div id="solEnter">
                 <table>
                     <tr>
@@ -51,354 +56,220 @@
             </div>
         </div>
         <div class="container"id="ContainerCardButtons">
-            <div class="button" id="ContainerCardButtonLast" onclick="changeQuestion(curId-1)"><</div>
+            <div class="button" id="ContainerCardButtonLast" onclick="displayQuestion(curId-1)"><</div>
             <div class="button" id="ContainerCardButtonReveal" onclick="checkSol()">☐</div>
-            <div class="button" id="ContainerCardButtonNext" onclick="changeQuestion(curId+1)">></div>
+            <div class="button" id="ContainerCardButtonNext" onclick="displayQuestion(curId+1)">></div>
         </div>
     </div>
 </div>
 <script>
-    const currentHash = window.location.hash.replace("#","");
-    let questionData = []
-    let reveal = false
-    let curId = NaN
-    let curDisplay = NaN
-    let questionIds =[]
+    const data = [
+        ["strong adjective", "várr", "our", [["várr","váran","várs","várum","várir","vára","vára","várum"],["vár","vára","várar","vári","várar","várar","vára","várum"],["várt","várt","várs","váru","vár","vár","vára","várum"]],[[["SG."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]],[["PL."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]]]],
+        ["strong adjective", "okkarr", "our two", [["okkarr","okkarn","okkars","okkurum","okkarir","okkara","okkara","okkurum"],["okkur","okkara","okkarar","okkari","okkarar","okkarar","okkara","okkurum"],["okkart","okkart","okkars","okkǫru","okkur","okkur","okkara","okkurum"]],[[["SG."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]],[["PL."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]]]],
+        ["strong adjective", "yðvarr", "you'alls", [["yðvarr","yðvarn","yðvars","yðvurum","yðvarir","yðvara","yðvara","yðvurum"],["yðvur","yðvara","yðvarar","yðvari","yðvarar","yðvarar","yðvara","yðvurum"],["yðvart","yðvart","yðvars","yðvuru","yðvur","yðvur","yðvara","yðvurum"]],[[["SG."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]],[["PL."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]]]],
+        ["strong adjective", "ykkarr", "you'all two's", [["ykkarr","ykkarn","ykkars","ykkurum","ykkarir","ykkara","ykkara","ykkurum"],["ykkur","ykkara","ykkarar","ykkari","ykkarar","ykkarar","ykkara","ykkurum"],["ykkart","ykkart","ykkars","ykkuru","ykkur","ykkur","ykkara","ykkurum"]],[[["SG."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]],[["PL."],["Masculine"],["Feminine"],["Neuter"]],[["Nom."],[false],[false],[false]],[["Acc."],[false],[false],[false]],[["Gen."],[false],[false],[false]],[["Dat."],[false],[false],[false]]]]
+    ]
+    let curId = 0
+    displayQuestion(0)
 
-    // [0,0] <-> [answered,correctAnswers]
-    let stats = [0,0]
-    let wrongs = []
 
-    loadHash(currentHash)
+    
+    function checkSol() {
+        let wordInfo = data[curId]
+        if(wordInfo.length > 6) {return}
 
-    async function loadHash(hash) {
-        const registeryTable = {
-            "a": "strong_noun_questions",
-            "b": "pronoun_questions",
-            "c": "weak_verb_questions",
-            "d": "strong_verb_questions",
-            "e": "strong_adjective_questions"
-        }
-        questionIds = []
-        let lastQuestionData = NaN
-        for(let i=0;i<hash.length;i++) {
-            const char = hash[i]
-            if(char in registeryTable) {
-                if(lastQuestionData) {questionIds.push(lastQuestionData)}
-                lastQuestionData = [registeryTable[char],""]
-            }else if ("0123456789".includes(String(char))) {
-                lastQuestionData[1] += String(char)
-            }else if (char == "/") {
-                let startId = Number(lastQuestionData[1])
-                let endId = ""
-                for(let i2=i+1;i2<hash.length;i2++) {
-                    const char2 = hash[i2]
-                    if(char2 in registeryTable) {
-                        i = i2
-                        break;
-                    }else if ("0123456789".includes(String(char2))) {
-                        endId += String(char2)
+        let wordVariations = wordInfo[3]
+        let userInput = wordInfo[5]
+        let mistake = false
+
+        for(let x=0; x<wordVariations.length;x++) {
+            if(Array.isArray(wordVariations[0])) {
+                for(let y=0; y<wordVariations[0].length;y++) {
+                    const input = userInput[x][y]
+                    const correct = wordVariations[x][y]
+                    const equal = chechIfEqual(correct,input)
+                    console.log(x,y,equal)
+                    if(!equal) {
+                        mistake = true
+                        document.getElementById(`input${x}:${y}`).value += " ≠ " + correct
+                        userInput[x][y] += " ≠ " + correct
+                    }else {
+                        document.getElementById(`input${x}:${y}`).value += " ✔"
+                        userInput[x][y] += " ✔"
                     }
+                    document.getElementById(`input${x}:${y}`).style.color = equal ? "darkgreen" : "darkred"
                 }
-                for(let id=startId;id<=Number(endId);id++) {
-                    questionIds.push([lastQuestionData[0],id])
+            }else {
+                const input = userInput[x]
+                const correct = wordVariations[x]
+                const equal = chechIfEqual(correct,input)
+                if(!equal) {
+                    mistake = true
+                    document.getElementById(`input${0}:${x}`).value += " ≠ " + correct
+                    userInput[x] += " ≠ " + correct
+                }else {
+                    document.getElementById(`input${0}:${x}`).value += " ✔"
+                    userInput[x] += " ✔"
                 }
-                lastQuestionData = NaN
             }
         }
-        if(lastQuestionData) {questionIds.push(lastQuestionData)}
-        const files = {}
-        questionData = []
-        for(let question of questionIds) {
-            const id = Number(question[1])
-            if(!files[question[0]]) {
-                files[question[0]] = await loadFile(question[0])
-            }
-            const data = files[question[0]][id]
-            questionData.push([question[0],data])
-        }
-        console.log(questionData)
-        changeQuestion(0)
-    }
-    async function loadFile(fileName) {
-        try {
-            const response = await fetch(`../storage/oldNorse/${fileName}.json`);
-            const Data = await response.json();
-            return Data
-        } catch (error) {
-            console.error("Oops, couldn't load the JSON file:", error);
-        }
-    }
-    initKeyBoard()
-    async function initKeyBoard() {
-        const alphabet = await loadFile("alphabet")
-        const keyBoard = document.getElementById('KeyboardContainer')
-        keyBoard.style.display = "none"
-        const keys = []
-        const keyCount = alphabet.length
-        for(let character of alphabet) {
-            const key = createKey(character)
-            keys.push(key)
-            keyBoard.appendChild(key)
+        wordInfo.push(mistake)
 
+    }
+    function chechIfEqual(correct,input) {
+        const modifiedInput = input.replaceAll(" ","").toLowerCase()
+        const modifiedCorrect= correct.replaceAll(" ","").toLowerCase()
+        if(modifiedCorrect == modifiedInput) {return true}
+        return false
+    }
+
+    //display the current question based on id
+    function displayQuestion(id) {
+        curId = id
+
+        //refres any UI elements
+        refreshHTML()
+
+
+        let wordInfo = data[id]
+        let wordVariations = wordInfo[3]
+        const tablePreData = wordInfo[4]
+
+        //display the info for the word
+        document.getElementById("title").textContent = wordInfo[0]
+        document.getElementById("word_translated").textContent = `${wordInfo[1]} ⇄ ${wordInfo[2]}`
+
+        //get user input, when not existing generate the table
+        let userInput = wordInfo?.[5]
+        if(!userInput) {
+            userInput = generateUserInputTable(wordVariations)
+            wordInfo[5] = userInput
         }
-        const shift = createKey(["^","^"," "],"shift",costumListener = () => {
-            for(let key of keys ){
-                key.textContent = key.character[Number(shiftToggle)]
-            }
-            shiftToggle = !shiftToggle
-            inputFocus.focus()
-        })
-        const spaceBar = createKey([" "," "," "],"spaceBar")
-        keys.push(spaceBar)
-        const remove = createKey(["<","<"," "],"backspace",costumListener = () => {
-            let curValue = inputFocus.value
-            inputFocus.value = curValue.slice(0, -1)
-            inputFocus.focus()
-        })
-        keyBoard.appendChild(shift)
-        keyBoard.appendChild(spaceBar)
-        keyBoard.appendChild(remove)
+
+        // reset the div, generate and appen the table viewer
+        document.getElementById("solEnter").innerHTML = ""
+        const table = generateTableViewer(tablePreData,wordVariations,userInput)
+        document.getElementById("solEnter").appendChild(table) 
+
     }
-    function createKey(character,classList="keyCharacter",costumListener=false) {
-        const key = document.createElement("div")
-        key.textContent = character[1]
-        key.classList = classList + " key"
-        key.character = character
-        key.addEventListener("click",costumListener ? costumListener : () => {
-            keyBoardPress(character)
-        })
-        return key
+
+    //refreshes the cardButtons and the progressBar
+    function refreshHTML() {
+
+        //when there card curId-1 does not exist, hide the button
+        if(curId <= 0) {
+            document.getElementById("ContainerCardButtonLast").style.visibility = "hidden"
+        }else {
+            document.getElementById("ContainerCardButtonLast").style.visibility = "visible"
+        }
+
+        //when there card curId+1 does not exist, change the button to end screen open
+        if(curId+1 >= data.length) {
+            document.querySelector("#ContainerCardButtonNext").textContent = "⟳";
+        }else {
+            document.querySelector("#ContainerCardButtonNext").textContent = ">";
+        }
     }
-    let shiftToggle = false
-    let inputFocus = NaN
-    function keyBoardPress(key) {
-        inputFocus.value += key[shiftToggle ? 0 : 1]
-        inputFocus.focus()
-    }
-    let keyboardOn = false
-    function toggleKeyboard() {
-        document.getElementById('KeyboardContainer').style.display = keyboardOn ? "none" : "grid"
-        keyboardOn = !keyboardOn
-    }
-    function initPronounDisplay() {
-        const construct = [
-            ["Nominative",false],
-            ["Accusative",false],
-            ["Genitive",false],
-            ["Dative",false]
-        ]
-        const table = initTable(construct)
-        document.querySelector("#solEnter").appendChild(table)
-    }
-    function initTable(construct) {
-        const table = document.createElement("table")
+
+    //generate the table html, using the structure, the variations and the previos user input
+    function generateTableViewer(tablePreData,wordVariations,userInput) {
+        
+        let table = createElement("table",false,"ViewerTable","ViewerTable")
+    
+        //keeping track of the row for variations seperately
         let displayRowCount = -1
-        for(let rowId=0; rowId<construct.length;rowId++) {
-            const row = construct[rowId]
-            const tr = document.createElement("tr")
+
+        //looping through the preData 
+        for(let tableRow=0; tableRow<tablePreData.length; tableRow++) {
+
+            const row = tablePreData[tableRow]
+            const rowHTML = createElement("tr",false,`ViewerTableRow${tableRow}`,"ViewerTableRow")
+
+            //keeping track of the col for variations seperately
             let displayColCount = 0
-            for(let colId=0; colId<construct[0].length;colId++) {
-                const td = document.createElement("td")
-                const item = row[colId]
-                
-                if(item) {
-                    td.innerHTML = `<div>${item}</div>`
+            for(let tableCol=0; tableCol<row.length; tableCol++) {
+
+                const [cell,color] = row[tableCol]
+                const cellHTML = createElement("td",false,`ViewerTableCell${tableRow}:${tableCol}`,"ViewerTableCell")
+                if(color) {cellHTML.style.background = color}
+
+                //when cell content display it otherways take the word variation
+                if(cell) {
+                    cellHTML.classList.add("PreDefinedCell")
+                    cellHTML.textContent = cell
                 }else {
                     //change the varaition row when  this is a new row
                     if(displayColCount==0) {displayRowCount+=1}
+                
+                    //create the input for the cell
+                    const inputHtml = createElement("input",false,`input${displayColCount}:${displayRowCount}`,"inputCell")
 
-                    const input = document.createElement("input")
-                    const id = `${displayRowCount}${displayColCount}`
-                    input.value = id
-                    input.id = id
-                    input.type = "text"
-                    input.inputmode = "none"
-                    input.autocomplete = "one-time-code"
-                    input.addEventListener("click", () => {
-                        inputFocus = input
+                    //getting the correct variation and user input, based on data structure
+                    const wordVariation = Array.isArray(wordVariations[0]) ? wordVariations[displayColCount][displayRowCount] : wordVariations[displayRowCount]
+                    const userWordInput = Array.isArray(userInput[0]) ? userInput[displayColCount][displayRowCount] : userInput[displayRowCount]
+
+                    inputHtml.value = userWordInput 
+        
+                    //when there was previosly a wrong input color the text red, if it was right green otherwise basic black
+                    if(inputHtml.value.includes("≠")) {
+                        inputHtml.style.color = "darkred"
+                    }else if(inputHtml.value.includes("✔")) {
+                        inputHtml.style.color = "darkgreen"
+                    }
+                    
+                    // saving the current indexes so they wont get overwritten on the next loop
+                    const currentDisplayColCount = displayColCount;
+                    const currentDisplayRowCount = displayRowCount;
+                    //on any change save the user input
+                    inputHtml.addEventListener("change",()=> {
+                        if(Array.isArray(userInput[0])) {
+                            userInput[currentDisplayColCount][currentDisplayRowCount] = inputHtml.value 
+                        }else {
+                            userInput[currentDisplayColCount] = inputHtml.value 
+                        } 
                     })
-                    td.appendChild(input)
-
+                    
+                    //add the corrrect tags append it to the table
+                    cellHTML.classList.add("viewerCell")
+                    cellHTML.appendChild(inputHtml)
                     displayColCount += 1
                 }
-                tr.appendChild(td)
+
+                rowHTML.appendChild(cellHTML)
             }
-            table.appendChild(tr)
+            table.appendChild(rowHTML)
         }
+
         return table
-    }
-    function initNounDisplay() {
-        const construct = [
-            ["\u200B","Singular","Plural"],
-            ["Nominative",false,false],
-            ["Accusative",false,false],
-            ["Genitive",false,false],
-            ["Dative",false,false]
-        ]
-        const table = initTable(construct)
-        document.querySelector("#solEnter").appendChild(table)
-    }
-    function initAdjectiveDisplay() {
-        const construct = [
-            ["SG.","Masculine","Feminine","Neuter"],
-            ["Nom.",false,false,false],
-            ["Acc.",false,false,false],
-            ["Gen.",false,false,false],
-            ["Dat.",false,false,false],
-            ["PL.","Masculine","Feminine","Neuter"],
-            ["Nom.",false,false,false],
-            ["Acc.",false,false,false],
-            ["Gen.",false,false,false],
-            ["Dat.",false,false,false]
-        ]
-        const table = initTable(construct)
-        document.querySelector("#solEnter").appendChild(table)
-    }
-    function initVerbDisplay() {
-        const construct = [
-            ["\u200B","Present","Past"],
-            ["Ek",false,false],
-            ["þú",false,false],
-            ["þat/hon/hann",false,false],
-            ["vér/vít",false,false],
-            ["þér/þit",false,false],
-            ["þau/þær/þeir",false,false]
-        ]
-        const table = initTable(construct)
-        document.querySelector("#solEnter").appendChild(table)
-    }
-    function initDisplay(type) {
-        curDisplay,type = type.replace("_questions","")
-        console.log(type)
-        const container = document.querySelector("#solEnter")
-        container.innerHTML = ""
-        switch(type) {
-            case("strong_noun"): {
-                initNounDisplay()
-                break;
-            }
-            case("pronoun"): {
-                initPronounDisplay()
-                break;
-            }
-            case("weak_verb"): {
-                initVerbDisplay()
-                break;
-            }
-            case("strong_verb"): {
-                initVerbDisplay()
-                break;
-            }
-            case("strong_adjective"): {
-                initAdjectiveDisplay()
-                break;
-            }
-        }
-    }
-    function displayTitle(data,revealAddInfo=true,revealTranslation = true) {
-        const infoQuestion = document.querySelector('#infoQuestion')
-        const unTranslated = revealAddInfo ? data[1] : data[1].split(",")[0]
-        const text = `<div class="infoTitle">Fill in the blanks</div>
-            <div class="wordInfo">${unTranslated + (revealTranslation ? ` ⇄ ${data[2]}` : "")}</div>
-            ${revealAddInfo ? `<div class="wordInfo">${data[0]}</div>` : ""}`
-        infoQuestion.innerHTML = text
-    }
-    function displayQuestion(dataQuestion,extraHelp = false) {
-        let [type,data] = dataQuestion
-        displayTitle(data,true,true)
+    } 
 
-        type = type.replace("_questions","")
-        if(curDisplay != type) {
-            initDisplay(type)
-        }
-        const cases = typeof data[3][0] == "object" ? data[3] : [data[3]]
-        if(questionData[curId][4]) {cases = questionData[curId][4]}
-        for(let colId=0;colId<cases.length;colId++) {
-            for(let rowId=0;rowId<cases[0].length;rowId++) {
-                const id = `${rowId}${colId}`
-                const input = document.getElementById(id)
-                input.style.color = "black"
-                input.value = questionData[curId][4] ? questionData[curId][4][colId][rowId] : ""
-                input.style.background = !questionData[curId][4] ? "transparent" : (questionData[curId][4][colId][rowId].includes("✓") ? "#B4CBB7" : "#E8A598")
-            }""
-        }
-    }
-    function checkIfComplete() {
-        for(let question of questionData) {
-            if(!question[4]) {return}
-        }
-        console.log(`complete: ${stats[1]}/${stats[0]}`)
-        generateNewQuestions(wrongs)
-    }
-    function generateNewQuestions(newIds=wrongs) {
-        const registeryTable = {
-            "noun_questions": "a",
-            "pronoun_questions": "b",
-            "weak_verb_questions": "c",
-            "strong_verb_questions": "c"
-        }
-        let Ids = newIds.sort()
-        let newHash = "#"
-        for(id in Ids) {
-            fileType = registeryTable[questionIds[id][0]]
-            newHash += fileType + id[0]
-        }
-        console.log(newHash,Ids)
-        window.location.hash = newHash 
-        location.reload();
-    }
-    function checkSol() {
-        if(questionData[curId][4]) {return}
-        let correction = []
-        let allCorrect = true
-        document.querySelector("#ContainerCardButtonReveal").style.background = "red"
-        document.querySelector("#ContainerCardButtonReveal").textContent = "☒"
-
-        let [type,data] = questionData[curId]
-        type = type.replace("_questions","")
-        displayTitle(data,true,true)
-        
-        const cases = typeof data[3][0] == "object" ? data[3] : [data[3]]
-        for(let colId=0;colId<cases.length;colId++) {
-            correction.push([])
-            for(let rowId=0;rowId<cases[0].length;rowId++) {
-                const id = `${rowId}${colId}`
-                const input = document.getElementById(id)
-                const value = input.value.trim().toLowerCase()
-                const correctValue = (typeof data[3][0] == "object" ? cases[colId][rowId] : cases[colId][rowId])
-                stats[0] += 1
-                if(value == correctValue) {
-                    input.value += " ✓"
-                    input.style.background = "#B4CBB7" 
-                    stats[1] += 1
-                }else {
-                    input.value += " \u2260 " + correctValue
-                    input.style.background = "#E8A598"
-                    allCorrect = false
+    //generate the user input table if not existing
+    function generateUserInputTable(wordVariations) {
+        const userInput = []
+        for(let x=0; x<wordVariations.length;x++) {
+            if(Array.isArray(wordVariations[0])) {
+                let col = []
+                for(let y=0; y<wordVariations[0].length;y++) {
+                    col.push("")
                 }
-                correction[colId].push(input.value)
+                userInput.push(col)
+            }else {
+                userInput.push("")
             }
         }
-        if(!allCorrect) {
-            wrongs.push(curId)
-        }
-        questionData[curId][4] = correction
-        checkIfComplete()
+        return userInput
     }
-    function changeQuestion(id=curId) {
-        curId = id
-        const cardData = questionData[id]
 
-        if(id==0){document.querySelector("#ContainerCardButtonLast").style.visibility = "hidden";}
-        else{document.querySelector("#ContainerCardButtonLast").style.visibility = "visible";}
-        if(id>=questionData.length-1){document.querySelector("#ContainerCardButtonNext").style.visibility = "hidden";}
-        else{document.querySelector("#ContainerCardButtonNext").style.visibility = "visible";}
-        document.querySelector("#ContainerCardButtonReveal").style.background = cardData[4] ? "red" : "green"
-        document.querySelector("#ContainerCardButtonReveal").textContent = cardData[4] ? "☒" : "☐" 
-        
-        displayQuestion(cardData,true)
+    //create an element
+    function createElement(type,text,id,classList,parentID=false) {
+        const element = document.createElement(type)
+        if(text){element.textContent = text}
+        if(id){element.id = id}
+        if(classList){element.classList = classList}
+        if(parentID){document.getElementById(parentID).appendChild(element)}
+        return element
     }
+
 </script>
 </body>
 </html>

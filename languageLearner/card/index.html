@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
 <title>Cards</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᛋ</text></svg>">
 
@@ -16,51 +15,59 @@
 <div id="Forground">
     <div class="container" id="ContainerCards">
         <div class="container"id="ContainerCardSettings">
-            <div class="button" id="didNotKnewQuestion" onclick="knewQuestion(false)">X</div>
+            <div class="button" id="didNotKnewQuestion" onclick="changeCard(curId+1)">X</div>
             <div id="progressBarContainer"><div id="progressBar"></div></div>
-            <div class="button" id="knewQuestion" onclick="knewQuestion(true)">✓</div>
+            <div class="button" id="knewQuestion" onclick="changeCard(curId+1)">✓</div>
         </div>
         <div class="popUp"id="ContainerCard">
-            <div><b>CArdy</b></div>
+            <div id="wordType" onclick="openGrammarHTML(curId)"><b>Title</b></div>
+            <div id="word_translation" onclick="openVocViewer(curId)"><b>Word and Translation</b></div>
+            <div id="example_translation"><b>Example and Translation</b></div>
         </div>
         <div class="container"id="ContainerCardButtons">
-            <div class="button" id="ContainerCardButtonLast" onclick="displayCard(curId-1)"><</div>
+            <div class="button" id="ContainerCardButtonLast" onclick="changeCard(curId-1)"><</div>
             <div class="button" id="ContainerCardButtonReveal" onclick="toggleReveal()">⇄</div>
-            <div class="button" id="ContainerCardButtonNext" onclick="displayCard(curId+1)">></div>
+            <div class="button" id="ContainerCardButtonNext" onclick="changeCard(curId+1)">></div>
         </div>
     </div>
 </div>
 <script>
-    const currentHash = window.location.hash.replace("#","");
-    const [displayType,idHash] = currentHash.split("_")
-    let reverse = (displayType == "a") ? false : true
-    const idsHash = idHash.split('-')
-    let ids = []
-    for(let id of idsHash) {
-        if(id.includes("/")) {
-            const [startID,endId] = id.split("/")
-            console.log(startID,endId)
-            for(let i = Number(startID); i<=Number(endId);i++){
-                ids.push([i,1])
+    //http://127.0.0.1:5500/card/#xs:0-185 
+
+    const currentHash = decodeURIComponent(window.location.hash.replace("#","")) 
+    const [cardSettings, wordIdGroups] = currentHash.split(":")
+
+    let words_json = NaN
+    let data = []
+
+    loadData(cardSettings, wordIdGroups)
+
+    async function loadData(cardSettings,wordIdGroups) {
+        if(!words_json) {words_json = await loadFile("words")}
+        wordIdGroups = wordIdGroups.split(",")
+        for(let wordIdGroup of wordIdGroups) {
+            const [startId, endId] = wordIdGroup.split("-")
+            for(let i=Number(startId); i<=Number(endId); i++) {
+                const wordData = words_json[i]
+                if(!wordData) {continue}
+                if(cardSettings=="fs" || cardSettings=="fl") {
+                    data.push([false,wordData])
+                }else if(cardSettings=="rs" || cardSettings=="rl"){
+                    data.push([true,wordData])
+                }else if(cardSettings=="xs" || cardSettings=="xl") {
+                    const direction = Math.random() > 0.5
+                    data.push([direction,wordData])
+                }
             }
-        }else {
-            ids.push([id,0])
         }
-    }
-    const idsLength = ids.length
-    ids = shuffleArray(ids)
-    let cardsData = []
-    let reveal = false
-    let curId = NaN
-    let stillNeeded = []
-    function knewQuestion(correct) {
-        ids[curId][1] = correct
-        if(!correct) {
-            stillNeeded.push(cardsData[curId][1])
+
+        if(cardSettings.includes("s")) {
+            data = shuffleArray(data)
         }
-        console.log(cardsData[curId][1],correct)
-        displayCard(curId+1)
+        console.log(data.length)
+        changeCard(0)
     }
+
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -68,159 +75,122 @@
         }
         return array;
     }
-    async function loadCards() {
-        try {
-            const response = await fetch('../storage/oldNorse/words.json');
-            const allData = await response.json();
 
-            for(let i = 0; i<ids.length;i++ ) {
-                const id = ids[i][0]
-                cardsData.push([allData[id],id,displayType == "a" ? false : displayType == "b" ? true : (Math.random() > 0.5) ])
-            }
-            displayCard(0)
-        } catch (error) {
-            console.error("Oops, couldn't load the JSON file:", error);
-        }
-    }
-    function displayOnCard(type,cardData,translate = false,example = true,reverse = false) {
-        let [toTranslateExample,translatedExample]  = [NaN, NaN]
-        const [toTranslate,translated] = reverse ? [cardData[2],cardData[1]] : [cardData[1],cardData[2]] 
-        if (cardData.length > 3){[toTranslateExample,translatedExample] = reverse ? [cardData[4],cardData[3]] : [cardData[3],cardData[4]]} 
-        if(translate) {
-            document.querySelector(type).innerHTML = `
-                <div class="card-title"><b>${cardData[0]}</b></div>
-                <div class="card-space1">${toTranslate} ⇄ ${translated}</div>
-                ` + (cardData.length > 3 ? `<div class="card-space2">${toTranslateExample} <br>⇄<br>${translatedExample}</div>` : "");
-        }else {
-            document.querySelector(type).innerHTML = `
-                <div class="card-title"><b>${cardData[0]}</b></div>
-                <div class="card-space1">${toTranslate}</div>
-                ` + (cardData.length > 3 ? `<div class="card-space2">${toTranslateExample}</div>` : "");
 
-        }
-    }
-    function revealCard() {
-        const cardData = cardsData[curId][0]
-        document.querySelector("#ContainerCardButtonReveal").style.background = "darkRed"
-        
-        displayOnCard("#ContainerCard",cardData,true,false,cardsData[curId][2])
-    }
-    function toggleReveal() {
-        if(reveal) {displayCard()}
-        else{ revealCard()}
-        reveal = !reveal
 
-    }
-    function createMoreQuestionHash() {
-        if(!stillNeeded.length) {return}
-        stillNeeded.sort((a, b) => a - b);
-        console.log(stillNeeded)
-        let segments = []
-        let startID = stillNeeded[0]
-        let endId = startID
-        for(let i = 1; i <stillNeeded.length; i++) {
-            let nextId = stillNeeded[i];
-            if(endId+1 == nextId) {
-                endId = nextId
-            }else{
-                if(endId != startID) {
-                    segments.push(`${startID}/${endId}`)
-                }else {
-                    segments.push(`${startID}`)
-                }
-                startID = nextId
-                endId = nextId
-            }
-        }
-        if (endId !== startID) {
-            segments.push(`${startID}/${endId}`);
-        } else {
-            segments.push(`${startID}`);
-        }
-        const hash = "#"+ displayType + "|" + segments.join("-")
-        window.location.hash = hash
-        location.reload()
-        console.log(hash)
-    }
-    function finish() {
-        getLocalStorageData()
-
-        const curDate = Date.now();
-        for(let i=0; i<idsLength;i++) {
-            const cardData = cardsData[i][0]
-            console.log(ids[i][1])
-            if(ids[i][1]) {
-                wordProgress[cardData[0]+"|"+cardData[1]][0] += 1
-                wordProgress[cardData[0]+"|"+cardData[1]][1] = curDate
-            }else {
-                wordProgress[cardData[0]+"|"+cardData[1]][0] -= 1
-            }
-
-        }
-        localStorage.setItem("wordProgress", JSON.stringify(wordProgress));
-        createMoreQuestionHash()
-    }
+    //loading the file by name 
     async function loadFile(file_name) {
         try {
-            const response = await fetch(`/storage/oldNorse/${file_name}.json`)
+            const response = await fetch(`../storage/oldNorse/${file_name}.json`)
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
             const allData = await response.json()
             return allData
         } catch (error) {
             console.error("Oops, couldn't load the JSON file:", file_name)
         }
     }
-    function displayCard(id=curId) {
-        reveal = false
-        if(id>=idsLength) {
-            finish()
-            return
-        }
-        curId = id
-        const procentile = (id/(idsLength-1))*100
-        document.getElementById("progressBar").style.width = `${procentile}%`
-        const cardData = cardsData[id][0]
 
-        if(id==0){document.querySelector("#ContainerCardButtonLast").style.visibility = "hidden";}
-        else{document.querySelector("#ContainerCardButtonLast").style.visibility = "visible";}
-        if(id>=idsLength-1){
+
+
+
+    //on word_type click open the grammar page to the current type
+    function openGrammarHTML(id) {
+        const [direction, curData] = data[id]
+        const type = curData[0].split(",")[0].trim().replace(" ","_")
+        const link = '../grammar_viewer/#' + type
+        window.open(link, "_blank")
+    }
+
+    //on the word click, open the voc viewer in a new window
+    function openVocViewer(id) {
+        const [direction, curData] = data[id]
+        const [currentType,currentWord,currentTranslated] = [curData[0],curData[1],curData[2]]
+        const link = '../voc_viewer/#' + currentType + "/" + currentWord + "/" + currentTranslated
+        window.open(link, "_blank")
+    }
+
+    let curId = 0
+    let curSettings = [false,false]
+    //chnages the current card to the newId and refreshes the HTML
+    function changeCard(newId) {
+        if(curId < 0) {return} 
+        if(curId >= data.length) {openEndScreen();return}
+
+        curId = newId
+        const [direction, curData] = data[curId]
+        displayCard(curData,false,direction)
+        refreshHTML()
+    }
+
+    function openEndScreen() {
+
+    }
+
+    //refreshes the cardButtons and the progressBar
+    function refreshHTML() {
+        progressProcentile = (curId / data.length) * 100
+        document.getElementById("progressBar").style.width = `${progressProcentile}%`
+
+        //when there card curId-1 does not exist, hide the button
+        if(curId <= 0) {
+            document.getElementById("ContainerCardButtonLast").style.visibility = "hidden"
+        }else {
+            document.getElementById("ContainerCardButtonLast").style.visibility = "visible"
+        }
+
+        //when there card curId+1 does not exist, change the button to end screen open
+        if(curId+1 >= data.length) {
             document.querySelector("#ContainerCardButtonNext").textContent = "⟳";
-        }else{
-            document.querySelector("#ContainerCardButtonNext").textContent = ">";}
-        document.querySelector("#ContainerCardButtonReveal").style.background = "green"
-        displayOnCard("#ContainerCard",cardData,false,false,cardsData[id][2])
-    }
-    let wordProgress = NaN
-    let PlayerXP = NaN
-    async function getLocalStorageData() {
-        const storedWordProgress = localStorage.getItem("wordProgress");
-        const curDate = Date.now();
-
-        if (storedWordProgress) {
-            wordProgress = JSON.parse(storedWordProgress);
         }else {
-            wordProgress = {}
+            document.querySelector("#ContainerCardButtonNext").textContent = ">";
         }
-        console.log(wordProgress);
-        const words = await loadFile("words")
-            for(const word of words) {
-            const wordKey = word[0] + "|" + word[1];
+    }
 
-            if (wordProgress[wordKey] === undefined) {
-                wordProgress[wordKey] = [0,undefined];
-            }
+    //displays the Card content takes ["wordType", "word", "translatedWord",*optional example*], reveal and reverse
+    function displayCard(curData,reveal=false,reverse=false) {
+
+        //displaying wordType, as a String in its div
+        const wordType = String(curData[0])
+        document.getElementById("wordType").innerHTML = wordType
+
+        //displaying the word if reveal is false, otherwise also its translation, reverse order when reverse is false
+        const word = reverse ? String(curData[2]) : String(curData[1])
+        if(!reveal) {
+            document.getElementById("word_translation").innerHTML = word
+        }else {
+            const translatedWord = reverse ? String(curData[1]) : String(curData[2])
+            document.getElementById("word_translation").innerHTML = `${word} ⇄ ${translatedWord}`
         }
-        console.log(wordProgress);
         
-        const storedPlayerXP = localStorage.getItem("PlayerXP");
-        if (PlayerXP) {
-            PlayerXP = JSON.parse(storedPlayerXP);
+        //if there are more than 3 indexes in the Array an example is present
+        //displaying the example if reveal is false, otherwise also its translation, reverse order when reverse is false
+        if(curData.length > 3) {
+            const example = reverse ? String(curData[4]) : String(curData[3])
+            if(!reveal) {
+                document.getElementById("example_translation").innerHTML = example
+            }else {
+                const translatedExample = reverse ? String(curData[3]) : String(curData[4])
+                document.getElementById("example_translation").innerHTML = `${example} ⇄ ${translatedExample}`
+            }
         }else {
-            PlayerXP = 0
+            document.getElementById("example_translation").innerHTML = ""
         }
 
-        localStorage.setItem("wordProgress", JSON.stringify(wordProgress));
+        //setting the curButtonReveals backgroundcolor to red if reveal otherwise darkgreen
+        document.getElementById("ContainerCardButtonReveal").style.background = reveal ? "darkred" : "darkgreen"
+
+        //saving the curSettings
+        curSettings = [reveal,reverse]
     }
-    loadCards();
+
+    //toggles card reveal by displaying the card witht the reverse saved reveal
+    function toggleReveal() {
+        displayCard(data[curId][1],!curSettings[0],curSettings[1])
+    }
 </script>
 </body>
 </html>

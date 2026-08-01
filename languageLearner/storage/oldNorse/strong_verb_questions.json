@@ -1,32 +1,43 @@
-[
-    ["strong verb, *3", "verða", "(to) become", [["verð","verðr","verðr","verðum","verðið","verða"],["varð","vart","varð","urðum","urðuð","urðu"]]],
-    ["strong verb, *3", "finna", "(to) find", [["finn","finnr","finnr","finnum","finnið","finna"],["fann","fant","fann","fundum","funduð","fundu"]]],
-    ["strong verb, *3", "vinna", "(to) work, win", [["vinn","vinnr","vinnr","vinnum","vinnið","vinna"],["vann","vant","vann","unnum","unnuð","unnu"]]],
-    ["strong verb, *3", "binda", "(to) bind", [["bind","bindr","dindr","bindum","bindið","binda"],[" batt","batt","batt","bundum","bunduð","bundu"]]],
+[    
+    [
+        [["\u200B"],["Present"],["Past"]],
+        [["Ek"],[false],[false]],
+        [["þú"],[false],[false]],
+        [["þat/hon/hann"],[false,"red"],[false,"green"]],
+        [["vér/vít"],[false],[false]],
+        [["þér/þit"],[false],[false]],
+        [["þau/þær/þeir"],[false,"orange"],[false,"lightblue"]]
+    ],
+    [
+        ["strong verb, *3", "verða", "(to) become", [["verð","verðr","verðr","verðum","verðið","verða"],["varð","vart","varð","urðum","urðuð","urðu"]]],
+        ["strong verb, *3", "finna", "(to) find", [["finn","finnr","finnr","finnum","finnið","finna"],["fann","fant","fann","fundum","funduð","fundu"]]],
+        ["strong verb, *3", "vinna", "(to) work, win", [["vinn","vinnr","vinnr","vinnum","vinnið","vinna"],["vann","vant","vann","unnum","unnuð","unnu"]]],
+        ["strong verb, *3", "binda", "(to) bind", [["bind","bindr","bindr","bindum","bindið","binda"],[" batt","batt","batt","bundum","bunduð","bundu"]]],
 
-    ["strong verb, *4", "bera", "(to) carry, bear", [["ber","berr","berr","berum","berið","bera"],["bar","bart","bar","bárum","báruð","báru"]]],
-    ["strong verb, *4 , irregular", "koma", "(to) come", [["kem","kemr","kemr","komum","komið","koma"],["kom","komt","kom","kómum","kómuð","kómu"]]],
+        ["strong verb, *4", "bera", "(to) carry, bear", [["ber","berr","berr","berum","berið","bera"],["bar","bart","bar","bárum","báruð","báru"]]],
+        ["strong verb, *4 , irregular", "koma", "(to) come", [["kem","kemr","kemr","komum","komið","koma"],["kom","komt","kom","kómum","kómuð","kómu"]]],
 
-    ["strong verb, *5", "gefa", "(to) give", [["gef","gefr","gefr","gefum","gefið","gefa"],["gaf","gaft","gaf","gáfum","gáfuð","gáfu"]]],
-    ["strong verb, *5", "kveða", "(to) say | speak", [["kveð","kveðr","kveðr","kveðum","kveðið","kveða"],["kvað","kvatt","kvað","kváðum","kváðuð","kváðu"]]],
-    ["strong verb, *5", "drepa", "(to) kil", [["drep","drepr","drepr","drepum","drepið","drepa"],["drap","drapt","drap","drápum","drápuð","drápu"]]],
-    ["strong verb, *5", "geta", "(to) get", [["get","getr","getr","getum","getið","geta"],["gat","gatt","gat","gátum","gátuð","gátu"]]],
-    ["strong verb, *5, irregular", "liggja", "(to) be lying down, to be located", [["ligg","liggr","liggr","ligjum","liggið","liggja"],["lá","látt","lá","lágum","láguð","lágu"]]],
-    ["strong verb, *5, irregular", "sjá", "(to) see", [["sé","sér","sér","sjám","sjáið","sjá"],["sá","sátt","sá","sám","sáð","sá"]]],
+        ["strong verb, *5", "gefa", "(to) give", [["gef","gefr","gefr","gefum","gefið","gefa"],["gaf","gaft","gaf","gáfum","gáfuð","gáfu"]]],
+        ["strong verb, *5", "kveða", "(to) say | speak", [["kveð","kveðr","kveðr","kveðum","kveðið","kveða"],["kvað","kvatt","kvað","kváðum","kváðuð","kváðu"]]],
+        ["strong verb, *5", "drepa", "(to) kil", [["drep","drepr","drepr","drepum","drepið","drepa"],["drap","drapt","drap","drápum","drápuð","drápu"]]],
+        ["strong verb, *5", "geta", "(to) get", [["get","getr","getr","getum","getið","geta"],["gat","gatt","gat","gátum","gátuð","gátu"]]],
+        ["strong verb, *5, irregular", "liggja", "(to) be lying down, to be located", [["ligg","liggr","liggr","ligjum","liggið","liggja"],["lá","látt","lá","lágum","láguð","lágu"]]],
+        ["strong verb, *5, irregular", "sjá", "(to) see", [["sé","sér","sér","sjám","sjáið","sjá"],["sá","sátt","sá","sám","sáð","sá"]]],
 
-    ["strong verb, *6", "taka, ", "(to) take", [["tek","tekr","tekr","tǫkum","takið","taka"],["tók","tókt","tók","tókum","tókuð","tóku"]]],
-    ["strong verb, *6", "fara", "(to) go", [["fer","ferr","ferr","fǫrum","farið","fara"],["fór","fórt","fór","fórum","fóruð","fóru"]]],
-    ["strong verb, *6", "grafa", "(to) dig", [["gref","grefr","grefr","grǫfum","grafið","grafa"],["gróf","gróft","gróf","grófum","grófuð","grófu"]]],
-    ["strong verb, *6", "standa", "(to) stand", [["stend","stendr","stendr","stǫndum","standið","standa"],["stóð","stótt","stóð","stóðum","stóðuð","stóðu"]]],
-    ["strong verb, *6", "draga", "(to) drag, draw (out), pull", [["dreg","dregr","dregr","drǫgum","dragið","draga"],["dró","drótt","dró","drógum","dróguð","drógu"]]],
-    ["strong verb, *6", "hefja", "(to) heave (up), begin", [["hef","hefr","hefr","hefjum","hefið","hefja"],["hóf","hóft","hóf","hófum","hófuð","hófu"]]],
-    ["strong verb, *6", "deyja", "(to) die", [["dey","deyr","deyr","deyjum","deyið","deyja"],["dó","dótt","dót","dóm","dóð","dó"]]],
+        ["strong verb, *6", "taka", "(to) take", [["tek","tekr","tekr","tǫkum","takið","taka"],["tók","tókt","tók","tókum","tókuð","tóku"]]],
+        ["strong verb, *6", "fara", "(to) go", [["fer","ferr","ferr","fǫrum","farið","fara"],["fór","fórt","fór","fórum","fóruð","fóru"]]],
+        ["strong verb, *6", "grafa", "(to) dig", [["gref","grefr","grefr","grǫfum","grafið","grafa"],["gróf","gróft","gróf","grófum","grófuð","grófu"]]],
+        ["strong verb, *6", "standa", "(to) stand", [["stend","stendr","stendr","stǫndum","standið","standa"],["stóð","stótt","stóð","stóðum","stóðuð","stóðu"]]],
+        ["strong verb, *6", "draga", "(to) drag, draw (out), pull", [["dreg","dregr","dregr","drǫgum","dragið","draga"],["dró","drótt","dró","drógum","dróguð","drógu"]]],
+        ["strong verb, *6", "hefja", "(to) heave (up), begin", [["hef","hefr","hefr","hefjum","hefið","hefja"],["hóf","hóft","hóf","hófum","hófuð","hófu"]]],
+        ["strong verb, *6", "deyja", "(to) die", [["dey","deyr","deyr","deyjum","deyið","deyja"],["dó","dótt","dót","dóm","dóð","dó"]]],
 
-    ["strong verb, *7", "fá", "(to) get", [["fæ","fær","fær","fáum","fáið","fá"],["fekk","fekt","fekk","fengum","fenguð","fengu"]]],
-    ["strong verb, *7", "ganga", "(to) walk", [["geng","gengr","gengr","gǫngum","gangið","ganga"],["gekk","gekt","gekk","gengum","genguð","gengu"]]],
-    ["strong verb, *7", "hǫggva", "(to) cut, slice, chop, hew", [["høgg","høggr","høggr","hǫggum","hǫggvið","hǫggva"],["hjó","hjótt","hjó","hjuggum","hjugguð","hjuggu"]]],
-    ["strong verb, *7", "falla", "(to) fall", [["fell","fellr","fellr","fǫllum","fallið","fallaa"],["fell","felt","fell","fellum","felluð","fellu"]]],
-    ["strong verb, *7", "búa", "(to) inhabit, dwell, prepare", [["bý","býr","býr","búm","búið","búa"],["bjó","bjótt","bjo","bjuggum","bjugguð","bjuggu"]]],
-    ["strong verb, *7", "láta", "(to) let, allow", [["læt","lætr","lætr","látum","látið","láta"],["lét","létt","lét","létum","létuð","létu"]]],
-    ["strong verb, *7", "hlaupa", "(to) run / leap", [["hleyp","hleypr","hleypr","hlaupum","hlaupið","hlaupa"],["hljóp","hljópt","hljóp","hlupum","hljupuð","hljepu"]]]
+        ["strong verb, *7", "fá", "(to) get", [["fæ","fær","fær","fáum","fáið","fá"],["fekk","fekt","fekk","fengum","fenguð","fengu"]]],
+        ["strong verb, *7", "ganga", "(to) walk", [["geng","gengr","gengr","gǫngum","gangið","ganga"],["gekk","gekt","gekk","gengum","genguð","gengu"]]],
+        ["strong verb, *7", "hǫggva", "(to) cut, slice, chop, hew", [["høgg","høggr","høggr","hǫggum","hǫggvið","hǫggva"],["hjó","hjótt","hjó","hjuggum","hjugguð","hjuggu"]]],
+        ["strong verb, *7", "falla", "(to) fall", [["fell","fellr","fellr","fǫllum","fallið","fallaa"],["fell","felt","fell","fellum","felluð","fellu"]]],
+        ["strong verb, *7", "búa", "(to) inhabit, dwell, prepare", [["bý","býr","býr","búm","búið","búa"],["bjó","bjótt","bjo","bjuggum","bjugguð","bjuggu"]]],
+        ["strong verb, *7", "láta", "(to) let, allow", [["læt","lætr","lætr","látum","látið","láta"],["lét","létt","lét","létum","létuð","létu"]]],
+        ["strong verb, *7", "hlaupa", "(to) run / leap", [["hleyp","hleypr","hleypr","hlaupum","hlaupið","hlaupa"],["hljóp","hljópt","hljóp","hlupum","hljupuð","hljepu"]]]
+    ]
 ]

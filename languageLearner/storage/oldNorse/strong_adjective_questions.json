@@ -1,21 +1,37 @@
 [
-    ["strong adjective", "varmr", "warm", [["varmr","varman","varms","vǫrmum","varmir","varma","varmra","vǫrmum"], ["vǫrm","varma","varmrar","varmri","varmar","varmar","varmra","vǫrmum"], ["varmt","varmt","varms","vǫrmu","vǫrm","vǫrm","varmra","vǫrmum"]]],
-    ["strong adjective", "heitr", "hot", [["heitr","heitan","heits","heitum","heitir","heita","heitra","heitum"], ["heit","heita","heitrar","heitri","heitar","heitar","heitra","heitum"], ["heitt","heitt","heits","heitu","heit","heit","heitra","heitum"]]],
-    ["strong adjective", "svalr", "cool", [["svalr","svalan","svals","svǫlum","svalir","svala","svalra","svǫlum"], ["svǫl","svala","svalrar","svalri","svalar","svalar","svalra","svǫlum"], ["svalt","svalt","svals","svǫlu","svǫl","svǫl","svalra","svǫlum"]]],
-    ["strong adjective", "kaldr", "cold", [["kaldr","kaldan","kalds","kǫldum","kaldir","kalda","kaldra","kǫldum"], ["kǫld","kalda","kaldrar","kaldri","kaldar","kaldar","kaldra","kǫldum"], ["kalt","kalt","kalds","kǫldu","kǫld","kǫld","kaldra","kǫldum"]]],
-    ["strong adjective", "hlær", "pleasent", [["hlær","hlæam","hlæs","hlæum","hlæir","hlæa","hlæra","hlæum"], ["hlæ","hlæa","hlærar","hlæri","hlæar","hlæar","hlæra","hlæum"], ["hlæt","hlæt","hlæs","hlæu","hlæ","hlæ","hlæra","hlæum"]]],
-    ["strong adjective", "allr", "all", [["allr","allan","alls","ǫllum","allir","alla","alra","ǫllum"], ["ǫll","alla","allrar","allri","allar","allar","allra","ǫllum"], ["allt","allt","alls","ǫllu","ǫll","ǫll","allra","ǫllum"]]],
-    ["strong adjective", "margr", "many", [["margr","margan","margs","mǫrgum","margir","marga","margra","mǫrgum"], ["mǫrg","marga","margrar","margri","margar","margar","margra","mǫrgum"], ["margt","margt","margs","mǫrgu","mǫrg","mǫrg","margra","mǫrgum"]]],
-    ["strong adjective", "sumr", "some", [["sumr","suman","sums","sumum","sumir","suma","sumra","sumum"],["sum","suma","sumrar","sumri","sumar","sumar","sumra","sumum"],["sumt","sumt","sums","sumu","sum","sum","sumra","sumum"]]],
-    ["strong adjective", "fár", "few", [["fár","fáan","fás","fáum","fáir","fáa","fára","fáum"],["fá","fáa","fárar","fári","fáar","fáar","fára","fáum"],["fát","fát","fás","fáu","fá","fá","fára","fáum"]]],
-    ["strong adjective", "harðr", "hard", [["harðr","harðan","harðs","hǫrðum","harðir","harða","harðra","hǫrðum"],["hǫrð","harða","harðrar","harðri","harðar","harðar","harðra","hǫrðum"],["hart","hart","harðs","hǫrðu","hǫrð","hǫrð","harðra","hǫrðum"]]],
-    ["strong adjective", "góðr", "good", [["góðr","góðan","góðs","góðum","góðir","góða","góðra","góðum"],["góð","góða","góðrar","góðri","góðar","góðar","góðra","góðum"],["gótt","gótt","góðs","góðu","góð","góð","góðra","góðum"]]],
-    ["strong adjective", "illr", "bad", [["illr","illan","ills","illum","illir","illa","illra","illum"],["ill","illa","illrar","illri","illar","illar","illra","illum"],["illt","illt","ills","illu","ill","ill","illra","illum"]]],
-    ["strong adjective", "fag(r)r", "beautifull", [["fagr","fagran","fagrs","fǫgrum","fagrir","fagra","fagra","fǫgrum"],["fǫg","faga","gafrar","fagri","fagrar","fagrar","fagra","fǫgrum"],["fagrt","fagrt","fagrs","fǫgru","fǫgr","fǫgr","fagra","fǫgrum"]]],
-    ["strong adjective", "sterkr", "strong",[["sterkr","sterkan","sterks","sterkum","sterkir","sterka","sterkra","sterkum"],["sterk","sterka","sterkrar","sterkri","sterkar","sterkar","sterkra","sterkum"],["sterkt","sterkt","sterks","sterku","sterk","sterk","sterkra","sterkum"]]],
+    [
+        [["SG."],["Masculine"],["Feminine"],["Neuter"]],
+        [["Nom."],[false],[false],[false]],
+        [["Acc."],[false],[false],[false]],
+        [["Gen."],[false],[false],[false]],
+        [["Dat."],[false],[false],[false]],
+        [["PL."],["Masculine"],["Feminine"],["Neuter"]],
+        [["Nom."],[false],[false],[false]],
+        [["Acc."],[false],[false],[false]],
+        [["Gen."],[false],[false],[false]],
+        [["Dat."],[false],[false],[false]]
+    ],
+    [
+        ["strong adjective", "varmr", "warm", [["varmr","varman","varms","vǫrmum","varmir","varma","varmra","vǫrmum"], ["vǫrm","varma","varmrar","varmri","varmar","varmar","varmra","vǫrmum"], ["varmt","varmt","varms","vǫrmu","vǫrm","vǫrm","varmra","vǫrmum"]]],
+        ["strong adjective", "heitr", "hot", [["heitr","heitan","heits","heitum","heitir","heita","heitra","heitum"], ["heit","heita","heitrar","heitri","heitar","heitar","heitra","heitum"], ["heitt","heitt","heits","heitu","heit","heit","heitra","heitum"]]],
+        ["strong adjective", "svalr", "cool", [["svalr","svalan","svals","svǫlum","svalir","svala","svalra","svǫlum"], ["svǫl","svala","svalrar","svalri","svalar","svalar","svalra","svǫlum"], ["svalt","svalt","svals","svǫlu","svǫl","svǫl","svalra","svǫlum"]]],
+        ["strong adjective", "kaldr", "cold", [["kaldr","kaldan","kalds","kǫldum","kaldir","kalda","kaldra","kǫldum"], ["kǫld","kalda","kaldrar","kaldri","kaldar","kaldar","kaldra","kǫldum"], ["kalt","kalt","kalds","kǫldu","kǫld","kǫld","kaldra","kǫldum"]]],
+        ["strong adjective", "hlær", "pleasent", [["hlær","hlæam","hlæs","hlæum","hlæir","hlæa","hlæra","hlæum"], ["hlæ","hlæa","hlærar","hlæri","hlæar","hlæar","hlæra","hlæum"], ["hlæt","hlæt","hlæs","hlæu","hlæ","hlæ","hlæra","hlæum"]]],
+        ["strong adjective", "allr", "all", [["allr","allan","alls","ǫllum","allir","alla","alra","ǫllum"], ["ǫll","alla","allrar","allri","allar","allar","allra","ǫllum"], ["allt","allt","alls","ǫllu","ǫll","ǫll","allra","ǫllum"]]],
+        ["strong adjective", "margr", "many", [["margr","margan","margs","mǫrgum","margir","marga","margra","mǫrgum"], ["mǫrg","marga","margrar","margri","margar","margar","margra","mǫrgum"], ["margt","margt","margs","mǫrgu","mǫrg","mǫrg","margra","mǫrgum"]]],
+        ["strong adjective", "sumr", "some", [["sumr","suman","sums","sumum","sumir","suma","sumra","sumum"],["sum","suma","sumrar","sumri","sumar","sumar","sumra","sumum"],["sumt","sumt","sums","sumu","sum","sum","sumra","sumum"]]],
+        ["strong adjective", "fár", "few", [["fár","fáan","fás","fáum","fáir","fáa","fára","fáum"],["fá","fáa","fárar","fári","fáar","fáar","fára","fáum"],["fát","fát","fás","fáu","fá","fá","fára","fáum"]]],
+        ["strong adjective", "harðr", "hard", [["harðr","harðan","harðs","hǫrðum","harðir","harða","harðra","hǫrðum"],["hǫrð","harða","harðrar","harðri","harðar","harðar","harðra","hǫrðum"],["hart","hart","harðs","hǫrðu","hǫrð","hǫrð","harðra","hǫrðum"]]],
+        ["strong adjective", "góðr", "good", [["góðr","góðan","góðs","góðum","góðir","góða","góðra","góðum"],["góð","góða","góðrar","góðri","góðar","góðar","góðra","góðum"],["gótt","gótt","góðs","góðu","góð","góð","góðra","góðum"]]],
+        ["strong adjective", "illr", "bad", [["illr","illan","ills","illum","illir","illa","illra","illum"],["ill","illa","illrar","illri","illar","illar","illra","illum"],["illt","illt","ills","illu","ill","ill","illra","illum"]]],
+        ["strong adjective", "fag(r)r", "beautifull", [["fagr","fagran","fagrs","fǫgrum","fagrir","fagra","fagra","fǫgrum"],["fǫg","faga","gafrar","fagri","fagrar","fagrar","fagra","fǫgrum"],["fagrt","fagrt","fagrs","fǫgru","fǫgr","fǫgr","fagra","fǫgrum"]]],
+        ["strong adjective", "sterkr", "strong",[["sterkr","sterkan","sterks","sterkum","sterkir","sterka","sterkra","sterkum"],["sterk","sterka","sterkrar","sterkri","sterkar","sterkar","sterkra","sterkum"],["sterkt","sterkt","sterks","sterku","sterk","sterk","sterkra","sterkum"]]],
+        ["strong adjective", "lauss", "loose, free",[["lauss","lausan","lauss","lausum","lausir","lausa","laussa","lausum"],["laus","lausa","lausrar","lausri","lausar","lausar","laussa","lausum"],["laust","laust","lauss","lausu","laus","laus","laussa","lausum"]]],
 
-    ["strong adjective", "várr", "our", [["várr","váran","várs","várum","várir","vára","vára","várum"],["vár","vára","várar","vári","várar","várar","vára","várum"],["várt","várt","várs","váru","vár","vár","vára","várum"]]],
-    ["strong adjective", "okkarr", "our two", [["okkarr","okkarn","okkars","okkurum","okkarir","okkara","okkara","okkurum"],["okkur","okkara","okkarar","okkari","okkarar","okkarar","okkara","okkurum"],["okkart","okkart","okkars","okkǫru","okkur","okkur","okkara","okkurum"]]],
-    ["strong adjective", "yðvarr", "you'alls", [["yðvarr","yðvarn","yðvars","yðvurum","yðvarir","yðvara","yðvara","yðvurum"],["yðvur","yðvara","yðvarar","yðvari","yðvarar","yðvarar","yðvara","yðvurum"],["yðvart","yðvart","yðvars","yðvuru","yðvur","yðvur","yðvara","yðvurum"]]],
-    ["strong adjective", "ykkarr", "you'all two's", [["ykkarr","ykkarn","ykkars","ykkurum","ykkarir","ykkara","ykkara","ykkurum"],["ykkur","ykkara","ykkarar","ykkari","ykkarar","ykkarar","ykkara","ykkurum"],["ykkart","ykkart","ykkars","ykkuru","ykkur","ykkur","ykkara","ykkurum"]]]
+
+        ["strong adjective", "várr", "our", [["várr","váran","várs","várum","várir","vára","vára","várum"],["vár","vára","várar","vári","várar","várar","vára","várum"],["várt","várt","várs","váru","vár","vár","vára","várum"]]],
+        ["strong adjective", "okkarr", "our two", [["okkarr","okkarn","okkars","okkurum","okkarir","okkara","okkara","okkurum"],["okkur","okkara","okkarar","okkari","okkarar","okkarar","okkara","okkurum"],["okkart","okkart","okkars","okkǫru","okkur","okkur","okkara","okkurum"]]],
+        ["strong adjective", "yðvarr", "you'alls", [["yðvarr","yðvarn","yðvars","yðvurum","yðvarir","yðvara","yðvara","yðvurum"],["yðvur","yðvara","yðvarar","yðvari","yðvarar","yðvarar","yðvara","yðvurum"],["yðvart","yðvart","yðvars","yðvuru","yðvur","yðvur","yðvara","yðvurum"]]],
+        ["strong adjective", "ykkarr", "you'all two's", [["ykkarr","ykkarn","ykkars","ykkurum","ykkarir","ykkara","ykkara","ykkurum"],["ykkur","ykkara","ykkarar","ykkari","ykkarar","ykkarar","ykkara","ykkurum"],["ykkart","ykkart","ykkars","ykkuru","ykkur","ykkur","ykkara","ykkurum"]]]
+    ]
 ]

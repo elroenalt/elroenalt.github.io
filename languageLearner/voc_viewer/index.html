@@ -2,7 +2,7 @@
 <html>
 <head>
     
-<title>Cards</title>
+<title>Voc Viewer</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ᛋ</text></svg>">
 
 <link rel="stylesheet" type="text/css" href="../main.css">
@@ -23,8 +23,9 @@
         </div>
     </div>
     <div class="container" id="ContainerViewer">
-        <div id="closeButton" class="button" onclick="document.getElementById('ContainerViewer').style.display = 'none'">X</div>
-            <div class="title" id="ViwerContainerTitle">
+        <div id="closeButton" class="button" onclick="document.getElementById('ContainerViewer').style.display = 'none'; 
+            window.location.hash = ''">X</div>
+            <div class="title" id="ViwerContainerTitle" onclick="openGrammarHTML()">
             </div>
             <div class="title" id="ViwerContainerwordAndTranslate">
             </div>
@@ -33,44 +34,54 @@
     </div>
 </div>
 <script>
-    const allVariationFileTypes = ["strong_noun","pronoun","weak_verb","strong_verb","strong_adjective"]
+
+    const allVariationFileTypes = ["strong_noun","pronoun","weak_verb","strong_verb","strong_adjective","the"]
     const loaded_files = {}
-    let curWord = NaN
+    let [curWord,curType] = [NaN,NaN]
+
+    //on title click open the grammar page to the current type
+    function openGrammarHTML() {
+        if(!curType) {return}
+        const link = '../grammar_viewer/#' + curType
+        window.open(link, "_blank")
+    }
 
     // load the Viewer using word Data out of respective file
     async function loadViewerWord(wordData) {
         const type = wordData[0].split(",")[0].trim().replaceAll(" ","_")
         const file = `${type}_questions`
+        curType = type
         console.log(type)
         const hasVariations = allVariationFileTypes.includes(type)
         console.log(hasVariations)
 
         //displaying title
         const Title = document.getElementById("ViwerContainerTitle")
-        Title.innerHTML = wordData[0]
+        Title.textContent = wordData[0]
 
         //displaying cur Word and its translation
         const wordAndTranslate = document.getElementById("ViwerContainerwordAndTranslate")
-        wordAndTranslate.innerHTML = `${wordData[1]} ⇔ ${wordData[2]}`
+        wordAndTranslate.textContent = `${wordData[1]} ⇔ ${wordData[2]}`
 
         //emptying the container for the table
         const container = document.getElementById("ViwerContainerInfo")
-        container.innerHTML = ""
+        container.textContent = ""
 
         //only display the table if variation exists
         if(hasVariations) {
+            const tablePreData = await getLoadedPreTableFromFile(file)
             const word = await getLoadedWordFromFile(file, wordData)
 
             //taking the word diffrent variations of the words and the type and getting a finished a html
             const wordInfo = word[3]
-            const viewerTable = generateTableViewer(type,wordInfo)
+            const viewerTable = generateTableViewer(tablePreData,wordInfo)
 
             //appedning the table to the table container
             container.appendChild(viewerTable)
 
         }else {
             // if no variations are present tell the user
-            container.innerHTML = "No Variations"
+            container.textContent = "No Variations"
         }
 
         //enable the viewer
@@ -78,6 +89,17 @@
     }
 
     //get the variation data out of the correct file
+    async function getLoadedPreTableFromFile(file) {
+
+        // if the file didn't get loaded yet, load it
+        if(!loaded_files[file]) {
+            loaded_files[file] = await loadFile(file)
+        }
+        const loadedFile = loaded_files[file]
+
+        //reurn the first index of the array
+        return loadedFile[0]
+    }
     async function getLoadedWordFromFile(file,wordData) {
 
         // if the file didn't get loaded yet, load it
@@ -86,8 +108,11 @@
         }
         const loadedFile = loaded_files[file]
 
+        //get the words from the second index of the array
+        const loadedWords = loadedFile[1]
+
         //load through the file to find the word and return it
-        for(const word of loadedFile) {
+        for(const word of loadedWords) {
             if(word[0] == wordData[0] && word[1] == wordData[1]) {
                 return word
             }
@@ -95,10 +120,7 @@
     }
 
     // generating the table viewer for word Variations
-    function generateTableViewer(type,wordInfo) {
-
-        const tablePreData = getTableWordInfo(type)
-        if(!tablePreData) {return}
+    function generateTableViewer(tablePreData,wordInfo) {
         
         let table = createElement("table",false,"ViewerTable","ViewerTable")
 
@@ -115,23 +137,23 @@
             let displayColCount = 0
             for(let tableCol=0; tableCol<row.length; tableCol++) {
 
-                const cell = row[tableCol]
+                const [cell,color] = row[tableCol]
                 const cellHTML = createElement("td",false,`ViewerTableCell${tableRow}:${tableCol}`,"ViewerTableCell")
+                if(color) {cellHTML.style.background = color}
 
                 //when cell content display it otherways take the word variation
                 if(cell) {
                     cellHTML.classList.add("PreDefinedCell")
-                    cellHTML.innerHTML = cell
+                    cellHTML.textContent = cell
                 }else {
                     //change the varaition row when  this is a new row
                     if(displayColCount==0) {displayRowCount+=1}
 
-                    //if the the type of the first index isn't an object treat it as a 1D Array otherwise as a 2D Array
+                    //if the the type of the first index is an object treat it as a 2D Array otherwise as a 1D Array
                     const content = typeof wordInfo[0] == "object" ? wordInfo[displayColCount][displayRowCount] : wordInfo[displayRowCount]
 
                     cellHTML.classList.add("viewerCell")
-                    cellHTML.innerHTML = content
-
+                    cellHTML.textContent = content
                     displayColCount += 1
                 }
 
@@ -141,58 +163,7 @@
         }
 
         return table
-    }
-
-    //gives pre data for every type of variation display
-    function getTableWordInfo(type) {
-        switch(type) {
-            case("strong_noun"): {
-                return [
-                    ["\u200B","Singular","Plural"],
-                    ["Nominative",false,false],
-                    ["Accusative",false,false],
-                    ["Genitive",false,false],
-                    ["Dative",false,false]
-                ]
-            }
-            case ("strong_verb"):
-            case ("weak_verb"): {  
-                return [
-                    ["\u200B","Present","Past"],
-                    ["Ek",false,false],
-                    ["þú",false,false],
-                    ["þat/hon/hann",false,false],
-                    ["vér/vít",false,false],
-                    ["þér/þit",false,false],
-                    ["þau/þær/þeir",false,false]
-                ]
-            }
-            case("strong_adjective"): {
-                return [
-                    ["SG.","Masculine","Feminine","Neuter"],
-                    ["Nom.",false,false,false],
-                    ["Acc.",false,false,false],
-                    ["Gen.",false,false,false],
-                    ["Dat.",false,false,false],
-                    ["PL.","Masculine","Feminine","Neuter"],
-                    ["Nom.",false,false,false],
-                    ["Acc.",false,false,false],
-                    ["Gen.",false,false,false],
-                    ["Dat.",false,false,false]
-                ]
-            }
-            case("pronoun"): {
-                return [
-                    ["Nominative",false],
-                    ["Accusative",false],
-                    ["Genitive",false],
-                    ["Dative",false]
-                ]
-            }
-        }
-        return false
-    }
-    
+    }    
 
 
 
@@ -237,6 +208,7 @@
 
         //add the lsitener to open a viewer for the word
         containerDIV.addEventListener("click", () => {
+            window.location.hash = "#" + type + "/" + word + "/" + translated
             loadViewerWord([type,word,translated])
         })
 
@@ -255,17 +227,6 @@
         // preparing the scene for the next row 
         rowCount += 1
         lastRowType = type
-    }
-
-    function addEventListenerOpenWord(element,type,word) {
-
-        // gets the file name by taking the part infront of the first comma and replacing it's spaces with a underscore
-
-        //opening the viewer *WIP
-        element.addEventListener("click", () => {
-            //loads file
-            console.log(file,word)
-        })
     }
 
     //loading the file by name 
@@ -287,13 +248,23 @@
     //creating a element, with attributes to make the code more viewable
     function createElement(type,text,id,classList,parentID=false) {
         const element = document.createElement(type)
-        if(text){element.innerHTML = text}
+        if(text){element.textContent = text}
         if(id){element.id = id}
         if(classList){element.classList = classList}
         if(parentID){document.getElementById(parentID).appendChild(element)}
         return element
     }
     init()
+
+    
+    // get the current hash
+    let currentHash = decodeURIComponent(window.location.hash.replace("#","")) 
+    let [currentType,currentWord,currentTranslated] = ["","",""]
+    // when the hash exists, load the viewer for that word
+    if(currentHash) {
+        [currentType,currentWord,currentTranslated] = currentHash.split("/")
+        loadViewerWord([currentType,currentWord,currentTranslated])
+    }
 </script>
 </body>
 </html>

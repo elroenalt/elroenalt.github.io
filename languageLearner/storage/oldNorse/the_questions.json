@@ -1,0 +1,17 @@
+[    
+    [
+        [["SG."],["Masculine"],["Feminine"],["Neuter"]],
+        [["Nom."],[false],[false],[false]],
+        [["Acc."],[false],[false],[false]],
+        [["Gen."],[false],[false],[false]],
+        [["Dat."],[false],[false],[false]],
+        [["PL."],["Masculine"],["Feminine"],["Neuter"]],
+        [["Nom."],[false],[false],[false]],
+        [["Acc."],[false],[false],[false]],
+        [["Gen."],[false],[false],[false]],
+        [["Dat."],[false],[false],[false]]
+    ],
+    [
+        ["the", "-inn", "the", [["-inn","-inn","-ins","-inum","-nir","-na","-nna","-num"],["-in","-ina","-innar","-inni","-nar","-na","-nna","-num"],["-it","-it","-ins","-inu","-in","-in","-nna","-num"]]]
+    ]
+]

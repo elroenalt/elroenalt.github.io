@@ -50,20 +50,22 @@ table, td {
     border-collapse: collapse; 
     padding: 8px;
 }
-
+.PreDefinedCell  {
+    font-weight: 700;
+}
 input {
     width: 80px;
     border-radius: 0rem;
 }
 
-.infoTitle {
+#title {
     font-weight: 700;
     font-size: 1.5rem;
     text-decoration: underline;
     padding-bottom: 1rem;
 }
 
-.wordInfo {
+#word_translated {
     font-size: 1.1rem;
 }
 

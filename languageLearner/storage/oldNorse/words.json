@@ -13,8 +13,9 @@
     ["adverb", "hingat", "(to) here"],
     ["adverb", "þaðan", "(from) there"],
     ["adverb", "þar", "(at) there"],
-    ["adverb", "þangat", "(to) there"],
-    ["pronoun", "hvat", "what"],
+    ["adverb", "þangat", "(to) there"], 
+    ["adverb", "hvat", "what"],
+    ["adverb", "hvar", "where"],
     ["adverb", "hversu", "how"],
     ["adverb", "illa", "bad"],
     ["adverb", "mjǫk", "very"],
@@ -72,6 +73,8 @@
     ["strong noun, masc.", "bátr", "boat"],
     ["strong noun, masc.", "fiskr", "fish"],
     ["strong noun, masc.", "skógr", "forest"],
+    ["strong noun, masc.", "askr", "ash (tree)"],
+    ["strong noun, masc.", "baugr", "arm-ring"],
 
 
     ["strong noun, neut.", "vatn", "water"],
@@ -90,6 +93,10 @@
     ["strong noun, neut.", "starf", "work | labor"],
     ["strong noun, neut.", "kvæði", "poem"],
     ["strong noun, neut.", "hár", "hair"],
+    ["strong noun, neut., uncountable", "blóð", "blood"],
+    ["strong noun, neut.", "hold", "flesh, meat"],
+    ["strong noun, neut.", "bjarg", "boulder"],
+    ["strong noun, neut.", "bein", "bone"],
 
     ["strong noun, fem.", "jǫrð", "earth"],
     ["strong noun, fem.", "verǫld", "world"],
@@ -101,6 +108,7 @@
     ["strong noun, fem.", "skǫmm", "shame"],
     ["strong noun, fem.", "flǫgð", "witch"],
     ["strong noun, fem.", "vǫrn", "defense"],
+    ["strong noun, fem.", "gjǫld", "payment"],
 
     ["pronoun","ek","I","ek em","I am"],
     ["pronoun","þú","you","þú ert","you are"],
@@ -129,6 +137,7 @@
     ["weak verb, i-type", "veiða,d", "(to) hunt"],
     ["weak verb, i-type", "eyða,d", "(to) destroy"],
     ["weak verb, i-type", "reiða,d", "(to) get ready"],
+    ["weak verb, i-type", "gera,ð", "(to) do, make"],
 
     ["weak verb, a-type", "skapa,að", "(to) create"],
     ["weak verb, a-type", "herja,að", "(to) raid"],
@@ -154,7 +163,7 @@
     ["strong verb, *5, irregular", "liggja", "(to) be lying down, to be located"],
     ["strong verb, *5, irregular", "sjá", "(to) see"],
 
-    ["strong verb, *6", "taka, ", "(to) take"],
+    ["strong verb, *6", "taka", "(to) take"],
     ["strong verb, *6", "fara", "(to) go"],
     ["strong verb, *6", "grafa", "(to) dig"],
     ["strong verb, *6", "standa", "(to) stand"],
@@ -184,9 +193,12 @@
     ["strong adjective", "illr", "bad"],
     ["strong adjective", "fag(r)r", "beautifull"],
     ["strong adjective", "sterkr", "strong"],
+    ["strong adjective", "lauss", "loose, free"],
 
     ["strong adjective", "várr", "our"],
     ["strong adjective", "okkarr", "our two"],
     ["strong adjective", "yðvarr", "you'alls"],
-    ["strong adjective", "ykkarr", "you'all two's"]
+    ["strong adjective", "ykkarr", "you'all two's"],
+
+    ["the", "-inn", "the"]
 ]
