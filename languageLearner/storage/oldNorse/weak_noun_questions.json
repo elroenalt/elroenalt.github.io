@@ -1,0 +1,35 @@
+[
+    [
+        [["\u200B"],["Singular"],["Plural"]],
+        [["Nominative"],[false],[false]],
+        [["Accusative"],[false],[false]],
+        [["Genitive"],[false],[false]],
+        [["Dative"],[false],[false]]
+    ],
+    [
+        ["weak noun, masc.", "bani", "killer", [["bani","bana","bana","bana"], ["banar","bana","bana","bǫnum"]]],
+        ["weak noun, masc.", "tími", "time, hour", [["tími","tíma","tíma","tíma"], ["tímar","tíma","tíma","tímum"]]],
+        ["weak noun, masc.", "vil(j)i", "will, desire", [["vili","vilja","vilja","vilja"], ["viljar","vilja","vilja","viljum"]]],
+        ["weak noun, masc.", "bogi", "bow", [["bogi","boga","boga","boga"], ["bogar","boga","boga","bogum"]]],
+        ["weak noun, masc.", "goði", "chieftain, pagan priest", [["goði","goða","goða","goða"], ["goðar","goða","goða","goðum"]]],
+        ["weak noun, masc.", "frami", "frame", [["frami","frama","frama","frama"], ["framar","frama","frama","frǫmum"]]],
+        ["weak noun, masc.", "sveiti", "sweat, blood", [["sveiti","sveita","sveita","sveita"], ["sveitar","sveita","sveita","sveitum"]]],
+
+        ["weak noun, fem.", "saga", "story, history", [["saga","sǫgu","sǫgu","sǫgu"], ["sǫgur","sǫgur","sagna","sǫgum"]]],
+        ["weak noun, fem.", "orrusta", "battle", [["orrusta","orrustu","orrustu","orrustu"], ["orrustur","orrustur","orrustna","orrustum"]]],
+        ["weak noun, fem., irregular", "kona", "woman", [["kona","konu","konu","konu"], ["konur","konur","kvenna","konum"]]],
+        ["weak noun, fem.", "brynja", "chain mail chestplate", [["brynja","brynju","brynju","brynju"], ["brynjur","brynjur","brynna","brynjum"]]],
+
+        ["weak noun, fem. ín-stem", "reiði", "anger", [["reiði","reiði","reiði","reiði"], ["reiði","reiði","reiði","reiði"]]],
+        ["weak noun, fem. ín-stem", "gleði", "happines", [["gleði","gleði","gleði","gleði"], ["gleði","gleði","gleði","gleði"]]],
+        ["weak noun, fem. ín-stem", "speki", "wisdom", [["speki","speki","speki","speki"], ["speki","speki","speki","speki"]]],
+        ["weak noun, fem. ín-stem", "frǿði", "learning", [["frǿði","frǿði","frǿði","frǿði"], ["frǿði","frǿði","frǿði","frǿði"]]],
+
+        ["weak noun, neut.", "auga", "eye", [["auga","auga","auga","auga"], ["augu","augu","augna","augum"]]],
+        ["weak noun, neut.", "hjarta", "hearth", [["hjarta","hjarta","hjarta","hjarta"], ["hjǫrtu","hjǫrtu","hjartna","hjǫrtum"]]],
+        ["weak noun, neut.", "eyra", "ear", [["eyra","eyra","eyra","eyra"], ["eyru","eyru","eyrna","eyrum"]]],
+        ["weak noun, neut.", "lúnga", "lung", [["lúnga","lúnga","lúnga","lúnga"], ["lúngu","lúngu","lúngna","lúngum"]]],
+        ["weak noun, neut.", "nýra", "kidney", [["nýra","nýra","nýra","nýra"], ["nýru","nýru","nýrna","nýrum"]]],
+        ["weak noun, neut.", "eista", "testicle", [["eista","eista","eista","eista"], ["eistu","eistu","eistna","eistm"]]]
+    ]
+]

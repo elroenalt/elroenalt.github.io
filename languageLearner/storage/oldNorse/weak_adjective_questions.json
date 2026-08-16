@@ -1,0 +1,31 @@
+[
+    [
+        [["SG."],["Masculine"],["Feminine"],["Neuter"]],
+        [["Nom."],[false],[false],[false]],
+        [["Acc."],[false],[false],[false]],
+        [["Gen."],[false],[false],[false]],
+        [["Dat."],[false],[false],[false]],
+        [["PL."],["Masculine"],["Feminine"],["Neuter"]],
+        [["Nom."],[false],[false],[false]],
+        [["Acc."],[false],[false],[false]],
+        [["Gen."],[false],[false],[false]],
+        [["Dat."],[false],[false],[false]]
+    ],
+    [
+        ["weak adjective", "varmi", "warm", [["varmi", "varma", "varma", "varma", "vǫrmu", "vǫrmu", "vǫrmu", "vǫrmum"], ["varma", "vǫrmu", "vǫrmu", "vǫrmu", "vǫrmu", "vǫrmu", "vǫrmu", "vǫrmum"], ["varma", "varma", "varma", "varma", "vǫrmu", "vǫrmu", "vǫrmu", "vǫrmum"]]], 
+        ["weak adjective", "heiti", "hot", [["heiti", "heita", "heita", "heita", "heitu", "heitu", "heitu", "heitum"], ["heita", "heitu", "heitu", "heitu", "heitu", "heitu", "heitu", "heitum"], ["heita", "heita", "heita", "heita", "heitu", "heitu", "heitu", "heitum"]]], 
+        ["weak adjective", "svali", "cool", [["svali", "svala", "svala", "svala", "svǫlu", "svǫlu", "svǫlu", "svǫlum"], ["svala", "svǫlu", "svǫlu", "svǫlu", "svǫlu", "svǫlu", "svǫlu", "svǫlum"], ["svala", "svala", "svala", "svala", "svǫlu", "svǫlu", "svǫlu", "svǫlum"]]], 
+        ["weak adjective", "kaldi", "cold", [["kaldi", "kalda", "kalda", "kalda", "kǫldu", "kǫldu", "kǫldu", "kǫldum"], ["kalda", "kǫldu", "kǫldu", "kǫldu", "kǫldu", "kǫldu", "kǫldu", "kǫldum"], ["kalda", "kalda", "kalda", "kalda", "kǫldu", "kǫldu", "kǫldu", "kǫldum"]]], 
+        ["weak adjective", "hlæi", "pleasent", [["hlæi", "hlæa", "hlæa", "hlæa", "hlæu", "hlæu", "hlæu", "hlæum"], ["hlæa", "hlæu", "hlæu", "hlæu", "hlæu", "hlæu", "hlæu", "hlæum"], ["hlæa", "hlæa", "hlæa", "hlæa", "hlæu", "hlæu", "hlæu", "hlæum"]]], 
+        ["weak adjective", "alli", "all", [["alli", "alla", "alla", "alla", "ǫllu", "ǫllu", "ǫllu", "ǫllum"], ["alla", "ǫllu", "ǫllu", "ǫllu", "ǫllu", "ǫllu", "ǫllu", "ǫllum"], ["alla", "alla", "alla", "alla", "ǫllu", "ǫllu", "ǫllu", "ǫllum"]]], 
+        ["weak adjective", "margi", "many", [["margi", "marga", "marga", "marga", "mǫrgu", "mǫrgu", "mǫrgu", "mǫrgum"], ["marga", "mǫrgu", "mǫrgu", "mǫrgu", "mǫrgu", "mǫrgu", "mǫrgu", "mǫrgum"], ["marga", "marga", "marga", "marga", "mǫrgu", "mǫrgu", "mǫrgu", "mǫrgum"]]], 
+        ["weak adjective", "sumi", "some", [["sumi", "suma", "suma", "suma", "sumu", "sumu", "sumu", "sumum"], ["sama", "sumu", "sumu", "sumu", "sumu", "sumu", "sumu", "sumum"], ["suma", "suma", "suma", "suma", "sumu", "sumu", "sumu", "sumum"]]], 
+        ["weak adjective", "fái", "few", [["fái", "fáa", "fáa", "fáa", "fáu", "fáu", "fáu", "fáum"], ["fá", "fáu", "fáu", "fáu", "fáu", "fáu", "fáu", "fáum"], ["fáa", "fáa", "fáa", "fáa", "fáu", "fáu", "fáu", "fáum"]]], 
+        ["weak adjective", "harði", "hard", [["harði", "harða", "harða", "harða", "hǫrðu", "hǫrðu", "hǫrðu", "hǫrðum"], ["harða", "hǫrðu", "hǫrðu", "hǫrðu", "hǫrðu", "hǫrðu", "hǫrðu", "hǫrðum"], ["harða", "harða", "harða", "harða", "hǫrðu", "hǫrðu", "hǫrðu", "hǫrðum"]]], 
+        ["weak adjective", "góði", "good", [["góði", "góða", "góða", "góða", "góðu", "góðu", "góðu", "góðum"], ["góða", "góðu", "góðu", "góðu", "góðu", "góðu", "góðu", "góðum"], ["góða", "góða", "góða", "góða", "góðu", "góðu", "góðu", "góðum"]]], 
+        ["weak adjective", "illi", "bad", [["illi", "illa", "illa", "illa", "illu", "illu", "illu", "illum"], ["illa", "illu", "illu", "illu", "illu", "illu", "illu", "illum"], ["illa", "illa", "illa", "illa", "illu", "illu", "illu", "illum"]]], 
+        ["weak adjective", "fagri", "beautifull", [["fagri", "fagra", "fagra", "fagra", "fǫgru", "fǫgru", "fǫgru", "fǫgrum"], ["fagra", "fǫgru", "fǫgru", "fǫgru", "fǫgru", "fǫgru", "fǫgru", "fǫgrum"], ["fagra", "fagra", "fagra", "fagra", "fǫgru", "fǫgru", "fǫgru", "fǫgrum"]]], 
+        ["weak adjective", "sterki", "strong", [["sterki", "sterka", "sterka", "sterka", "sterku", "sterku", "sterku", "sterkum"], ["sterka", "sterku", "sterku", "sterku", "sterku", "sterku", "sterku", "sterkum"], ["sterka", "sterka", "sterka", "sterka", "sterku", "sterku", "sterku", "sterkum"]]], 
+        ["weak adjective", "lausi", "loose, free", [["lausi", "lausa", "lausa", "lausa", "lausu", "lausu", "lausu", "lausum"], ["lausa", "lausu", "lausu", "lausu", "lausu", "lausu", "lausu", "lausum"], ["lausa", "lausa", "lausa", "lausa", "lausu", "lausu", "lausu", "lausum"]]]
+    ]
+]

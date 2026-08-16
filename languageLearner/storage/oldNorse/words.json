@@ -75,7 +75,9 @@
     ["strong noun, masc.", "skógr", "forest"],
     ["strong noun, masc.", "askr", "ash (tree)"],
     ["strong noun, masc.", "baugr", "arm-ring"],
-
+    ["strong noun, masc.", "kǫttr", "arm-ring"],
+    ["strong noun, masc.", "-skapr", "-ship, -dom, -ness"],
+    ["strong noun, masc.", "mjǫðr", "mead"],
 
     ["strong noun, neut.", "vatn", "water"],
     ["strong noun, neut.", "haf", "ocean"],
@@ -97,6 +99,10 @@
     ["strong noun, neut.", "hold", "flesh, meat"],
     ["strong noun, neut.", "bjarg", "boulder"],
     ["strong noun, neut.", "bein", "bone"],
+    ["strong noun, neut.", "upphaf", "origin, beginning"],
+    ["strong noun, neut.", "skáld", "(court) poet"],
+    ["strong noun, neut.", "fólk", "group of people, army"],
+    ["strong noun, neut.", "hunang", "honey"],
 
     ["strong noun, fem.", "jǫrð", "earth"],
     ["strong noun, fem.", "verǫld", "world"],
@@ -109,6 +115,9 @@
     ["strong noun, fem.", "flǫgð", "witch"],
     ["strong noun, fem.", "vǫrn", "defense"],
     ["strong noun, fem.", "gjǫld", "payment"],
+    ["strong noun, fem.", "íþrótt", "sport"],
+    ["strong noun, fem.", "sætt", "treaty, peace"],
+    ["strong noun, fem.", "ósætt", "discord, war"],
 
     ["pronoun","ek","I","ek em","I am"],
     ["pronoun","þú","you","þú ert","you are"],
@@ -194,11 +203,57 @@
     ["strong adjective", "fag(r)r", "beautifull"],
     ["strong adjective", "sterkr", "strong"],
     ["strong adjective", "lauss", "loose, free"],
+    ["strong adjective", "glaðr", "happy"],
+    ["strong adjective", "reiðr", "angry"],
+    ["strong adjective", "spakr", "wise"],
+    ["strong adjective", "fóðr", "learned"],
 
     ["strong adjective", "várr", "our"],
     ["strong adjective", "okkarr", "our two"],
     ["strong adjective", "yðvarr", "you'alls"],
     ["strong adjective", "ykkarr", "you'all two's"],
 
-    ["the", "-inn", "the"]
+    ["determiner", "-inn", "the"],
+    ["determiner", "sá", "that (one)"],
+
+    ["weak noun, masc.", "bani", "killer"],
+    ["weak noun, masc.", "tími", "time, hour"],
+    ["weak noun, masc.", "vil(j)i", "will, desire"],
+    ["weak noun, masc.", "bogi", "bow"],
+    ["weak noun, masc.", "goði", "chieftain, pagan priest"],
+    ["weak noun, masc.", "frami", "frame"],
+    ["weak noun, masc.", "sveiti", "sweat, blood"],
+
+    ["weak noun, fem.", "saga", "story, history"],
+    ["weak noun, fem.", "orrusta", "battle"],
+    ["weak noun, fem., irregular", "kona", "woman"],
+    ["weak noun, fem.", "brynja", "chain mail chestplate"],
+
+    ["weak noun, fem. ín-stem", "reiði", "anger"],
+    ["weak noun, fem. ín-stem", "gleði", "happines"],
+    ["weak noun, fem. ín-stem", "speki", "wisdom"],
+    ["weak noun, fem. ín-stem", "frǿði", "learning"],
+
+    ["weak noun, neut.", "auga", "eye"],
+    ["weak noun, neut.", "hjarta", "hearth"],
+    ["weak noun, neut.", "eyra", "ear"],
+    ["weak noun, neut.", "lúnga", "lung"],
+    ["weak noun, neut.", "nýra", "kidney"],
+    ["weak noun, neut.", "eista", "testicle"],
+
+    ["weak adjective", "varmi", "warm"], 
+    ["weak adjective", "heiti", "hot"], 
+    ["weak adjective", "svali", "cool"], 
+    ["weak adjective", "kaldi", "cold"], 
+    ["weak adjective", "hlæi", "pleasent"], 
+    ["weak adjective", "alli", "all"], 
+    ["weak adjective", "margi", "many"], 
+    ["weak adjective", "sumi", "some"], 
+    ["weak adjective", "fái", "few"], 
+    ["weak adjective", "harði", "hard"], 
+    ["weak adjective", "góði", "good"], 
+    ["weak adjective", "illi", "bad"], 
+    ["weak adjective", "fagri", "beautifull"], 
+    ["weak adjective", "sterki", "strong"], 
+    ["weak adjective", "lausi", "loose, free"] 
 ]

@@ -180,7 +180,7 @@
     ["container", [
         ["title", "A way to learn them"],
         ["text","<div>notice that if you know the present singular, present plural, past singular and past plural 3rd person form, you can predict the rest easialy. (principal parts)</div>"],
-        ["text","<div>Example: binda, <b>*3/b>(to bind)</div>"],
+        ["text","<div>Example: binda, <b>*3</b>(to bind)</div>"],
         ["table", [
             [{"text":"<b>Pronoun</b>","color":"gray"},{"text":"<b>Present</b>","color":"gray"},{"text":"<b>Past</b>","color":"gray"}],
             [{"text":"<b>Ek</b>","color":"transparent"},{"text":"bind ","color":"transparent"},{"text":"batt","color":"transparent"}],

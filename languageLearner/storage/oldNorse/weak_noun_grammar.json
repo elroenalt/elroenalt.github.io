@@ -1,0 +1,114 @@
+[
+    ["mainTitle", "Strong Nouns and Case Introduction"],
+    ["container", [
+        ["title", "Cases"],
+        ["title", "Cases:"],
+        ["table", [
+            [false,{"text":"<b>explanation</b>","color":"gray"},{"text":"<b>example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"Who/what is (verb)ing?","color":"transparent"},{"text":"<b>I</b> gave Terry's clinic a donation","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"Who/what did (the subject) (verb)?","color":"transparent"},{"text":"I gave Terry's clinic a <b>donation</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"Whose?","color":"transparent"},{"text":"I gave <b>Terry's</b> clinic a donation","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"To who/what?","color":"transparent"},{"text":"I gave Terry's <b>clinic</b> a donation","color":"transparent"}]
+        ]]
+    ],true],
+
+    ["container", [
+        ["title", "Generall Rules"],
+        ["text", "Any 'j' before a 'i' will generally be removed (herjið -> herið), tho some writers leave it for regulatiy's sake."],
+        ["text", "If there are three consonants in a row, drop the middle one ('ndd' -> 'nd')."],
+        ["text", "If a 'd' or a 't' is behind a 'ð', the 'ð' becomes respectifly become a dobble consonants ('ðt' -> 'tt')"],
+        ["text", "Any 'áa' will collapse to 'á'."],
+        ["text", "A 'r' is likely to assimilate with a 'n','l' or 's' if it is not added to a root sylable and ends in more than one consonants"],
+        ["text", "The vowel of the second sylable in a three sylable word will be dropped if the word is still pronouncable."],
+        ["container", [
+            ["title", "U-Mutation"],
+            ["text", "Any time a 'u' in an unstressed syllable follows an 'a' in a stressed syllable. It changes 'a' to 'ǫ'.<br>May also appier when there used to be a 'u' in place.<br>When there is an unstressed sylable before the stressed a, the unstressed'a' additionaly mutates into 'u'."]
+        ],false],
+        ["container", [
+            ["title", "I-Mutation"],
+            ["text", "<div>'a' -> 'e'<br>'á' -> 'æ'<br>'o' -> 'ø'/'e'/'y'<br>'ó' -> 'ố'<br>'u' -> 'y'<br>'ú' -> 'ý'<br>'jó' -> 'ý'<br>'jú' -> 'ý'<br>'ǫ' -> 'ø'<br>'au' -> 'ey'</div>"]
+        ],false]
+    ],false],
+
+    ["container", [
+        ["title", "Typical Weak Neuter Nouns"],
+        ["text", "every neuter noun is a double body part/organ therefore there are 6 since the hearth is also counted as a double"],
+        ["text", "textbook form in Nominative -> typicall ending = -a"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"-a_","color":"transparent"},{"text":"-u","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"-a_","color":"transparent"},{"text":"-u","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"-a","color":"transparent"},{"text":"-na","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"-a","color":"transparent"},{"text":"-um","color":"transparent"}]
+        ]],
+        ["text", "Example: hjarta <=> hearth"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"hjarta","color":"transparent"},{"text":"hjǫrtu","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"hjarta","color":"transparent"},{"text":"hjǫrtu","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"hjarta","color":"transparent"},{"text":"hjartna","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"hjarta","color":"transparent"},{"text":"hjǫrtum","color":"transparent"}]
+        ]]
+    ],false],
+    
+    ["container", [
+        ["title", "Typical Weak Feminine Nouns"],
+        ["text", "textbook form in Nominative -> typical ending -a"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"-a","color":"transparent"},{"text":"-ur","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"-u","color":"transparent"},{"text":"-ur","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"-u","color":"transparent"},{"text":"-na","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"-u","color":"transparent"},{"text":"-um","color":"transparent"}]
+        ]],
+        ["text", "Example: saga <=> story, history"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"saga","color":"transparent"},{"text":"sǫgur","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"sǫgu","color":"transparent"},{"text":"sǫgur","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"sǫgu","color":"transparent"},{"text":"sagna","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"sǫgu","color":"transparent"},{"text":"sǫgum","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", " Weak Feminine Nouns, ín-stem"],
+        ["text", "ín-stem fmeinins get derived from adjectives and have no plural form"],
+        ["text", "textbook form in Nominative -> typical ending -i"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"-i","color":"transparent"},{"text":"-i","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"-i","color":"transparent"},{"text":"-i","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"-i","color":"transparent"},{"text":"-i","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"-i","color":"transparent"},{"text":"-i","color":"transparent"}]
+        ]],
+        ["text", "Example: reiði <=> anger from adjective reiðr <=> anger"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"reiði","color":"transparent"},{"text":"reiði","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"reiði","color":"transparent"},{"text":"reiði","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"reiði","color":"transparent"},{"text":"reiði","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"reiði","color":"transparent"},{"text":"reiði","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "Typical Weak Masculine Nouns"],
+        ["text", "textbook form in Nominative -> typicall ending = -i"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"-i","color":"transparent"},{"text":"-ar","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"-a","color":"transparent"},{"text":"-a","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"-a","color":"transparent"},{"text":"-a","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"-a","color":"transparent"},{"text":"-um","color":"transparent"}]
+        ]],
+        ["text", "Example: bani <=> killer"],
+        ["table", [
+            [false,{"text":"<b>Singular</b>","color":"gray"},{"text":"<b>Plural</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"bani","color":"transparent"},{"text":"banar","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"bana","color":"transparent"},{"text":"bana","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"bana","color":"transparent"},{"text":"bana","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"bana","color":"transparent"},{"text":"bǫnum","color":"transparent"}]
+        ]]
+    ],false]
+]

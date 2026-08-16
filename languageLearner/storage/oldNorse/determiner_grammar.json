@@ -1,0 +1,42 @@
+[
+    ["mainTitle", "determiners"],
+    ["text","There are diffrent forms based on count (Singular,Plural), gender (Neuter,Female,Masculine) and case (Nominative,Accusative,Genitive,Dative) -> 24 diffrent forms."],
+
+    ["container", [
+        ["text","The word 'the' is a suffix before a word. <br> <b>example:</b> maðr (a person) -> maðrinn (the man)"],
+
+        ["table", [
+            [{"text":"<b>Singular</b>","color":"lightcyan"},{"text":"<b>Masculine</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Neuter</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"-<b>inn</b>","color":"transparent"},{"text":"-<b>in</b>","color":"transparent"},{"text":"-<b>it</b>","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"-<b>inn</b>","color":"transparent"},{"text":"-<b>ina</b>","color":"transparent"},{"text":"-<b>it</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"-<b>ins</b>","color":"transparent"},{"text":"-<b>innar</b>","color":"transparent"},{"text":"-<b>ins</b>","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"-<b>inum</b>","color":"transparent"},{"text":"-<b>inni</b>","color":"transparent"},{"text":"-<b>inu</b>","color":"transparent"}],
+            [{"text":"<b>Plural</b>","color":"lightcyan"},{"text":"<b>Neuter</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Masculine</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"-<b>nir</b>","color":"transparent"},{"text":"-<b>nar</b>","color":"transparent"},{"text":"-<b>in</b>","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"-<b>na</b>","color":"transparent"},{"text":"-<b>nar</b>","color":"transparent"},{"text":"-<b>in</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"-<b>nna</b>","color":"transparent"},{"text":"-<b>nna</b>","color":"transparent"},{"text":"-<b>nna</b>","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"-<b>num</b>","color":"transparent"},{"text":"-<b>num</b>","color":"transparent"},{"text":"-<b>num</b>","color":"transparent"}]
+        ]],
+
+        ["text","<div>If an word ends in a vowel, drop the suffix vowel.<br><b>example:</b> tími (weak masc 'time'): Accusative: tíma-inn -> tímann<div>"],
+        ["text","<div>Dative Plural noun, drop the -m at the end before adding the suffix. <br><b>example:</b> eldum-num -> eldunum</div>"],
+        ["text","<div>The 'u' in the suffix does not cause a U-Umlaut.<br><b>example:</b> it's vatninu, not vǫtninu</div>"]
+    ],false],
+
+    ["container", [
+        ["text","sá is used for relative clauses in addition to er, since the word has to be spezified, therefore A cow which is named A. would be Kýr sá er A. hét, with a literal translation of the cow which is named A. ."],
+
+        ["table", [
+            [{"text":"<b>Singular</b>","color":"lightcyan"},{"text":"<b>Masculine</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Neuter</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"<b>sá</b>","color":"transparent"},{"text":"<b>sú</b>","color":"transparent"},{"text":"<b>þat</b>","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"<b>þann</b>","color":"transparent"},{"text":"<b>þú</b>","color":"transparent"},{"text":"<b>þat</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"<b>þess</b>","color":"transparent"},{"text":"<b>þeirar</b>","color":"transparent"},{"text":"<b>þess</b>","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"<b>þeim</b>","color":"transparent"},{"text":"<b>þeiri</b>","color":"transparent"},{"text":"<b>því</b>","color":"transparent"}],
+            [{"text":"<b>Plural</b>","color":"lightcyan"},{"text":"<b>Neuter</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Masculine</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"<b>þeir</b>","color":"transparent"},{"text":"<b>þær</b>","color":"transparent"},{"text":"<b>þau</b>","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"<b>þeir</b>","color":"transparent"},{"text":"<b>þær</b>","color":"transparent"},{"text":"<b>þau</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"<b>þeira</b>","color":"transparent"},{"text":"<b>þeira</b>","color":"transparent"},{"text":"<b>þeira</b>","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"<b>þeim</b>","color":"transparent"},{"text":"<b>þeim</b>","color":"transparent"},{"text":"<b>þeim</b>","color":"transparent"}]
+        ]]
+    ],false]
+]

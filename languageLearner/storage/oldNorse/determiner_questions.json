@@ -12,6 +12,7 @@
         [["Dat."],[false],[false],[false]]
     ],
     [
-        ["the", "-inn", "the", [["-inn","-inn","-ins","-inum","-nir","-na","-nna","-num"],["-in","-ina","-innar","-inni","-nar","-na","-nna","-num"],["-it","-it","-ins","-inu","-in","-in","-nna","-num"]]]
+        ["determiner", "-inn", "the", [["-inn","-inn","-ins","-inum","-nir","-na","-nna","-num"],["-in","-ina","-innar","-inni","-nar","-na","-nna","-num"],["-it","-it","-ins","-inu","-in","-in","-nna","-num"]]],
+        ["determiner", "sá", "that (one)", [["sá","þann","þess","þeim","þeir","þeir","þeira","þeim"],["sú","þú","þeirar","þeiri","þær","þær","þeira","þeim"],["þat","þat","þess","því","þau","þau","þeira","þeim"]]]
     ]
 ]

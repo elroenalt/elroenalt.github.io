@@ -1,0 +1,61 @@
+[
+    ["mainTitle", "Strong Adjectives"],
+    ["text","<div>Adjectives are strong, when it describes smth. none specified (a tree) or if the verb 'vera' (to be) is used, it is a weak one if the described word is specified (the tree).</div>"],
+    ["text","<div>Strong Adjectives need to be adjusted to the describes word in case, number and gender -> 24 diffrent variants.</div>"],
+    
+    ["container", [
+        ["title", "Cases"],
+        ["table", [
+            [false,{"text":"<b>explanation</b>","color":"gray"},{"text":"<b>example</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"gray"},{"text":"Who/what is (verb)ing?","color":"transparent"},{"text":"<b>I</b> gave Terry's clinic a donation","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"gray"},{"text":"Who/what did (the subject) (verb)?","color":"transparent"},{"text":"I gave Terry's clinic a <b>donation</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"gray"},{"text":"Whose?","color":"transparent"},{"text":"I gave <b>Terry's</b> clinic a donation","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"gray"},{"text":"To who/what?","color":"transparent"},{"text":"I gave Terry's <b>clinic</b> a donation","color":"transparent"}]
+        ]]
+    ],false],
+
+    ["container", [
+        ["title", "Generall Rules"],
+        ["text", "Any 'j' before a 'i' will generally be removed (herjið -> herið), tho some writers leave it for regulatiy's sake."],
+        ["text", "If there are three consonants in a row, drop the middle one ('ndd' -> 'nd')."],
+        ["text", "If a 'd' or a 't' is behind a 'ð', the 'ð' becomes respectifly become a dobble consonants ('ðt' -> 'tt')"],
+        ["text", "Any 'áa' will collapse to 'á'."],
+        ["container", [
+            ["title", "U-Mutation"],
+            ["text", "Any time a 'u' in an unstressed syllable follows an 'a' in a stressed syllable. It changes 'a' to 'ǫ'.<br>May also appier when there used to be a 'u' in place.<br>When there is an unstressed sylable before the stressed a, the unstressed'a' additionaly mutates into 'u'."]
+        ],false],
+        ["container", [
+            ["title", "I-Mutation"],
+            ["text", "<div>'a' -> 'e'<br>'á' -> 'æ'<br>'o' -> 'ø'/'e'/'y'<br>'ó' -> 'ố'<br>'u' -> 'y'<br>'ú' -> 'ý'<br>'jó' -> 'ý'<br>'jú' -> 'ý'<br>'ǫ' -> 'ø'<br>'au' -> 'ey'</div>"]
+        ],false]
+    ],false],
+
+    ["table", [
+        [{"text":"<b>Singular</b>","color":"lightcyan"},{"text":"<b>Masculine</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Neuter</b>","color":"gray"}],
+        [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"-<b>i</b>","color":"transparent"},{"text":"-<b>a</b>","color":"transparent"},{"text":"-<b>a</b>","color":"transparent"}],
+        [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"-<b>a</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>a</b>","color":"transparent"}],
+        [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"-<b>a</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>a</b>","color":"transparent"}],
+        [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"-<b>a</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>a</b>","color":"transparent"}],
+        [{"text":"<b>Plural</b>","color":"lightcyan"},{"text":"<b>Neuter</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Masculine</b>","color":"gray"}],
+        [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"}],
+        [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"}],
+        [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"},{"text":"-<b>u</b>","color":"transparent"}],
+        [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"-<b>um</b>","color":"transparent"},{"text":"-<b>um</b>","color":"transparent"},{"text":"-<b>um</b>","color":"transparent"}]
+    ]],
+    ["container", [
+        ["title", "Examples"],
+        ["text", "varmr <=> warm"],
+        ["table", [
+            [{"text":"<b>Singular</b>","color":"lightcyan"},{"text":"<b>Masculine</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Neuter</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"varm<b>i</b>","color":"transparent"},{"text":"varm<b>a</b>","color":"transparent"},{"text":"varm<b>a</b>","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"varm<b>a</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"varm<b>a</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"varm<b>a</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"varm<b>a</b>","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"varm<b>a</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"varm<b>a</b>","color":"transparent"}],
+            [{"text":"<b>Plural</b>","color":"lightcyan"},{"text":"<b>Neuter</b>","color":"gray"},{"text":"<b>Feminine</b>","color":"gray"},{"text":"<b>Masculine</b>","color":"gray"}],
+            [{"text":"<b>Nominative</b>","color":"lightgray"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"}],
+            [{"text":"<b>Accusative</b>","color":"lightgray"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"}],
+            [{"text":"<b>Genitive</b>","color":"lightgray"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"},{"text":"vǫrm<b>u</b>","color":"transparent"}],
+            [{"text":"<b>Dative</b>","color":"lightgray"},{"text":"vǫrm<b>um</b>","color":"transparent"},{"text":"vǫrm<b>um</b>","color":"transparent"},{"text":"vǫrm<b>um</b>","color":"transparent"}]
+        ]]
+    ],false]
+]

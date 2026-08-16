@@ -35,9 +35,12 @@
 </div>
 <script>
 
-    const allVariationFileTypes = ["strong_noun","pronoun","weak_verb","strong_verb","strong_adjective","the"]
+    const allVariationFileTypes = ["weak_noun","strong_noun","pronoun","weak_verb","strong_verb","weak_adjective","strong_adjective","determiner"]
     const loaded_files = {}
     let [curWord,curType] = [NaN,NaN]
+
+    //based on what datapoint to sort
+    let sorting_type = 1
 
     //on title click open the grammar page to the current type
     function openGrammarHTML() {
@@ -168,12 +171,14 @@
 
 
     let wordList = NaN
+    let alphabet = NaN
 
     // load files sort it by type and then name and call the row loading
     async function init(params) {
         wordList = await loadFile("words")
+        alphabet = await loadFile("alphabet")
         wordList.sort((a, b) => {
-            const categoryCompare = a[0].localeCompare(b[0]);
+            const categoryCompare = a[sorting_type].localeCompare(b[sorting_type]);
             if (categoryCompare !== 0) return categoryCompare;
             return a[1].localeCompare(b[1]);
         });
@@ -183,7 +188,7 @@
 
     // var for keeping track of row count and adding a border between types
     let rowCount = 0
-    let lastRowType = false
+    let lastRow = false
 
     //looping though every word and adding a row for it
     function load_rows() {
@@ -202,7 +207,10 @@
         const containerDIV = createElement("div",false,`row${rowCount}`,"Row","ContainerMain")
 
         //when this word is part of a new type, add a border
-        if(lastRowType && lastRowType != type) {
+        const newRow = [type,word,translated]
+        const isNewType = lastRow && (sorting_type ? (lastRow[sorting_type][0] != newRow[sorting_type][0]) : (lastRow[sorting_type] != newRow[sorting_type]))
+        console.log(isNewType)
+        if(isNewType) {
             containerDIV.style.borderTop = "2px solid black"
         }
 
@@ -226,7 +234,7 @@
 
         // preparing the scene for the next row 
         rowCount += 1
-        lastRowType = type
+        lastRow = newRow
     }
 
     //loading the file by name 
