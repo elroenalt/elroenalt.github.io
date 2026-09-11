@@ -66,8 +66,8 @@
     },
     "atmosphereComposition": {
         "definition": "Composition of the atmosphere, influences breathablility, also harvestable by gas mining",
-        "varStruc": "composition",
-        "extra": "gasses"
+        "varStruc": "objectObjectList",
+        "extra": false
     },
     "baseEnergyGain":{
         "definition": "intensity on which it radiats (emissiv color and co.)",
@@ -89,6 +89,11 @@
         "varStruc": "boolean",
         "extra": false
     },
+    "laserOres": {
+        "definition": "ores that can be mined from a miner and their weight.",
+        "varStruc": "weightObjectList",
+        "extra": false
+    },
     "dataRequiredForUnlock":{
         "definition": "the data needed to unlock a data in the observatory",
         "varStruc": "int",
@@ -101,8 +106,8 @@
     },
     "customSeaFluid": {
         "definition": "the fluid used instead of water",
-        "varStruc": "path",
-        "extra": false
+        "varStruc": "str",
+        "extra": "optionalPath"
     },
     "customSeaFluidLevel": {
         "definition": "sea level (vanilla setting = 63)",
@@ -145,7 +150,7 @@
         "extra": false
     },
     "skyDarken": {
-        "definition": "the terrain sky and stars will appear darker",
+        "definition": "?",
         "varStruc": "float",
         "extra": false
     },

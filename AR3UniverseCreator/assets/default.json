@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "A nice green planet",
   "position": {
     "x": 0.0,
     "y": 0.0,
@@ -12,7 +12,10 @@
     "y": 1.0,
     "z": 0.0
   },
-  "parentDimensionId": null,
+  "parentDimensionId": {
+    "namespace": "adv_rocketry",
+    "path": "sun"
+  },
   "orbitAxis": {
     "x": 0.0,
     "y": 1.0,
@@ -28,43 +31,51 @@
     "nitrogen": {
       "in_atm": 0.699999988079071,
       "frozen_surface": 0.0,
-      "frozen_deep_below_surface": 0.0,
+      "underground": 0.0,
       "liquid": 0.0,
-      "worldGenSeaLevel": 0
+      "worldGenSeaLevel": -1000
     },
     "co2": {
       "in_atm": 0.0010000000474974513,
       "frozen_surface": 0.0,
-      "frozen_deep_below_surface": 0.0,
+      "underground": 0.0,
       "liquid": 0.0,
-      "worldGenSeaLevel": 0
+      "worldGenSeaLevel": -1000
     },
     "oxygen": {
       "in_atm": 0.30000001192092896,
       "frozen_surface": 0.0,
-      "frozen_deep_below_surface": 0.0,
+      "underground": 0.0,
       "liquid": 0.0,
-      "worldGenSeaLevel": 0
+      "worldGenSeaLevel": -1000
     },
     "water": {
       "in_atm": 0.0,
       "frozen_surface": 0.0,
-      "frozen_deep_below_surface": 0.0,
+      "underground": 0.0,
       "liquid": 0.5,
-      "worldGenSeaLevel": 62
+      "worldGenSeaLevel": -1000
     }
   },
   "baseEnergyGain": 0.0,
   "canVisit": true,
-  "canGasMine": false,
   "isKnown": true,
   "dataRequiredForUnlock": 2000,
   "artifactItem": null,
+  "laserOres": {
+    "minecraft:gold_ore": 0.005,
+    "minecraft:redstone_ore": 0.003,
+    "minecraft:nether_quartz_ore": 0.001,
+    "minecraft:iron_ore": 0.02,
+    "minecraft:emerald_ore": 0.01,
+    "minecraft:coal_ore": 0.05,
+    "minecraft:lapis_ore": 0.002,
+    "minecraft:diamond_ore": 0.01
+  },
   "customSeaFluid": null,
   "customSeaFluidLevel": 0,
   "generateStructures": false,
   "biomePreset": null,
-  "generateVolcanos": false,
   "hasCustomSky": true,
   "texture": {
     "namespace": "adv_rocketry",
@@ -112,5 +123,8 @@
   "currentTemp": 300.0,
   "name": "Earth",
   "type": "PLANET",
-  "dimensionId": null
+  "dimensionId": {
+    "namespace": "minecraft",
+    "path": "overworld"
+  }
 }

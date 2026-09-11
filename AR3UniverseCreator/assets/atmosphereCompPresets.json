@@ -1,0 +1,87 @@
+{
+    "earthlike": {
+        "nitrogen": {
+        "in_atm": 0.699999988079071,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+        },
+        "co2": {
+        "in_atm": 0.0010000000474974513,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+        },
+        "oxygen": {
+        "in_atm": 0.30000001192092896,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+        },
+        "water": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.5,
+        "worldGenSeaLevel": -1000
+        }
+    },
+    "venuslike": {
+        "nitrogen": {
+            "in_atm": 0.10000000149011612,
+            "frozen_surface": 0,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        },
+        "co2": {
+            "in_atm": 2,
+            "frozen_surface": 0,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        }
+    },
+    "gasGiant": {
+        "nitrogen": {
+            "in_atm": 0.5,
+            "frozen_surface": 0,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        },
+        "hydrogen": {
+            "in_atm": 3,
+            "frozen_surface": 0,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        }
+    },
+    "icePlanet": {
+        "co2": {
+            "in_atm": 0,
+            "frozen_surface": 0.5,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        },
+        "water": {
+            "in_atm": 0,
+            "frozen_surface": 0.5,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        },
+        "oxygen": {
+            "in_atm": 0,
+            "frozen_surface": 0.05000000074505806,
+            "underground": 0,
+            "liquid": 0,
+            "worldGenSeaLevel": -1000
+        }
+    }
+}

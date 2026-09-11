@@ -2,6 +2,7 @@
 import JSZip from 'https://esm.sh/jszip@3.10.1';
 let definitions_json;
 let default_json;
+let atmosphereCompPreset;
 const dimension_container = document.querySelector('#hirachy')
 let dimensions = {
 }
@@ -14,14 +15,19 @@ async function loadGameData() {
         const data1 = await response1.json();
         default_json = data1
         
+        
         const response2 = await fetch('assets/def.json');
         const data2 = await response2.json();
         definitions_json = data2
+
+        const response3 = await fetch('assets/atmosphereCompPresets.json');
+        const data3 = await response3.json();
+        atmosphereCompPreset = data3
+        addselectionOptionsObjectObjectList(atmosphereCompPreset)
+
         editor = new Editor()
         display = new Display()
         quickCreator = new QuickCreator()
-
-        loadCompositionGasses()
 
         document.querySelector('#download').addEventListener('click', () => {
             downloadAllDimensions()
@@ -43,84 +49,14 @@ async function loadGameData() {
         console.error("Error loading JSON:", error);
     }
 }
-function loadCompositionGasses() {
-    const prop = {
-        "--custom--": null,
-        "breathable": JSON.stringify({
-            "nitrogen": {
-            "in_atm": 0.699999988079071,
-            "frozen_surface": 0.0,
-            "frozen_deep_below_surface": 0.0,
-            "liquid": 0.0,
-            "worldGenSeaLevel": 0
-            },
-            "co2": {
-            "in_atm": 0.0010000000474974513,
-            "frozen_surface": 0.0,
-            "frozen_deep_below_surface": 0.0,
-            "liquid": 0.0,
-            "worldGenSeaLevel": 0
-            },
-            "oxygen": {
-            "in_atm": 0.30000001192092896,
-            "frozen_surface": 0.0,
-            "frozen_deep_below_surface": 0.0,
-            "liquid": 0.0,
-            "worldGenSeaLevel": 0
-            },
-            "water": {
-            "in_atm": 0.0,
-            "frozen_surface": 0.0,
-            "frozen_deep_below_surface": 0.0,
-            "liquid": 0.5,
-            "worldGenSeaLevel": 62
-            }
-        }, null, 2)
+function addselectionOptionsObjectObjectList(dict) {
+    const selection = document.querySelector("#objectObjectList-selectPreset")
+    const arrayConv = Object.entries(dict)
+    for (let i=0; i<arrayConv.length;i++) {
+        const [key,val] = arrayConv[i]
+        const option = new Option(String(key), JSON.stringify(val))
+        selection.add(option)
     }
-    const selection = document.querySelector('#select-preset')
-    selection.innerHTML = ""
-    for (let [name, entry] of Object.entries(prop)) {
-        const option = document.createElement('option');
-        option.value = entry;
-        option.textContent = name;
-        selection.appendChild(option)
-    }
-    selection.addEventListener('input', (e) => {
-        const newValue = e.target.value;
-        if (!editor.activeDim || !editor.activeProp) return;
-        dimensions[editor.activeDim].properties["atmosphereComposition"] = newValue ? JSON.parse(newValue) : {}
-        editor.focus(editor.activeDim,editor.activeProp)
-    })
-}
-function loadGas(name,entry) {
-    const id = editor.gasses
-    editor.inputs[5]["gasses"].insertAdjacentHTML('beforeend',`
-    <div class="composition-gass" id="gass-${id}">
-        <label>name:</label>
-        <input type="text" class="name property_input" autocomplete="off" value="${name}">
-        <br>
-        <label>in_atm:</label>
-        <input type="text" class="in_atm property_input" autocomplete="off" value="${entry["in_atm"]}">
-        <br>
-        <label>frozen_surface:</label>
-        <input type="text" class="frozen_surface property_input" autocomplete="off" value="${entry["frozen_surface"]}">
-        <br>
-        <label>frozen_deep_below_surface:</label>
-        <input type="text" class="frozen_deep_below_surface property_input" autocomplete="off" value="${entry["frozen_deep_below_surface"]}">
-        <br>
-        <label>liquid:</label>
-        <input type="text" class="liquid property_input" autocomplete="off" value="${entry["liquid"]}">
-        <br>    
-        <label>worldGenSeaLevel:</label>
-        <input type="text" class="worldGenSeaLevel property_input" autocomplete="off" value="${entry["worldGenSeaLevel"]}">
-        <div id="delete-gas-${editor.gasses}" class="delete-gas button1">🗑</div>
-    </div>
-    `)
-    document.querySelector(`#delete-gas-${id}`).addEventListener("click", () => {
-        document.querySelector(`#gass-${id}`).remove()
-        delete dimensions[editor.activeDim].properties["atmosphereComposition"][name]
-    })
-    editor.gasses += 1
 }
 function resizeCanvas() {
     if (!display) return;
@@ -151,7 +87,11 @@ class Dimension {
             y = props["position"]?.["y"] || 0;
         } else {
             let parent = props;
-            while (parent["parentDimensionId"] && parent["parentDimensionId"] != parent["dimensionId"]) {
+            while (
+                    parent["parentDimensionId"] && 
+                    (parent["parentDimensionId"].path !== parent["dimensionId"].path ||
+                    parent["parentDimensionId"].namespace !== parent["dimensionId"].namespace)
+                ) {
                 x -= (parent["orbitalDistanceToParent"] || 0);
                 let pId = parent["parentDimensionId"];
                 let parentKey = `${pId.namespace}_${pId.path}`;
@@ -216,7 +156,7 @@ class Dimension {
             display.draw_universe()
             })
         this.html["file_path"].addEventListener('click', () => {
-            if (display.focus != this.file_path) {
+            if (display.focus != this.file_path && self) {
                 display.focus = this.file_path
                 this.centerPlanet()
             }
@@ -239,7 +179,7 @@ class Dimension {
         })
         let properties = {}
         for (let item of Object.keys(default_json)) {
-            if (this.properties[item]) {
+            if (item in this.properties) {
                 properties[item] = this.properties[item]
             }else {
                 properties[item] = default_json[item]
@@ -278,30 +218,7 @@ async function downloadAllDimensions() {
     for (const planet of Object.values(dimensions)) {
         const name = planet.file_path
         const fileName = `${name}.json`;
-        console.log(planet)
-        const atmosphereComposition = default_json["atmosphereComposition"]
-        console.log(atmosphereComposition)
-        planet["properties"]["isKnown"] = true
-        Object.keys(atmosphereComposition).forEach((key) => {
-            console.log(key in atmosphereComposition,planet["properties"]["atmosphereComposition"])
-            atmosphereComposition[key]["in_atm"] = parseFloat(
-                planet?.properties?.atmosphereComposition?.[key]?.["in_atm"] ?? 0.0
-            );
-            atmosphereComposition[key]["frozen_surface"] = parseFloat(
-                planet?.properties?.atmosphereComposition?.[key]?.["frozen_surface"] ?? 0.0
-            );
-            atmosphereComposition[key]["frozen_deep_below_surface"] = parseFloat(
-                planet?.properties?.atmosphereComposition?.[key]?.["frozen_deep_below_surface"] ?? 0.0
-            );
-            atmosphereComposition[key]["liquid"] = parseFloat(
-                planet?.properties?.atmosphereComposition?.[key]?.["liquid"] ?? 0.0
-            );
-            atmosphereComposition[key]["worldGenSeaLevel"] = parseInt(
-                planet?.properties?.atmosphereComposition?.[key]?.["worldGenSeaLevel"] ?? 0
-            );
-        })
-        planet["properties"]["atmosphereComposition"] = atmosphereComposition
-        console.log(planet["properties"]["atmosphereComposition"])
+        
         const fileContent = JSON.stringify(planet.properties, null, 4);
         
         zip.file(fileName, fileContent);
@@ -410,7 +327,6 @@ class Display {
         const RGB = [SDR[0]*255,SDR[1]*255,SDR[2]*255]
         this.ctx.fillStyle = `rgb(${RGB[0]},${RGB[1]},${RGB[2]})`
         this.ctx.fillRect(0,0,this.width,this.height)
-        console.log(RGB)
     }
     draw_universe() {
         this.planets = []
@@ -440,7 +356,12 @@ class Display {
             y = props["position"]?.["y"] || 0;
         } else {
             let parent = props;
-            while (parent["parentDimensionId"] && parent_count < 10 && parent["parentDimensionId"] != parent["dimensionId"]) {
+            while (
+                    parent["parentDimensionId"] && 
+                    (parent["parentDimensionId"].path !== parent["dimensionId"].path ||
+                    parent["parentDimensionId"].namespace !== parent["dimensionId"].namespace) &&
+                    parent_count < 10
+                ) {
                 parent_count += 1;
                 x -= (parent["orbitalDistanceToParent"] || 0);
                 let pId = parent["parentDimensionId"];
@@ -459,12 +380,13 @@ class Display {
             const orbY = (y - this.camera[1]) * this.scale + this.cy;
             const orbit_radius = (props["orbitalDistanceToParent"] || 0) * this.scale;
             
-            
-            this.ctx.beginPath();
-            //this.ctx.setLineDash([5, 5]);
-            this.ctx.arc(orbX || 1, orbY || 1, orbit_radius || 1, 0, 2 * Math.PI);
-            this.ctx.strokeStyle = "#ffffff";
-            this.ctx.stroke();
+            if(parent_count) {
+                this.ctx.beginPath();
+                //this.ctx.setLineDash([5, 5]);
+                this.ctx.arc(orbX || 1, orbY || 1, orbit_radius || 1, 0, 2 * Math.PI);
+                this.ctx.strokeStyle = "#ffffff";
+                this.ctx.stroke();
+            }
         }
         const screenX = (x - this.camera[0]) * this.scale + this.cx;
         const screenY = (y - this.camera[1]) * this.scale + this.cy;
@@ -520,16 +442,21 @@ class Editor {
                 ]
             },
             {
-                "frame": document.querySelector('#composition-row'),
-                "gasses": document.querySelector('#composition-gasses'),
-                "preset": document.querySelector('#select-preset'),
-                "createGas": document.querySelector('#create-gas'),
-                "saveGas": document.querySelector('#save-gas'),
+                "frame": document.querySelector('#objectList-row'),
+                "container": document.querySelector('#objectList-list'),
+                "creatorButton": document.querySelector('#objectList-creatorButton'),
+                "creatorName": document.querySelector('#objectList-creatorName'),
+                "creatorWeight": document.querySelector('#objectList-creatorWeight')
+            },
+            {
+                "frame": document.querySelector('#objectObjectList-row'),
+                "container": document.querySelector('#objectObjectList-list'),
+                "creatorButton": document.querySelector('#objectObjectList-creatorButton'),
+                "creatorName": document.querySelector('#objectObjectList-creatorName'),
+                "selection": document.querySelector("#objectObjectList-selectPreset"),
+                "paste": document.querySelector("#objectObjectList-applyPreset")
             }
         ]
-        this.inputs.forEach((item, i) => {
-            if (!item.input && !item.inputs) console.error(`Input ${i} is NULL!`);
-        });
         this.activeDim = null
         this.activeProp = null
         this.color = false
@@ -539,23 +466,44 @@ class Editor {
         }
     }
     setupListeners() {
+        // switch input
         this.inputs[0]["input"].addEventListener('change', (e) => {
             if (this.activeDim && this.activeProp) {
                 dimensions[this.activeDim].properties[this.activeProp] = e.target.checked;
                 
             }
         });
+        // string, int and float input
         this.inputs[1]["input"].addEventListener('input', (e) => {
             if (this.activeDim && this.activeProp) {
                 let val = e.target.value;
                 const type = definitions_json[this.activeProp]["varStruc"];
-                dimensions[this.activeDim].properties[this.activeProp] = type == "int" ? Number(val) || 0 : type == "float" ? parseFloat(val) || 0.0 : String(val) || "";
+                if(definitions_json[this.activeProp]["extra"] == "optionalPath") {
+                    if(!val) {
+                        dimensions[this.activeDim].properties[this.activeProp] = null
+                    }else {
+                        const valStr = String(val)
+                        if(valStr.includes(":") && valStr.split(":").length == 2) {
+                            const [namespace, path] = valStr.split(":")
+                            dimensions[this.activeDim].properties[this.activeProp] = {"namespace":namespace,"path":path}
+                        }else {
+                            //idk
+                        }
+                    }
+                }else if(type == "int") {
+                    dimensions[this.activeDim].properties[this.activeProp] = Number(val)
+                }else if(type == "float") {
+                    dimensions[this.activeDim].properties[this.activeProp] = parseFloat(val)
+                }else if(type == "str") {
+                    dimensions[this.activeDim].properties[this.activeProp] = String(val)
+                }
                 if (this.activeProp == "name" ){
                     dimensions[this.activeDim].html["name"].textContent = String(val)
                 }
                 
             }
         });
+        // vec3 input
         const axes = ["x", "y", "z"];
         this.inputs[2]["inputs"].forEach((input, i) => {
             input.addEventListener('input', (e) => {
@@ -572,8 +520,8 @@ class Editor {
                 let val = String(e.target.value)
                 if (this.activeDim && this.activeProp) {
                     const path = paths[i];
-                    dimensions[this.activeDim].properties[this.activeProp][path] = val
-                    if (this.activeProp == "dimensionId" ){
+                    if (this.activeProp == "dimensionId" && val){
+                        dimensions[this.activeDim].properties[this.activeProp][path] = val
                         const dimension = dimensions[this.activeDim]
                         let file_path = [dimension.properties[this.activeProp]["namespace"],dimension.properties[this.activeProp]["path"]].join("_")
                         if (Object.keys(dimensions).includes(file_path)) {
@@ -584,6 +532,8 @@ class Editor {
                         dimension.html.file_path.textContent = file_path
                         this.activeDim  = file_path
                         dimensions[file_path] = dimension
+                    }else {
+                        dimensions[this.activeDim].properties[this.activeProp][path] = val ? val : null
                     }
 
                 }
@@ -596,39 +546,47 @@ class Editor {
             if (newValue && Object.keys(dimensions).includes(newValue)) {
                 dimensions[this.activeDim].properties[this.activeProp] = dimensions[newValue].properties["dimensionId"];
             } else {
-                dimensions[this.activeDim].properties[this.activeProp] = null
+                dimensions[this.activeDim].properties[this.activeProp] = newValue ? newValue : null 
             }
             dimensions[this.activeDim].centerPlanet()
         });
-        this.inputs[5]["createGas"].addEventListener("click", () => {
-            loadGas(`placeholder-${editor.gasses}`,{
-                "in_atm": 0.0,
-                "frozen_surface": 0.0,
-                "frozen_deep_below_surface": 0.0,
-                "liquid": 0.0,
-                "worldGenSeaLevel": 0
-                })
-        })
-        this.inputs[5]["gasses"].addEventListener('input', (e) => {
-            const composition = {}
-            for(let i = 0; i < this.gasses;i++) {
-                const container = document.querySelector(`#gass-${i}`)
-                const name = container.getElementsByClassName("name")[0].value
-                try {
-                    const gas = {
-                        "in_atm": (container.getElementsByClassName("in_atm")[0].value),
-                        "frozen_surface": (container.getElementsByClassName("frozen_surface")[0].value),
-                        "frozen_deep_below_surface": (container.getElementsByClassName("frozen_deep_below_surface")[0].value),
-                        "liquid": (container.getElementsByClassName("liquid")[0].value),
-                        "worldGenSeaLevel": container.getElementsByClassName("worldGenSeaLevel")[0].value
-                    }
-                    composition[name] = gas}
-                catch {}
-
+        this.inputs[5]["creatorButton"].addEventListener('click', (e) => {
+            if (!this.activeDim || !this.activeProp) return;
+            const keyName = this.inputs[5]["creatorName"].value
+            const weight = this.inputs[5]["creatorWeight"].value
+            if (keyName && (weight || weight === 0) && !Object.keys(dimensions[this.activeDim].properties[this.activeProp]).includes(keyName)) {
+                dimensions[this.activeDim].properties[this.activeProp][keyName] = weight
+                this.focus(this.activeDim,this.activeProp)
+            } else { 
+                //idk what to do here
             }
-            dimensions[editor.activeDim].properties["atmosphereComposition"] = composition
-
-        })
+        });
+        this.inputs[6]["creatorButton"].addEventListener('click', (e) => {
+            if (!this.activeDim || !this.activeProp) return;
+            const keyName = this.inputs[6]["creatorName"].value
+            if (keyName && !Object.keys(dimensions[this.activeDim].properties[this.activeProp]).includes(keyName)) {
+                dimensions[this.activeDim].properties[this.activeProp][keyName] = {
+                    "in_atm": 0.0,
+                    "frozen_surface": 0.0,
+                    "underground": 0.0,
+                    "liquid": 0.5,
+                    "worldGenSeaLevel": -1000
+                }
+                this.focus(this.activeDim,this.activeProp)
+            } else { 
+                //idk what to do here
+            }
+        });
+        this.inputs[6]["paste"].addEventListener('click', (e) => {
+            if (!this.activeDim || !this.activeProp) return;
+            const val = JSON.parse(this.inputs[6]["selection"].value)
+            if (val && typeof val == "object") {
+                dimensions[this.activeDim].properties[this.activeProp] = val
+            } else { 
+                dimensions[this.activeDim].properties[this.activeProp] = {}
+            }
+            this.focus(this.activeDim,this.activeProp)
+        });
     }
     focus(dim,prop) {
         for(let input of this.inputs) {
@@ -664,7 +622,16 @@ class Editor {
             case "int":
             case "str": {
                 this.inputs[1]["frame"].style.display = "block";
-                this.inputs[1]["input"].value = (val === null) ? "" : String(val);
+                if (info["extra"] == "optionalPath") {
+                    if(val) {
+                        const [namespace, path] = [val["namespace"],val["path"]]
+                        this.inputs[1]["input"].value = [namespace, path].join(":")
+                    }else {
+                        this.inputs[1]["input"].value = ""
+                    }
+                }else {
+                    this.inputs[1]["input"].value = val && val != 0 ? String(val) : "";
+                }
                 break;}
             case "boolean":{
                 this.inputs[0]["frame"].style.display = "block";
@@ -679,7 +646,7 @@ class Editor {
                 break;}
             case "path":{
                 if (info["extra"] == "selection") {
-                    this.inputs[3]["frame"].style.display = "block";
+                    this.inputs[3]["frame"].style.display = "block"; 
                     this.inputs[3]["input"].innerHTML = "";
                     const option = document.createElement('option');
                     option.value = null;
@@ -693,25 +660,124 @@ class Editor {
                             this.inputs[3]["input"].appendChild(option);
                         }
                     });
-                    this.inputs[3]["input"].value = val ? [val["namespace"],val["path"]].join("_") : "" 
+                    this.inputs[3]["input"].value = val ? [val["namespace"],val["path"]].join("_") : ""
                 }else {
                     this.inputs[4]["frame"].style.display = "block";
                     this.inputs[4]["inputs"][0].value = val["namespace"]
                     this.inputs[4]["inputs"][1].value = val["path"]
                 }
                 break;}
-            case "composition":{
-                this.inputs[5]["gasses"].innerHTML = ""
+            case "weightObjectList":{
+                this.inputs[5]["container"].innerHTML = ""
                 this.inputs[5]["frame"].style.display = "block";
-                this.gasses = 0
-                for (let [name, entry] of Object.entries(val)) {
-                    loadGas(name,entry)
+                const listConverted = Object.entries(val)
+                for (let i = 0; i < listConverted.length; i++) {
+                    const rowData = listConverted[i]
+                    const rowHTML = this.createWeightRow(rowData,i)
+                    this.inputs[5]["container"].appendChild(rowHTML)
+                    
                 }
-
+                break;}
+            case "objectObjectList":{
+                this.inputs[6]["container"].innerHTML = ""
+                this.inputs[6]["frame"].style.display = "block";
+                const listConverted = Object.entries(val)
+                for (let i = 0; i < listConverted.length; i++) {
+                    const rowData = listConverted[i]
+                    const rowHTML = this.createDictRow(rowData,i)
+                    this.inputs[6]["container"].appendChild(rowHTML)
+                }
                 break;}
             default:
                 console.log("not added " + info["varStruc"])
         }
+    }
+    createWeightRow(rowData,id) {
+        const rowHTML  = document.createElement("div")
+        rowHTML.id = "WeightObjectListRow"+id; rowHTML.classList = "WeightObjectListRow"
+
+        const keyNameDisplay = document.createElement("div")
+        keyNameDisplay.id = "WeightObjectListRowKey"+id; keyNameDisplay.classList = "WeightObjectListRowKey"
+        keyNameDisplay.textContent = String(rowData[0])
+
+        const inputWeight = document.createElement("input")
+        inputWeight.id = "WeightObjectListRowInput"+id; inputWeight.classList = "WeightObjectListRowInput"
+        inputWeight.type = "number"
+        inputWeight.value = parseFloat(rowData[1]) || 0
+        inputWeight.step = "any"
+
+        inputWeight.addEventListener('change', () => {
+            dimensions[this.activeDim].properties[this.activeProp][rowData[0]] = parseFloat(inputWeight.value) || 0.0
+        })
+
+        const deleteEntry = document.createElement("div")
+        deleteEntry.id = "WeightObjectListRowDelete"+id; deleteEntry.classList = "WeightObjectListRowDelete"
+        deleteEntry.textContent = "🗑"
+
+        deleteEntry.addEventListener("click", ()=> {
+            delete dimensions[this.activeDim].properties[this.activeProp][rowData[0]]
+            this.focus(this.activeDim,this.activeProp)
+        })
+
+        rowHTML.appendChild(keyNameDisplay)
+        rowHTML.appendChild(inputWeight)
+        rowHTML.appendChild(deleteEntry)
+        return rowHTML
+    }
+    createDictRow(rowData,id) {
+        const [keyName,Data] = [rowData[0], Object.entries(rowData[1])]
+        const rowHTML  = document.createElement("div")
+        rowHTML.id = "objectObjectListRow"+id; rowHTML.classList = "objectObjectListRow"
+
+        const keyNameDisplay = document.createElement("div")
+        keyNameDisplay.id = "objectObjectListRowKey"+id; keyNameDisplay.classList = "objectObjectListRowKey"
+        keyNameDisplay.textContent = String(keyName)
+
+        const deleteEntry  = document.createElement("div")
+        deleteEntry.id = "objectObjectListRowDelete"+id; deleteEntry.classList = "objectObjectListRowDelete"
+        deleteEntry.textContent = "🗑"
+
+        deleteEntry.addEventListener("click", ()=> {
+            delete dimensions[this.activeDim].properties[this.activeProp][rowData[0]]
+            this.focus(this.activeDim,this.activeProp)
+        })
+
+        const dataListContainer  = document.createElement("div")
+        dataListContainer.id = "objectObjectListRowContainer"+id; dataListContainer.classList = "objectObjectListRowContainer"
+
+
+        for(let i = 0; i < Data.length; i++) {
+            const [protpertyKey, propertyValue] = Data[i]
+            
+            const rowContainer  = document.createElement("div")
+            rowContainer.id = "objectObjectListRow"+id+"Container"+i; rowContainer.classList = "objectObjectListRowRowContainer"
+
+            const keyNameDisplay = document.createElement("div")
+            keyNameDisplay.id = "objectObjectListRow"+id+"key"+i; keyNameDisplay.classList = "objectObjectListRowRowKey"
+            keyNameDisplay.textContent = String(protpertyKey)
+
+            const inputValue = document.createElement("input")
+            inputValue.id = "objectObjectListRow"+id+"Input"+i; inputValue.classList = "objectObjectListRowRowInput"
+            inputValue.type = "number"
+            inputValue.value = parseFloat(propertyValue) || 0
+            inputValue.step = "any"
+
+            inputValue.addEventListener('change', () => {
+                if(protpertyKey === "worldGenSeaLevel") {
+                    dimensions[this.activeDim].properties[this.activeProp][rowData[0]][protpertyKey] = parseFloat(inputValue.value) || 0.0
+                }else{
+                    dimensions[this.activeDim].properties[this.activeProp][rowData[0]][protpertyKey] = Number(inputValue.value) || 0.0
+                }
+            })
+            rowContainer.appendChild(keyNameDisplay)
+            rowContainer.appendChild(inputValue)
+            dataListContainer.appendChild(rowContainer)
+
+        }
+        rowHTML.appendChild(keyNameDisplay)
+        rowHTML.appendChild(dataListContainer)
+        rowHTML.appendChild(deleteEntry)
+        return rowHTML
     }
 }
 class QuickCreator {
@@ -787,12 +853,14 @@ class QuickCreator {
         json.position = pos;
         json.name = name;
         json.dimensionId = dimensionId;
-        json.parentDimensionId = Object.keys(dimensions).includes(parentDimensionId)&& parentDimensionId ? dimensions[parentDimensionId].properties["dimensionId"] : null;
-        json.orbitalDistance = orbitalDistance;
+        json.parentDimensionId = Object.keys(dimensions).includes(parentDimensionId) && parentDimensionId ? dimensions[parentDimensionId].properties["dimensionId"] : null;
+        json.orbitalDistanceToParent = orbitalDistance;
         json.earthRadiusMultiplier = earthRadiusMultiplier;
 
         dimensions[key] = new Dimension(key, json);
+        
         dimensions[key].centerPlanet()
+
         this.open()
         if (display) display.draw_universe()
         this.id += 1;
