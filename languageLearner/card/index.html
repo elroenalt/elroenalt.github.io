@@ -35,7 +35,18 @@
     //http://127.0.0.1:5500/card/#xs:0-236
 
     const currentHash = decodeURIComponent(window.location.hash.replace("#","")) 
-    const [cardSettings, wordIdGroups] = currentHash.split(":")
+    const  HashData = currentHash.split(":")
+    const cardSettings = currentHash ? HashData[0] : "xs"
+    const wordIdGroups = HashData.length > 1? HashData[1] : "1-10"
+    const RNDSeed = HashData.length > 2 ? parseInt(HashData[2]) : Math.floor(Math.random()*99) 
+    let curId = HashData.length > 3 ? parseInt(HashData[3]) : 0
+
+    updateURL()
+    function updateURL() {
+        window.location.hash = "#" + cardSettings + ":" + wordIdGroups + ":" + RNDSeed + ":" + curId
+    }
+
+    let curSettings = [false,false]
 
     let words_json = NaN
     let data = []
@@ -45,6 +56,7 @@
     async function loadData(cardSettings,wordIdGroups) {
         if(!words_json) {words_json = await loadFile("words")}
         wordIdGroups = wordIdGroups.split(",")
+        const pseudeRNDGen1 = new PseudoRandom(RNDSeed)
         for(let wordIdGroup of wordIdGroups) {
             const [startId, endId] = wordIdGroup.split("-")
             for(let i=Number(startId); i<=Number(endId); i++) {
@@ -55,22 +67,30 @@
                 }else if(cardSettings=="rs" || cardSettings=="rl"){
                     data.push([true,wordData])
                 }else if(cardSettings=="xs" || cardSettings=="xl") {
-                    const direction = Math.random() > 0.5
+                    const direction = pseudeRNDGen1.next() > 0.5
                     data.push([direction,wordData])
                 }
             }
         }
-
+        const pseudeRNDGen2 = new PseudoRandom(RNDSeed)
         if(cardSettings.includes("s")) {
-            data = shuffleArray(data)
+            data = shuffleArray(data,pseudeRNDGen2)
         }
         console.log(data.length)
-        changeCard(0)
+        changeCard(curId)
     }
-
-    function shuffleArray(array) {
+    class PseudoRandom {
+        constructor(seed) {
+            this.state = seed >>> 0;
+        }
+        next() {
+            this.state = (Math.imul(1664525, this.state) + 1013904223) >>> 0;
+            return this.state / 4294967296;
+        }
+    }
+    function shuffleArray(array,pseudeRNDGen) {
         for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            const j = Math.floor(pseudeRNDGen.next() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
@@ -113,8 +133,6 @@
         window.open(link, "_blank")
     }
 
-    let curId = 0
-    let curSettings = [false,false]
     //chnages the current card to the newId and refreshes the HTML
     function changeCard(newId) {
         if(curId < 0) {return} 
