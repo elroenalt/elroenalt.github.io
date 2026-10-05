@@ -1,0 +1,144 @@
+{
+  "description": "\n        A terrestrial hot planet in the star system Barnard's star, 5.9574 light years away from earth and 0.0381 AU away from its Hoststar.\n        Discovered in 2025 AD. https://exoplanetarchive.ipac.caltech.edu/overview/Barnard%20e",
+  "position": {
+    "x": 0.72,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "gravitationalMultiplier": 0.476,
+  "earthRadiusMultiplier": 0.637,
+  "rotationAxis": {
+    "x": 0.03,
+    "y": -1.0,
+    "z": 0.0
+  },
+  "parentDimensionId": {
+    "namespace": "adv_rocketry",
+    "path": "barnards_star_star"
+  },
+  "orbitAxis": {
+    "x": 0.0,
+    "y": 1.0,
+    "z": 0.0
+  },
+  "orbitalDistanceToParent": 0.0381,
+  "orbitalBaseOffsetDegrees": 300.0,
+  "dayTimeReference": {
+    "namespace": "adv_rocketry",
+    "path": "barnards_star_star"
+  },
+  "radiationIntensity": 1.9,
+  "latitude_len": 110000,
+  "targetDayLength": 116000,
+  "atmosphereComposition": {
+    "nitrogen": {
+      "in_atm": 3.0,
+      "frozen_surface": 0.0,
+      "underground": 0.0,
+      "liquid": 0.0,
+      "worldGenSeaLevel": -100
+    },
+    "co2": {
+      "in_atm": 88.0,
+      "frozen_surface": 0.0,
+      "underground": 0.2,
+      "liquid": 0.0,
+      "worldGenSeaLevel": -100
+    },
+    "methane": {
+      "in_atm": 0.0,
+      "frozen_surface": 0.0,
+      "underground": 0.0,
+      "liquid": 0.0,
+      "worldGenSeaLevel": -1000
+    },
+    "hydrogen": {
+      "in_atm": 0.0,
+      "frozen_surface": 0.0,
+      "underground": 0.0,
+      "liquid": 0.0,
+      "worldGenSeaLevel": -1000
+    },
+    "oxygen": {
+      "in_atm": 0.0,
+      "frozen_surface": 0.0,
+      "underground": 0.0,
+      "liquid": 0.0,
+      "worldGenSeaLevel": -1000
+    },
+    "water": {
+      "in_atm": 0.02,
+      "frozen_surface": 0.0,
+      "underground": 0.0,
+      "liquid": 0.0,
+      "worldGenSeaLevel": -1000
+    }
+  },
+  "baseEnergyGain": 2.5,
+  "canVisit": true,
+  "isKnown": true,
+  "dataRequiredForUnlock": 600,
+  "artifactItem": null,
+  "laserOres": {
+    "minecraft:gold_ore": 0.08,
+    "minecraft:copper_ore": 0.07,
+    "minecraft:iron_ore": 0.05,
+    "minecraft:redstone_ore": 0.04,
+    "minecraft:netherite_scrap": 0.01
+  },
+  "customSeaFluid": null,
+  "customSeaFluidLevel": 0,
+  "generateStructures": false,
+  "biomePreset": "venus.json",
+  "hasCustomSky": true,
+  "texture": {
+    "namespace": "adv_rocketry",
+    "path": "textures/planet/baked_4k_venus_atmosphere.png"
+  },
+  "skyColor": {
+    "x": 0.85,
+    "y": 0.6,
+    "z": 0.25
+  },
+  "cloudValueOverwrite": 0.95,
+  "skyDarken": 0.4,
+  "cloudColor": {
+    "x": 0.9,
+    "y": 0.8,
+    "z": 0.4
+  },
+  "fogColor": {
+    "x": 0.75,
+    "y": 0.5,
+    "z": 0.2
+  },
+  "sunRiseColor": {
+    "x": 0.95,
+    "y": 0.7,
+    "z": 0.3
+  },
+  "reflectiveTextureTintColor": {
+    "x": 0.9,
+    "y": 0.75,
+    "z": 0.4
+  },
+  "emissiveTextureTintColor": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "emissiveLightColor": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "hasRingSystem": false,
+  "dayTime": 0.0,
+  "currentTemp": 340.0,
+  "name": "Barnard e",
+  "type": "PLANET",
+  "dimensionId": {
+    "namespace": "adv_rocketry",
+    "path": "barnard_e"
+  }
+}

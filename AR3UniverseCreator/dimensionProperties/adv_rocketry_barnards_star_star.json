@@ -1,0 +1,98 @@
+{
+  "description": "\n        A system 5.9574 light years away from sol, with 4 discovered exo-planets.\n        The star has a radius of 20.187755 earths, a mass of  53937.252 earths and a temperatur of 3195.0 K.",
+  "position": {
+    "x": -3613.238258912094,
+    "y": -375448.52758010017,
+    "z": 31119.505876079005
+  },
+  "gravitationalMultiplier": 132.347,
+  "earthRadiusMultiplier": 20.187755,
+  "rotationAxis": {
+    "x": 0,
+    "y": 1,
+    "z": 0
+  },
+  "parentDimensionId": null,
+  "orbitAxis": {
+    "x": 0,
+    "y": 1,
+    "z": 0
+  },
+  "orbitalDistanceToParent": 1,
+  "orbitalBaseOffsetDegrees": 0,
+  "dayTimeReference": null,
+  "radiationIntensity": 0.1,
+  "latitude_len": 400000,
+  "targetDayLength": 24000,
+  "atmosphereComposition": {},
+  "baseEnergyGain": 0,
+  "canVisit": false,
+  "isKnown": true,
+  "dataRequiredForUnlock": 2000,
+  "artifactItem": null,
+  "laserOres": {
+    "minecraft:gold_ore": 0.005,
+    "minecraft:redstone_ore": 0.003,
+    "minecraft:nether_quartz_ore": 0.001,
+    "minecraft:iron_ore": 0.02,
+    "minecraft:emerald_ore": 0.01,
+    "minecraft:coal_ore": 0.05,
+    "minecraft:lapis_ore": 0.002,
+    "minecraft:diamond_ore": 0.01
+  },
+  "customSeaFluid": null,
+  "customSeaFluidLevel": 0,
+  "generateStructures": false,
+  "biomePreset": null,
+  "hasCustomSky": true,
+  "texture": {
+    "namespace": "adv_rocketry",
+    "path": "textures/planet/baked_8k_sun_grayscale.png"
+  },
+  "skyColor": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  "cloudValueOverwrite": -1,
+  "skyDarken": 0,
+  "cloudColor": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  "fogColor": {
+    "x": 0.8,
+    "y": 0.9,
+    "z": 1.1
+  },
+  "sunRiseColor": {
+    "x": 3,
+    "y": 1.6,
+    "z": 0.2
+  },
+  "reflectiveTextureTintColor": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  "emissiveTextureTintColor": {
+    "x": 0.064,
+    "y": 0.064,
+    "z": 0.064
+  },
+  "emissiveLightColor": {
+    "x": 0.0642,
+    "y": 0.06,
+    "z": 0.0274
+  },
+  "hasRingSystem": false,
+  "dayTime": 0,
+  "currentTemp": 3195.0,
+  "name": "Barnard's star",
+  "type": "PLANET",
+  "dimensionId": {
+    "namespace": "adv_rocketry",
+    "path": "barnards_star_star"
+  }
+}

@@ -1,130 +1,1444 @@
 {
-  "description": "A nice green planet",
-  "position": {
-    "x": 0.0,
-    "y": 0.0,
-    "z": 0.0
-  },
-  "gravitationalMultiplier": 1.0,
-  "earthRadiusMultiplier": 1.0,
-  "rotationAxis": {
-    "x": 0.2,
-    "y": 1.0,
-    "z": 0.0
-  },
-  "parentDimensionId": {
-    "namespace": "adv_rocketry",
-    "path": "sun"
-  },
-  "orbitAxis": {
-    "x": 0.0,
-    "y": 1.0,
-    "z": 0.0
-  },
-  "orbitalDistanceToParent": 1.0,
-  "orbitalBaseOffsetDegrees": 0.0,
-  "dayTimeReference": null,
-  "radiationIntensity": 0.0,
-  "latitude_len": 400000,
-  "targetDayLength": 24000,
-  "atmosphereComposition": {
-    "nitrogen": {
-      "in_atm": 0.699999988079071,
-      "frozen_surface": 0.0,
-      "underground": 0.0,
-      "liquid": 0.0,
-      "worldGenSeaLevel": -1000
+  "earth-like":  {
+    "description": "A nice green planet",
+    "position": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
     },
-    "co2": {
-      "in_atm": 0.0010000000474974513,
-      "frozen_surface": 0.0,
-      "underground": 0.0,
-      "liquid": 0.0,
-      "worldGenSeaLevel": -1000
+    "gravitationalMultiplier": 1.0,
+    "earthRadiusMultiplier": 1.0,
+    "rotationAxis": {
+      "x": 0.2,
+      "y": 1.0,
+      "z": 0.0
     },
-    "oxygen": {
-      "in_atm": 0.30000001192092896,
-      "frozen_surface": 0.0,
-      "underground": 0.0,
-      "liquid": 0.0,
-      "worldGenSeaLevel": -1000
+    "parentDimensionId": {
+      "namespace": "adv_rocketry",
+      "path": "sun"
     },
-    "water": {
-      "in_atm": 0.0,
-      "frozen_surface": 0.0,
-      "underground": 0.0,
-      "liquid": 0.5,
-      "worldGenSeaLevel": -1000
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 1.0,
+    "orbitalBaseOffsetDegrees": 0.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 0.0,
+    "latitude_len": 400000,
+    "targetDayLength": 24000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.699999988079071,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "co2": {
+        "in_atm": 0.0010000000474974513,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.30000001192092896,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.5,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 0.0,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 2000,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:gold_ore": 0.005,
+      "minecraft:redstone_ore": 0.003,
+      "minecraft:nether_quartz_ore": 0.001,
+      "minecraft:iron_ore": 0.02,
+      "minecraft:emerald_ore": 0.01,
+      "minecraft:coal_ore": 0.05,
+      "minecraft:lapis_ore": 0.002,
+      "minecraft:diamond_ore": 0.01
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": false,
+    "biomePreset": null,
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_8k_earth_daymap.png"
+    },
+    "skyColor": {
+      "x": 0.45,
+      "y": 0.7,
+      "z": 1.0
+    },
+    "cloudValueOverwrite": -1.0,
+    "skyDarken": 0.0,
+    "cloudColor": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "fogColor": {
+      "x": 0.8,
+      "y": 0.9,
+      "z": 1.1
+    },
+    "sunRiseColor": {
+      "x": 3.0,
+      "y": 1.6,
+      "z": 0.2
+    },
+    "reflectiveTextureTintColor": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 300.0,
+    "name": "Earth",
+    "type": "PLANET",
+    "dimensionId": {
+      "namespace": "minecraft",
+      "path": "overworld"
     }
   },
-  "baseEnergyGain": 0.0,
-  "canVisit": true,
-  "isKnown": true,
-  "dataRequiredForUnlock": 2000,
-  "artifactItem": null,
-  "laserOres": {
-    "minecraft:gold_ore": 0.005,
-    "minecraft:redstone_ore": 0.003,
-    "minecraft:nether_quartz_ore": 0.001,
-    "minecraft:iron_ore": 0.02,
-    "minecraft:emerald_ore": 0.01,
-    "minecraft:coal_ore": 0.05,
-    "minecraft:lapis_ore": 0.002,
-    "minecraft:diamond_ore": 0.01
+  "star":{
+    "description": "a bright star",
+    "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "gravitationalMultiplier": 200,
+    "earthRadiusMultiplier": 100,
+    "rotationAxis": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+    },
+    "orbitalDistanceToParent": 1,
+    "orbitalBaseOffsetDegrees": 0,
+    "dayTimeReference": null,
+    "radiationIntensity": 2,
+    "latitude_len": 400000,
+    "targetDayLength": 24000,
+    "atmosphereComposition": {},
+    "baseEnergyGain": 0,
+    "canVisit": false,
+    "isKnown": true,
+    "dataRequiredForUnlock": 2000,
+    "artifactItem": null,
+    "laserOres": {
+        "minecraft:gold_ore": 0.005,
+        "minecraft:redstone_ore": 0.003,
+        "minecraft:nether_quartz_ore": 0.001,
+        "minecraft:iron_ore": 0.02,
+        "minecraft:emerald_ore": 0.01,
+        "minecraft:coal_ore": 0.05,
+        "minecraft:lapis_ore": 0.002,
+        "minecraft:diamond_ore": 0.01
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": false,
+    "biomePreset": null,
+    "hasCustomSky": true,
+    "texture": {
+        "namespace": "adv_rocketry",
+        "path": "textures/planet/baked_8k_sun_adjusted.png"
+    },
+    "skyColor": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+    },
+    "cloudValueOverwrite": -1,
+    "skyDarken": 0,
+    "cloudColor": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+    },
+    "fogColor": {
+        "x": 0.8,
+        "y": 0.9,
+        "z": 1.1
+    },
+    "sunRiseColor": {
+        "x": 3,
+        "y": 1.6,
+        "z": 0.2
+    },
+    "reflectiveTextureTintColor": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+    },
+    "emissiveTextureTintColor": {
+        "x": 20,
+        "y": 20,
+        "z": 20
+    },
+    "emissiveLightColor": {
+        "x": 1.2,
+        "y": 1.2,
+        "z": 0.96000004
+    },
+    "hasRingSystem": false,
+    "dayTime": 0,
+    "currentTemp": 300,
+    "name": "",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "customSeaFluid": null,
-  "customSeaFluidLevel": 0,
-  "generateStructures": false,
-  "biomePreset": null,
-  "hasCustomSky": true,
-  "texture": {
-    "namespace": "adv_rocketry",
-    "path": "textures/planet/baked_8k_earth_daymap.png"
+  "heavy-iron-planet":{
+    "description": "An exceptionally dense, iron-rich terrestrial world with high surface gravity and a metallic-crusted landscape stripped of most volatile elements.",
+    "position": {
+      "x": 0.35,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 2.15,
+    "earthRadiusMultiplier": 0.85,
+    "rotationAxis": {
+      "x": 0.02,
+      "y": 0.99,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 0.35,
+    "orbitalBaseOffsetDegrees": 85.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 1.8,
+    "latitude_len": 75000,
+    "targetDayLength": 18000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.05,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.12,
+        "frozen_surface": 0.0,
+        "underground": 0.05,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "methane": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 0.01,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.01,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 2.1,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 500,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:iron_ore": 0.45,
+      "minecraft:raw_iron_block": 0.15,
+      "minecraft:copper_ore": 0.15,
+      "minecraft:gold_ore": 0.1,
+      "minecraft:netherite_scrap": 0.05,
+      "minecraft:ancient_debris": 0.02
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": true,
+    "biomePreset": "heavy_iron.json",
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_8k_iron_planet.png"
+    },
+    "skyColor": {
+      "x": 0.25,
+      "y": 0.22,
+      "z": 0.28
+    },
+    "cloudValueOverwrite": 0.02,
+    "skyDarken": 0.35,
+    "cloudColor": {
+      "x": 0.5,
+      "y": 0.45,
+      "z": 0.4
+    },
+    "fogColor": {
+      "x": 0.3,
+      "y": 0.25,
+      "z": 0.22
+    },
+    "sunRiseColor": {
+      "x": 0.8,
+      "y": 0.4,
+      "z": 0.2
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.75,
+      "y": 0.7,
+      "z": 0.65
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.1,
+      "y": 0.05,
+      "z": 0.02
+    },
+    "emissiveLightColor": {
+      "x": 0.2,
+      "y": 0.1,
+      "z": 0.05
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 480.0,
+    "name": "Heavy Iron Planet",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "skyColor": {
-    "x": 0.45,
-    "y": 0.7,
-    "z": 1.0
+  "volcanic-terrestrial-planet":{
+    "description": "A geologically volatile, molten world dominated by widespread lava oceans, tectonic fissures, and dense volcanic outgassing.",
+    "position": {
+      "x": 0.42,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 1.05,
+    "earthRadiusMultiplier": 1.02,
+    "rotationAxis": {
+      "x": 0.08,
+      "y": 0.99,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 0.42,
+    "orbitalBaseOffsetDegrees": 15.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 2.2,
+    "latitude_len": 130000,
+    "targetDayLength": 42000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.4,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 4.5,
+        "frozen_surface": 0.0,
+        "underground": 0.8,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "methane": {
+        "in_atm": 0.15,
+        "frozen_surface": 0.0,
+        "underground": 0.05,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 0.05,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.8,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 3.2,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 750,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:ancient_debris": 0.03,
+      "minecraft:gold_ore": 0.08,
+      "minecraft:nether_quartz_ore": 0.07,
+      "minecraft:redstone_ore": 0.06,
+      "minecraft:iron_ore": 0.05,
+      "minecraft:diamond_ore": 0.02
+    },
+    "customSeaFluid": "minecraft:lava",
+    "customSeaFluidLevel": 60,
+    "generateStructures": true,
+    "biomePreset": "volcanic.json",
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_volcanic-1.png"
+    },
+    "skyColor": {
+      "x": 0.5,
+      "y": 0.15,
+      "z": 0.05
+    },
+    "cloudValueOverwrite": 0.7,
+    "skyDarken": 0.5,
+    "cloudColor": {
+      "x": 0.3,
+      "y": 0.25,
+      "z": 0.25
+    },
+    "fogColor": {
+      "x": 0.45,
+      "y": 0.1,
+      "z": 0.02
+    },
+    "sunRiseColor": {
+      "x": 0.9,
+      "y": 0.3,
+      "z": 0.1
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.8,
+      "y": 0.3,
+      "z": 0.1
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.6,
+      "y": 0.2,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.8,
+      "y": 0.2,
+      "z": 0.0
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 950.0,
+    "name": "Volcanic Terrestrial Planet",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "cloudValueOverwrite": -1.0,
-  "skyDarken": 0.0,
-  "cloudColor": {
-    "x": 1.0,
-    "y": 1.0,
-    "z": 1.0
+  "hot-terrestrial-planet": {
+    "description": "A scorching, hyper-dense rocky world choked by thick carbon dioxide cloud decks and violent atmospheric pressure.",
+    "position": {
+      "x": 0.72,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 0.9,
+    "earthRadiusMultiplier": 0.95,
+    "rotationAxis": {
+      "x": 0.03,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 0.72,
+    "orbitalBaseOffsetDegrees": 300.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 1.9,
+    "latitude_len": 110000,
+    "targetDayLength": 116000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 3.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 88.0,
+        "frozen_surface": 0.0,
+        "underground": 0.2,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "methane": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.02,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 2.5,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 600,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:gold_ore": 0.08,
+      "minecraft:copper_ore": 0.07,
+      "minecraft:iron_ore": 0.05,
+      "minecraft:redstone_ore": 0.04,
+      "minecraft:netherite_scrap": 0.01
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": true,
+    "biomePreset": "venus.json",
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_4k_venus_atmosphere.png"
+    },
+    "skyColor": {
+      "x": 0.85,
+      "y": 0.6,
+      "z": 0.25
+    },
+    "cloudValueOverwrite": 0.95,
+    "skyDarken": 0.4,
+    "cloudColor": {
+      "x": 0.9,
+      "y": 0.8,
+      "z": 0.4
+    },
+    "fogColor": {
+      "x": 0.75,
+      "y": 0.5,
+      "z": 0.2
+    },
+    "sunRiseColor": {
+      "x": 0.95,
+      "y": 0.7,
+      "z": 0.3
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.9,
+      "y": 0.75,
+      "z": 0.4
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 735.0,
+    "name": "Hot Terrestrial Planet",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "fogColor": {
-    "x": 0.8,
-    "y": 0.9,
-    "z": 1.1
+  "cold-terrestrial-planet": {
+    "description": "A frigid, desolate rocky world with a thin atmospheric envelope and widespread permafrost.",
+    "position": {
+      "x": 2.1,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 0.55,
+    "earthRadiusMultiplier": 0.65,
+    "rotationAxis": {
+      "x": 0.1,
+      "y": 0.98,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 2.1,
+    "orbitalBaseOffsetDegrees": 210.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 0.45,
+    "latitude_len": 90000,
+    "targetDayLength": 25500,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.08,
+        "frozen_surface": 0.01,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.22,
+        "frozen_surface": 0.35,
+        "underground": 0.1,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "methane": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.01,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.005,
+        "frozen_surface": 0.4,
+        "underground": 0.3,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      }
+    },
+    "baseEnergyGain": 0.35,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 400,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:iron_ore": 0.08,
+      "minecraft:copper_ore": 0.05,
+      "minecraft:redstone_ore": 0.04,
+      "minecraft:coal_ore": 0.02,
+      "minecraft:gold_ore": 0.01
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": false,
+    "biomePreset": "cold.json",
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_4k_eris_fictional.png"
+    },
+    "skyColor": {
+      "x": 0.45,
+      "y": 0.5,
+      "z": 0.6
+    },
+    "cloudValueOverwrite": 0.15,
+    "skyDarken": 0.15,
+    "cloudColor": {
+      "x": 0.8,
+      "y": 0.82,
+      "z": 0.88
+    },
+    "fogColor": {
+      "x": 0.5,
+      "y": 0.55,
+      "z": 0.65
+    },
+    "sunRiseColor": {
+      "x": 0.7,
+      "y": 0.4,
+      "z": 0.3
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.7,
+      "y": 0.75,
+      "z": 0.8
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 210.0,
+    "name": "Cold Terrestrial Planet",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "sunRiseColor": {
-    "x": 3.0,
-    "y": 1.6,
-    "z": 0.2
+  "ocean-planet": {
+    "description": "A terrestrial ocean world completely submerged under a deep global sea, featuring dense cloud cover and active aquatic life.",
+    "position": {
+      "x": 1.4,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 1.1,
+    "earthRadiusMultiplier": 1.15,
+    "rotationAxis": {
+      "x": 0.02,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 1.4,
+    "orbitalBaseOffsetDegrees": 120.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 0.35,
+    "latitude_len": 150000,
+    "targetDayLength": 22000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.7,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.08,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "methane": {
+        "in_atm": 0.01,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.18,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "water": {
+        "in_atm": 0.4,
+        "frozen_surface": 0.0,
+        "underground": 0.1,
+        "liquid": 1.0,
+        "worldGenSeaLevel": 90
+      }
+    },
+    "baseEnergyGain": 0.8,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 800,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:prismarine_crystals": 0.08,
+      "minecraft:lapiz_ore": 0.05,
+      "minecraft:gold_ore": 0.03,
+      "minecraft:copper_ore": 0.04,
+      "minecraft:diamond_ore": 0.01
+    },
+    "customSeaFluid": "minecraft:water",
+    "customSeaFluidLevel": 90,
+    "generateStructures": true,
+    "biomePreset": "ocean.json",
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_2k_neptune.png"
+    },
+    "skyColor": {
+      "x": 0.2,
+      "y": 0.55,
+      "z": 0.85
+    },
+    "cloudValueOverwrite": 0.75,
+    "skyDarken": 0.05,
+    "cloudColor": {
+      "x": 0.95,
+      "y": 0.98,
+      "z": 1.0
+    },
+    "fogColor": {
+      "x": 0.15,
+      "y": 0.45,
+      "z": 0.7
+    },
+    "sunRiseColor": {
+      "x": 0.9,
+      "y": 0.6,
+      "z": 0.4
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.2,
+      "y": 0.5,
+      "z": 0.9
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 298.0,
+    "name": "Ocean Planet",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "reflectiveTextureTintColor": {
-    "x": 1.0,
-    "y": 1.0,
-    "z": 1.0
+  "ice-planet": {
+    "description": "A frozen terrestrial world covered in vast ice sheets, subject to severe sub-zero blizzards.",
+    "position": {
+      "x": 3.2,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 0.85,
+    "earthRadiusMultiplier": 0.9,
+    "rotationAxis": {
+      "x": 0.05,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 3.2,
+    "orbitalBaseOffsetDegrees": 45.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 0.1,
+    "latitude_len": 120000,
+    "targetDayLength": 28000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.75,
+        "frozen_surface": 0.1,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.15,
+        "frozen_surface": 0.5,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "methane": {
+        "in_atm": 0.02,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "oxygen": {
+        "in_atm": 0.05,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "water": {
+        "in_atm": 0.01,
+        "frozen_surface": 1.0,
+        "underground": 0.2,
+        "liquid": 0.0,
+        "worldGenSeaLevel": 62
+      }
+    },
+    "baseEnergyGain": 0.2,
+    "canVisit": true,
+    "isKnown": true,
+    "dataRequiredForUnlock": 500,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:diamond_ore": 0.02,
+      "minecraft:lapis_ore": 0.03,
+      "minecraft:redstone_ore": 0.02,
+      "minecraft:iron_ore": 0.04,
+      "minecraft:coal_ore": 0.03
+    },
+    "customSeaFluid": "minecraft:water",
+    "customSeaFluidLevel": 62,
+    "generateStructures": true,
+    "biomePreset": "iceworld.json",
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_europa.png"
+    },
+    "skyColor": {
+      "x": 0.6,
+      "y": 0.75,
+      "z": 0.9
+    },
+    "cloudValueOverwrite": 0.4,
+    "skyDarken": 0.1,
+    "cloudColor": {
+      "x": 0.9,
+      "y": 0.95,
+      "z": 1.0
+    },
+    "fogColor": {
+      "x": 0.7,
+      "y": 0.82,
+      "z": 0.95
+    },
+    "sunRiseColor": {
+      "x": 0.8,
+      "y": 0.85,
+      "z": 1.0
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.9,
+      "y": 0.95,
+      "z": 1.0
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 180.0,
+    "name": "Ice Planet",
+    "type": "PLANET",
+    "dimensionId": {
+      "namespace": "adv_rocketry",
+      "path": "ice_planet"
+    }
   },
-  "emissiveTextureTintColor": {
-    "x": 0.0,
-    "y": 0.0,
-    "z": 0.0
+  "ice-gas-giant": {
+    "description": "A deep-blue ice giant dominated by high-altitude methane haze and severe atmospheric winds.",
+    "position": {
+      "x": 19.2,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 11.0,
+    "earthRadiusMultiplier": 4.0,
+    "rotationAxis": {
+      "x": 0.9,
+      "y": 0.1,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 19.2,
+    "orbitalBaseOffsetDegrees": 0.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 0.05,
+    "latitude_len": 200000,
+    "targetDayLength": 17000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.1,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "methane": {
+        "in_atm": 1.2,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 2.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "oxygen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.5,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 0.01,
+    "canVisit": false,
+    "isKnown": false,
+    "dataRequiredForUnlock": 3000,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:diamond_ore": 0.05,
+      "minecraft:emerald_ore": 0.02,
+      "minecraft:lapis_ore": 0.04,
+      "minecraft:iron_ore": 0.01
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": false,
+    "biomePreset": null,
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_2k_neptune.png"
+    },
+    "skyColor": {
+      "x": 0.1,
+      "y": 0.3,
+      "z": 0.8
+    },
+    "cloudValueOverwrite": 0.6,
+    "skyDarken": 0.3,
+    "cloudColor": {
+      "x": 0.7,
+      "y": 0.85,
+      "z": 1.0
+    },
+    "fogColor": {
+      "x": 0.1,
+      "y": 0.25,
+      "z": 0.65
+    },
+    "sunRiseColor": {
+      "x": 0.2,
+      "y": 0.5,
+      "z": 0.9
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.6,
+      "y": 0.8,
+      "z": 1.0
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": true,
+    "dayTime": 0.0,
+    "currentTemp": 55.0,
+    "name": "Ice Giant",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "emissiveLightColor": {
-    "x": 0.0,
-    "y": 0.0,
-    "z": 0.0
+  "cold-gas-giant": {
+    "description": "A frigid gas giant shrouded in ammonia clouds and methane ice crystals.",
+    "position": {
+      "x": 9.5,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 15.0,
+    "earthRadiusMultiplier": 8.0,
+    "rotationAxis": {
+      "x": 0.1,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 9.5,
+    "orbitalBaseOffsetDegrees": 0.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 0.2,
+    "latitude_len": 350000,
+    "targetDayLength": 20000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.2,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "methane": {
+        "in_atm": 0.8,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 4.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "oxygen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.1,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 0.1,
+    "canVisit": false,
+    "isKnown": false,
+    "dataRequiredForUnlock": 2500,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:iron_ore": 0.01,
+      "minecraft:coal_ore": 0.08,
+      "minecraft:lapis_ore": 0.03,
+      "minecraft:diamond_ore": 0.02
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": false,
+    "biomePreset": null,
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_8k_saturn.png"
+    },
+    "skyColor": {
+      "x": 0.4,
+      "y": 0.7,
+      "z": 0.9
+    },
+    "cloudValueOverwrite": 0.5,
+    "skyDarken": 0.2,
+    "cloudColor": {
+      "x": 0.8,
+      "y": 0.9,
+      "z": 1.0
+    },
+    "fogColor": {
+      "x": 0.3,
+      "y": 0.6,
+      "z": 0.8
+    },
+    "sunRiseColor": {
+      "x": 0.5,
+      "y": 0.8,
+      "z": 1.0
+    },
+    "reflectiveTextureTintColor": {
+      "x": 0.8,
+      "y": 0.9,
+      "z": 1.0
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "emissiveLightColor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "hasRingSystem": true,
+    "dayTime": 0.0,
+    "currentTemp": 90.0,
+    "name": "Cold Gas Giant",
+    "type": "PLANET",
+    "dimensionId": null
   },
-  "hasRingSystem": false,
-  "dayTime": 0.0,
-  "currentTemp": 300.0,
-  "name": "Earth",
-  "type": "PLANET",
-  "dimensionId": {
-    "namespace": "minecraft",
-    "path": "overworld"
+  "hot-gas-giant": {
+    "description": "An ultra-hot gas giant in close orbit, featuring high atmospheric thermal emission and vaporized heavy compounds.",
+    "position": {
+      "x": 0.04,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "gravitationalMultiplier": 25.0,
+    "earthRadiusMultiplier": 14.0,
+    "rotationAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "parentDimensionId": null,
+    "orbitAxis": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "orbitalDistanceToParent": 0.04,
+    "orbitalBaseOffsetDegrees": 0.0,
+    "dayTimeReference": null,
+    "radiationIntensity": 4.5,
+    "latitude_len": 550000,
+    "targetDayLength": 48000,
+    "atmosphereComposition": {
+      "nitrogen": {
+        "in_atm": 0.1,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "co2": {
+        "in_atm": 0.4,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "methane": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "hydrogen": {
+        "in_atm": 5.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -100
+      },
+      "oxygen": {
+        "in_atm": 0.0,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      },
+      "water": {
+        "in_atm": 0.3,
+        "frozen_surface": 0.0,
+        "underground": 0.0,
+        "liquid": 0.0,
+        "worldGenSeaLevel": -1000
+      }
+    },
+    "baseEnergyGain": 8.0,
+    "canVisit": false,
+    "isKnown": false,
+    "dataRequiredForUnlock": 1500,
+    "artifactItem": null,
+    "laserOres": {
+      "minecraft:gold_ore": 0.04,
+      "minecraft:nether_quartz_ore": 0.02,
+      "minecraft:iron_ore": 0.05,
+      "minecraft:redstone_ore": 0.03
+    },
+    "customSeaFluid": null,
+    "customSeaFluidLevel": 0,
+    "generateStructures": false,
+    "biomePreset": null,
+    "hasCustomSky": true,
+    "texture": {
+      "namespace": "adv_rocketry",
+      "path": "textures/planet/baked_8k_jupiter.png"
+    },
+    "skyColor": {
+      "x": 0.9,
+      "y": 0.3,
+      "z": 0.1
+    },
+    "cloudValueOverwrite": 0.0,
+    "skyDarken": 0.0,
+    "cloudColor": {
+      "x": 1.0,
+      "y": 0.4,
+      "z": 0.2
+    },
+    "fogColor": {
+      "x": 0.7,
+      "y": 0.2,
+      "z": 0.1
+    },
+    "sunRiseColor": {
+      "x": 1.0,
+      "y": 0.5,
+      "z": 0.0
+    },
+    "reflectiveTextureTintColor": {
+      "x": 1.0,
+      "y": 0.6,
+      "z": 0.4
+    },
+    "emissiveTextureTintColor": {
+      "x": 0.4,
+      "y": 0.1,
+      "z": 0.05
+    },
+    "emissiveLightColor": {
+      "x": 0.3,
+      "y": 0.05,
+      "z": 0.02
+    },
+    "hasRingSystem": false,
+    "dayTime": 0.0,
+    "currentTemp": 1450.0,
+    "name": "Hot Jupiter",
+    "type": "PLANET",
+    "dimensionId": null
   }
 }

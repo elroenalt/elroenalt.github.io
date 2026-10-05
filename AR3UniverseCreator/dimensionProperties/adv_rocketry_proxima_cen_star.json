@@ -1,0 +1,98 @@
+{
+  "description": "\n        A system 4.2439 light years away from sol, with 2 discovered exo-planets.\n        The star has a radius of 15.386342999999998 earths, a mass of  40652.7066 earths and a temperatur of 2900.0 K.",
+  "position": {
+    "x": -97877.28876441091,
+    "y": -74815.15195641953,
+    "z": -238444.7472993292
+  },
+  "gravitationalMultiplier": 171.719,
+  "earthRadiusMultiplier": 15.386342999999998,
+  "rotationAxis": {
+    "x": 0,
+    "y": 1,
+    "z": 0
+  },
+  "parentDimensionId": null,
+  "orbitAxis": {
+    "x": 0,
+    "y": 1,
+    "z": 0
+  },
+  "orbitalDistanceToParent": 1,
+  "orbitalBaseOffsetDegrees": 0,
+  "dayTimeReference": null,
+  "radiationIntensity": 0.1,
+  "latitude_len": 400000,
+  "targetDayLength": 24000,
+  "atmosphereComposition": {},
+  "baseEnergyGain": 0,
+  "canVisit": false,
+  "isKnown": true,
+  "dataRequiredForUnlock": 2000,
+  "artifactItem": null,
+  "laserOres": {
+    "minecraft:gold_ore": 0.005,
+    "minecraft:redstone_ore": 0.003,
+    "minecraft:nether_quartz_ore": 0.001,
+    "minecraft:iron_ore": 0.02,
+    "minecraft:emerald_ore": 0.01,
+    "minecraft:coal_ore": 0.05,
+    "minecraft:lapis_ore": 0.002,
+    "minecraft:diamond_ore": 0.01
+  },
+  "customSeaFluid": null,
+  "customSeaFluidLevel": 0,
+  "generateStructures": false,
+  "biomePreset": null,
+  "hasCustomSky": true,
+  "texture": {
+    "namespace": "adv_rocketry",
+    "path": "textures/planet/baked_8k_sun_grayscale.png"
+  },
+  "skyColor": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  "cloudValueOverwrite": -1,
+  "skyDarken": 0,
+  "cloudColor": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  "fogColor": {
+    "x": 0.8,
+    "y": 0.9,
+    "z": 1.1
+  },
+  "sunRiseColor": {
+    "x": 3,
+    "y": 1.6,
+    "z": 0.2
+  },
+  "reflectiveTextureTintColor": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  "emissiveTextureTintColor": {
+    "x": 0.026,
+    "y": 0.026,
+    "z": 0.026
+  },
+  "emissiveLightColor": {
+    "x": 0.066,
+    "y": 0.06,
+    "z": 0.0228
+  },
+  "hasRingSystem": false,
+  "dayTime": 0,
+  "currentTemp": 2900.0,
+  "name": "Proxima Cen",
+  "type": "PLANET",
+  "dimensionId": {
+    "namespace": "adv_rocketry",
+    "path": "proxima_cen_star"
+  }
+}

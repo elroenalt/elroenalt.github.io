@@ -298,7 +298,7 @@ body {
     background-color:#444;
     color: white;
 }
-#objectObjectList-selectPreset {
+#objectObjectList-selectPreset, #quickCreator-selectPreset {
     background-color:#444;
     color: white;
 }

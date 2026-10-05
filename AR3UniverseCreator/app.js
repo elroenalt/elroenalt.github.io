@@ -2,6 +2,7 @@
 import JSZip from 'https://esm.sh/jszip@3.10.1';
 let definitions_json;
 let default_json;
+let default_jsons;
 let atmosphereCompPreset;
 const dimension_container = document.querySelector('#hirachy')
 let dimensions = {
@@ -13,8 +14,9 @@ async function loadGameData() {
     try {
         const response1 = await fetch('assets/default.json');
         const data1 = await response1.json();
-        default_json = data1
-        
+        default_json = data1[0]
+        default_jsons = data1
+        addselectionOptionsObjectObjectList("quickCreator-selectPreset",default_jsons,0)
         
         const response2 = await fetch('assets/def.json');
         const data2 = await response2.json();
@@ -23,7 +25,7 @@ async function loadGameData() {
         const response3 = await fetch('assets/atmosphereCompPresets.json');
         const data3 = await response3.json();
         atmosphereCompPreset = data3
-        addselectionOptionsObjectObjectList(atmosphereCompPreset)
+        addselectionOptionsObjectObjectList("objectObjectList-selectPreset",atmosphereCompPreset)
 
         editor = new Editor()
         display = new Display()
@@ -49,14 +51,16 @@ async function loadGameData() {
         console.error("Error loading JSON:", error);
     }
 }
-function addselectionOptionsObjectObjectList(dict) {
-    const selection = document.querySelector("#objectObjectList-selectPreset")
+function addselectionOptionsObjectObjectList(id,dict,foucs = false) {
+    const selection = document.getElementById(id)
+    console.log(id,selection)
     const arrayConv = Object.entries(dict)
     for (let i=0; i<arrayConv.length;i++) {
         const [key,val] = arrayConv[i]
         const option = new Option(String(key), JSON.stringify(val))
         selection.add(option)
     }
+    if (foucs!==false) {selection.selectedIndex = foucs}
 }
 function resizeCanvas() {
     if (!display) return;
@@ -796,7 +800,8 @@ class QuickCreator {
             "earthRadiusMultiplier": document.querySelector("#quickCreator-earthRadiusMultiplier"),
             "quickCreate": document.querySelector("#quickCreate"),
             "close": document.querySelector("#close"),
-            "open": document.querySelector("#create")
+            "open": document.querySelector("#create"),
+            "preset": document.querySelector("#quickCreator-selectPreset")
         }
         this.id = 0
         this.html["open"].addEventListener('click', () => this.open());
@@ -848,7 +853,8 @@ class QuickCreator {
             key += "1"
             dimensionId["path"] += "1"
         }
-        const json = structuredClone(default_json); 
+        const default_json_key = "ji"
+        const json = structuredClone(default_jsons[0]); 
 
         json.position = pos;
         json.name = name;
